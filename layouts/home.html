@@ -1,9 +1,32 @@
 {{ define "main" }}
-  {{ .Content }}
-  {{ range site.RegularPages }}
-    <section>
-      <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-      {{ .Summary }}
-    </section>
+
+<section class="hero">
+  {{ with .Params.logo }}
+  <img src="{{ relURL . }}"{{ with $.Params.logoAlt }} alt="{{ . }}"{{ end }} class="hero-logo" />
   {{ end }}
+
+  {{ with .Params.title }}
+  <h1 class="hero-title">{{ . }}</h1>
+  {{ end }}
+
+  {{ with .Params.subtitle }}
+  <p class="hero-subtitle">{{ . }}</p>
+  {{ end }}
+
+  {{- if or .Params.primaryButton .Params.secondaryButton }}
+  <div class="hero-buttons">
+    {{- with .Params.primaryButton }}
+    <a href="{{ if hasPrefix .url "http" }}{{ .url }}{{ else }}{{ relURL .url }}{{ end }}" class="btn btn-primary">{{ .text }}</a>
+    {{- end }}
+    {{- with .Params.secondaryButton }}
+    <a href="{{ if hasPrefix .url "http" }}{{ .url }}{{ else }}{{ relURL .url }}{{ end }}" class="btn btn-secondary">{{ .text }}</a>
+    {{- end }}
+  </div>
+  {{- end }}
+</section>
+
+{{ with .Content }}
+<div class="hero-content">{{ . }}</div>
+{{ end }}
+
 {{ end }}

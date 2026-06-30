@@ -15,3 +15,5 @@ Thumbs.db
 *.swo
 
 node_modules/
+
+开发遵守.md

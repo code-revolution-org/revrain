@@ -1,0 +1,43 @@
+@use '../abstracts' as *;
+
+// Baseof Layout / 基础布局
+
+// Root element / 根元素
+html {
+  height: 100%;
+}
+
+// Body layout / 页面主体布局
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  background-color: $bg-primary;
+}
+
+// Digital Rain Canvas / 数字雨画布
+#digital-rain-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.35;
+}
+
+// Content Layer / 内容层
+header,
+main,
+footer {
+  position: relative;
+  z-index: 1;
+}
+
+// Main content area / 主内容区域
+main {
+  flex: 1;
+  background-color: transparent;
+  padding: clamp(1rem, 3vw, 2rem);
+}

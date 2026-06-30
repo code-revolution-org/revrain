@@ -1,0 +1,20 @@
+// Global Reset / 全局重置
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Hide scrollbar / 隐藏滚动条
+html,
+body {
+  scrollbar-width: none; // Firefox / 火狐
+  -ms-overflow-style: none; // IE / IE浏览器
+
+  &::-webkit-scrollbar {
+    display: none; // Chrome, Safari, Edge / 内核浏览器
+  }
+}
