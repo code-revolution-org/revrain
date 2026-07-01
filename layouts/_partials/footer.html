@@ -8,10 +8,10 @@
         <a href="{{ . }}" target="_blank" rel="noopener">GitHub</a>
       {{ end }}
       {{ with .Site.Params.footer.rss }}
-        <a href="{{ relURL . }}" target="_blank" rel="noopener">RSS</a>
+        <a href="{{ relURL (strings.TrimPrefix "/" .) }}" target="_blank" rel="noopener">RSS</a>
       {{ end }}
       {{ range .Site.Params.footer.links }}
-        <a href="{{ if hasPrefix .url "http" }}{{ .url }}{{ else }}{{ relURL .url }}{{ end }}" target="_blank" rel="noopener">{{ .name }}</a>
+        <a href="{{ if hasPrefix .url "http" }}{{ .url }}{{ else }}{{ relURL (strings.TrimPrefix "/" .url) }}{{ end }}" target="_blank" rel="noopener">{{ .name }}</a>
       {{ end }}
     </nav>
   </div>
