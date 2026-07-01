@@ -1,0 +1,112 @@
+@use '../abstracts' as *;
+
+// Glass Card Component / 毛玻璃卡片组件
+.glass-card {
+  @include glass;
+  max-width: 720px;
+  margin-inline: auto;
+  padding: clamp(1.5rem, 4vw, 3rem);
+
+  // Card headings / 卡片标题
+  h1 {
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    color: $text-primary;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    color: $text-primary;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  h3 {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: $text-primary;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  // Card body text / 卡片正文
+  p,
+  ul,
+  ol,
+  blockquote {
+    color: $text-secondary;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  // Links / 链接
+  a {
+    color: $accent;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $text-primary;
+    }
+  }
+
+  // Blockquote / 引用块
+  blockquote {
+    border-left: 3px solid $accent;
+    padding-left: 1rem;
+    margin-left: 0;
+  }
+
+  // Code / 代码
+  code {
+    background: rgba($shroud, 0.5);
+    padding: 0.15em 0.4em;
+    border-radius: 4px;
+    font-size: 0.9em;
+  }
+
+  pre {
+    background: rgba($shroud, 0.5);
+    padding: 1rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+
+    code {
+      background: none;
+      padding: 0;
+    }
+  }
+
+  // Summary date / 摘要日期
+  time {
+    display: block;
+    color: $text-secondary;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+    opacity: 0.7;
+  }
+
+  // Section list items / 汇聚页列表项
+  section {
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba($border-primary, 0.3);
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    a {
+      color: $text-primary;
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: $accent;
+      }
+    }
+  }
+}

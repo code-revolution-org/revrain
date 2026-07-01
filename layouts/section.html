@@ -1,4 +1,6 @@
 {{ define "main" }}
+{{- if or .Content .Pages }}
+<div class="glass-card">
   <h1>{{ .Title }}</h1>
   {{ .Content }}
   {{ range .Pages }}
@@ -7,4 +9,6 @@
       {{ .Summary }}
     </section>
   {{ end }}
+</div>
+{{- end }}
 {{ end }}

@@ -1,4 +1,6 @@
 {{ define "main" }}
+{{- if or .Content .Site.Sections }}
+<div class="glass-card">
   <h1>{{ .Title }}</h1>
   {{ with .Content }}
   <div>{{ . }}</div>
@@ -18,4 +20,6 @@
     </div>
   </a>
   {{ end }}
+</div>
+{{- end }}
 {{ end }}

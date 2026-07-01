@@ -39,5 +39,5 @@ footer {
 main {
   flex: 1;
   background-color: transparent;
-  padding: clamp(1rem, 3vw, 2rem);
+  padding: clamp(4rem, 8vw, 6rem) clamp(1rem, 3vw, 2rem) clamp(1rem, 3vw, 2rem);
 }

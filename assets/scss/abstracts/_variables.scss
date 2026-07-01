@@ -11,3 +11,9 @@ $accent: $rain; // Accent / 强调色
 $text-secondary: $twilight; // Secondary text / 次要文字
 $text-primary: $moon; // Primary text / 主要文字
 $border-primary: $shroud; // Border color / 边框颜色
+
+// Glass / 毛玻璃
+$glass-bg-opacity: 0.35; // Background opacity / 背景不透明度
+$glass-border-opacity: 0.6; // Border opacity / 边框不透明度
+$glass-blur: 12px; // Blur radius / 模糊半径
+$glass-radius: 16px; // Border radius / 圆角
