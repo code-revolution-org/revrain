@@ -110,3 +110,91 @@
     }
   }
 }
+
+// Article Page / 文章页专用样式
+.glass-card {
+  // Article title / 文章标题
+  > h1 {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    font-weight: 700;
+    color: $text-primary;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+
+  // Article date / 文章日期
+  > time {
+    display: block;
+    color: $text-secondary;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba($border-primary, 0.3);
+  }
+
+  // Article content / 文章正文
+  > p,
+  > ul,
+  > ol {
+    color: rgba($text-primary, 0.85);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+  }
+
+  // Article headings / 文章内标题层次
+  > h2 {
+    color: $text-primary;
+    font-weight: 600;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba($border-primary, 0.2);
+  }
+
+  > h3 {
+    color: rgba($text-primary, 0.9);
+    font-weight: 500;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  // Tags section / 标签区域
+  > div:last-child {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba($border-primary, 0.3);
+
+    > div:first-child {
+      color: $text-secondary;
+      font-size: 0.9rem;
+      margin-bottom: 0.75rem;
+    }
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li a {
+      display: inline-block;
+      padding: 0.4rem 0.8rem;
+      color: $text-primary;
+      background: rgba($shroud, 0.6);
+      border: 1px solid rgba($border-primary, 0.5);
+      border-radius: 6px;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+
+      &:hover {
+        border-color: $accent;
+        box-shadow: 0 0 8px rgba($accent, 0.3);
+      }
+    }
+  }
+}

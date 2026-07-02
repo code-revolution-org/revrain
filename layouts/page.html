@@ -1,6 +1,7 @@
 {{ define "main" }}
 {{- if or .Content .Pages }}
 <div class="glass-card">
+  {{ partial "back-button.html" . }}
   <h1>{{ .Title }}</h1>
 
   {{- if ne .File.ContentBaseName "about" }}
