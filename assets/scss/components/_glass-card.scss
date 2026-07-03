@@ -15,10 +15,12 @@
   }
 
   h2 {
-    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    font-size: clamp(1.1rem, 2.5vw, 1.35rem);
     color: $text-primary;
-    margin-top: 2rem;
+    margin-top: 2.5rem;
     margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba($border-primary, 0.4);
   }
 
   h3 {
@@ -162,8 +164,6 @@
   // Tags section / 标签区域
   > div:last-child {
     margin-top: 2rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba($border-primary, 0.3);
 
     > div:first-child {
       color: $text-secondary;

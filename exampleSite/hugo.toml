@@ -17,7 +17,7 @@ themesDir = "../../"
     weight = 20
 
   [[menus.main]]
-    name = 'Tags'
+    name = 'Taxonomy'
     pageRef = '/tags'
     weight = 30
 

@@ -1,30 +1,50 @@
 {{ define "main" }}
-{{- if or .Content .Pages }}
+{{- if or .Pages site.Taxonomies.categories }}
 <div class="glass-card">
-  <h1>{{ .Title }}</h1>
+  <h1>Taxonomy</h1>
   {{ .Content }}
 
-  <div class="card-grid">
-    {{ range .Paginator.Pages }}
-    <a href="{{ .RelPermalink }}" class="card-grid-item">
-      <h2>{{ .LinkTitle }}</h2>
-      <div class="card-meta">
-        <span>{{ len .Pages }} posts</span>
-      </div>
+  {{- with site.Taxonomies.categories }}
+  <h2>Categories</h2>
+  {{- $perPage := 9 }}
+  <div class="tag-cloud cat-cloud" data-per-page="{{ $perPage }}">
+    {{ range .Alphabetical }}
+    <a href="{{ .Page.RelPermalink }}" class="tag-pill">
+      {{ .Page.LinkTitle }}
+      <span class="tag-count">{{ len .Page.Pages }}</span>
+    </a>
+    {{ end }}
+  </div>
+  <nav class="pagination cat-pagination" aria-label="Category pagination" style="display:none;">
+    <a href="#" class="pagination-prev cat-prev">&laquo; Prev</a>
+    <span class="pagination-current cat-info"></span>
+    <a href="#" class="pagination-next cat-next">Next &raquo;</a>
+  </nav>
+  {{- end }}
+
+  {{- $paginator := .Paginator }}
+  {{- with .Pages }}
+  <h2>Tags</h2>
+  <div class="tag-cloud">
+    {{ range . }}
+    <a href="{{ .RelPermalink }}" class="tag-pill">
+      {{ .LinkTitle }}
+      <span class="tag-count">{{ len .Pages }}</span>
     </a>
     {{ end }}
   </div>
 
-  {{- if gt .Paginator.TotalPages 1 }}
+  {{- if gt $paginator.TotalPages 1 }}
   <nav class="pagination" aria-label="Page navigation">
-    {{- if .Paginator.HasPrev }}
-    <a href="{{ .Paginator.Prev.URL }}" class="pagination-prev">&laquo; Prev</a>
+    {{- if $paginator.HasPrev }}
+    <a href="{{ $paginator.Prev.URL }}" class="pagination-prev">&laquo; Prev</a>
     {{- end }}
-    <span class="pagination-current">{{ .Paginator.PageNumber }} / {{ .Paginator.TotalPages }}</span>
-    {{- if .Paginator.HasNext }}
-    <a href="{{ .Paginator.Next.URL }}" class="pagination-next">Next &raquo;</a>
+    <span class="pagination-current">{{ $paginator.PageNumber }} / {{ $paginator.TotalPages }}</span>
+    {{- if $paginator.HasNext }}
+    <a href="{{ $paginator.Next.URL }}" class="pagination-next">Next &raquo;</a>
     {{- end }}
   </nav>
+  {{- end }}
   {{- end }}
 </div>
 {{- end }}

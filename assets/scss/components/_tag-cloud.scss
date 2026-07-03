@@ -1,0 +1,38 @@
+@use '../abstracts' as *;
+
+// Tag Cloud / 标签云
+.tag-cloud {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+// Tag Pill / 标签胶囊
+.tag-cloud .tag-pill {
+  @include glass;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 1rem;
+  text-decoration: none;
+  font-size: 0.95rem;
+  color: $text-primary;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: $accent;
+    border-color: $accent;
+    box-shadow: 0 0 10px rgba($accent, 0.3);
+    transform: translateY(-1px);
+  }
+
+  .tag-count {
+    font-size: 0.75rem;
+    color: $text-secondary;
+    background: rgba($shroud, 0.6);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+  }
+}

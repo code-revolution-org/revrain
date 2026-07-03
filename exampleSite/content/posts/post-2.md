@@ -3,6 +3,7 @@ title = '文章 2'
 date = 2023-02-15T10:00:00-07:00
 draft = false
 tags = ['red','green']
+categories = ['生活']
 summary = '生活就像一场旅行，有起有落，有欢笑有泪水。重要的是我们在这个过程中不断成长，变得更加坚强。'
 +++
 
