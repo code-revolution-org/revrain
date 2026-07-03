@@ -10,6 +10,8 @@
     {{ range .Site.Sections }}
     <a href="{{ .RelPermalink }}" class="card-grid-item">
       <h2>{{ .LinkTitle }}</h2>
+      {{/* 显示栏目简介，如果未填写则不显示 / Show summary, hidden if empty */}}
+      {{ with .Params.summary }}<p>{{ . }}</p>{{ end }}
       <div class="card-meta">
         <span>{{ len .Pages }} pages</span>
         <span>&rarr;</span>
