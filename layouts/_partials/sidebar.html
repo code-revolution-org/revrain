@@ -1,0 +1,41 @@
+{{- /*
+Sidebar partial for article pages / 文章页侧边栏
+Renders tags, categories, and table of contents.
+渲染标签、分类和目录。
+*/}}
+
+<aside class="article-sidebar" id="article-sidebar">
+
+  {{- $toc := .page.TableOfContents }}
+  {{- if and $toc (findRE "<a" $toc) }}
+  <div class="sidebar-section sidebar-toc" id="sidebar-toc">
+    <h4>TOC / 目录</h4>
+    <nav id="toc-nav">
+      {{ $toc }}
+    </nav>
+  </div>
+  {{- end }}
+
+  {{- with .page.GetTerms "categories" }}
+  <div class="sidebar-section">
+    <h4>{{ (index . 0).Parent.LinkTitle }}</h4>
+    <ul>
+      {{- range . }}
+        <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+      {{- end }}
+    </ul>
+  </div>
+  {{- end }}
+
+  {{- with .page.GetTerms "tags" }}
+  <div class="sidebar-section">
+    <h4>{{ (index . 0).Parent.LinkTitle }}</h4>
+    <ul>
+      {{- range . }}
+        <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+      {{- end }}
+    </ul>
+  </div>
+  {{- end }}
+
+</aside>

@@ -38,3 +38,7 @@ themesDir = "../../"
   [module.hugoVersion]
     extended = false
     min = '0.146.0'
+
+[markup.tableOfContents]
+  startLevel = 2
+  endLevel = 6
