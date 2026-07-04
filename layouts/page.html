@@ -12,6 +12,8 @@
     {{- end }}
 
     {{ .Content }}
+
+    {{ partial "prev-next-nav.html" . }}
   </div>
 
   {{ partial "sidebar.html" (dict "page" .) }}

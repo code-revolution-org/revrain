@@ -1,0 +1,63 @@
+@use '../abstracts' as *;
+
+// Prev / Next Navigation / 上下页导航
+.prev-next-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba($border-primary, 0.3);
+}
+
+.prev-next-link {
+  @include glass;
+  flex: 1;
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1rem 1.25rem;
+  text-decoration: none;
+  border-radius: $glass-radius;
+  transition: all 0.25s ease;
+
+  &:hover {
+    border-color: $accent;
+    box-shadow: 0 0 16px rgba($accent, 0.2);
+  }
+}
+
+.next-link {
+  text-align: right;
+  align-items: flex-end;
+}
+
+.prev-next-label {
+  color: $accent;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.prev-next-title {
+  color: $text-primary;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.prev-next-placeholder {
+  flex: 1;
+}
+
+// Mobile responsive / 移动端响应
+@media (max-width: 640px) {
+  .prev-next-nav {
+    flex-direction: column;
+  }
+
+  .next-link {
+    text-align: left;
+    align-items: flex-start;
+  }
+}

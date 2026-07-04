@@ -1,0 +1,22 @@
+{{- /* Prev / Next Navigation / 上下页导航 */}}
+{{- $hasPrev := .PrevInSection }}
+{{- $hasNext := .NextInSection }}
+{{- if or $hasPrev $hasNext }}
+<nav class="prev-next-nav" aria-label="Article navigation">
+  {{- if $hasPrev }}
+  <a href="{{ .PrevInSection.RelPermalink }}" class="prev-next-link prev-link">
+    <span class="prev-next-label">&larr; Prev</span>
+    <span class="prev-next-title">{{ .PrevInSection.Title }}</span>
+  </a>
+  {{- else }}
+  <span class="prev-next-placeholder"></span>
+  {{- end }}
+
+  {{- if $hasNext }}
+  <a href="{{ .NextInSection.RelPermalink }}" class="prev-next-link next-link">
+    <span class="prev-next-label">Next &rarr;</span>
+    <span class="prev-next-title">{{ .NextInSection.Title }}</span>
+  </a>
+  {{- end }}
+</nav>
+{{- end }}

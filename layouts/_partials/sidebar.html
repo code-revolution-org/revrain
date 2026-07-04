@@ -9,7 +9,7 @@ Renders tags, categories, and table of contents.
   {{- $toc := .page.TableOfContents }}
   {{- if and $toc (findRE "<a" $toc) }}
   <div class="sidebar-section sidebar-toc" id="sidebar-toc">
-    <h4>TOC / 目录</h4>
+    <h4>TOC</h4>
     <nav id="toc-nav">
       {{ $toc }}
     </nav>

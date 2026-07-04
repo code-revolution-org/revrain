@@ -17,6 +17,9 @@ function initTOC() {
     const link = li.querySelector(':scope > a');
     if (!link) return;
 
+    // Default collapsed / 默认折叠
+    li.classList.add('collapsed');
+
     const arrow = document.createElement('span');
     arrow.className = 'toc-arrow';
     link.appendChild(arrow);
