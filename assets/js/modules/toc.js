@@ -42,7 +42,7 @@ function initTOC() {
         const headerHeight = document.querySelector('header')?.offsetHeight || 64;
         const y = target.getBoundingClientRect().top + window.scrollY - headerHeight - 16;
         window.scrollTo({ top: y, behavior: 'smooth' });
-        history.pushState(null, null, `#${id}`);
+        history.replaceState(null, null, `#${id}`);
       }
     });
   });

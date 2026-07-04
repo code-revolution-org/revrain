@@ -8,11 +8,12 @@ subtitle = "A Hugo theme by Code Revolution, built for geeks and developers."
 
 [primaryButton]
   url = "/browse"
-  text = "开始使用"
+  text = "Get Started"
 
 [secondaryButton]
   url = "/about"
-  text = "关于介绍"
+  text = "About Us"
 +++
-欢迎来到我的博客网站。  
-这里记录着我的学习心得与生活感悟，希望能为你带来一些启发与思考。
+代码革命是一个致力于技术分享与开源协作的开发者组织。  
+
+汇聚热爱编程的开发者，共同学习、共同成长，通过开源协作和技术分享，推动代码革命，让技术创造更多可能。
