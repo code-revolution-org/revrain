@@ -1,0 +1,10 @@
+{{ define "main" }}
+<section class="error-404">
+  <h1 class="error-404__code">404</h1>
+  <p class="error-404__text">Page Not Found</p>
+  <div class="error-404__actions">
+    <a href="{{ relURL "" }}" class="btn btn-primary">Back to Home</a>
+    <button onclick="history.back()" class="btn btn-secondary">Go Back</button>
+  </div>
+</section>
+{{ end }}
