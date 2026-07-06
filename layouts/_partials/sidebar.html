@@ -4,10 +4,26 @@ Renders tags, categories, and table of contents.
 渲染标签、分类和目录。
 */}}
 
+{{- $hasToc := false }}
+{{- $toc := .page.TableOfContents }}
+{{- if and $toc (findRE "<a" $toc) }}
+  {{- $hasToc = true }}
+{{- end }}
+
+{{- $hasCategories := false }}
+{{- with .page.GetTerms "categories" }}
+  {{- $hasCategories = true }}
+{{- end }}
+
+{{- $hasTags := false }}
+{{- with .page.GetTerms "tags" }}
+  {{- $hasTags = true }}
+{{- end }}
+
+{{- if or $hasToc $hasCategories $hasTags }}
 <aside class="article-sidebar" id="article-sidebar">
 
-  {{- $toc := .page.TableOfContents }}
-  {{- if and $toc (findRE "<a" $toc) }}
+  {{- if $hasToc }}
   <div class="sidebar-toc" id="sidebar-toc">
     <h4>TOC</h4>
     <nav id="toc-nav">
@@ -39,3 +55,4 @@ Renders tags, categories, and table of contents.
   {{- end }}
 
 </aside>
+{{- end }}

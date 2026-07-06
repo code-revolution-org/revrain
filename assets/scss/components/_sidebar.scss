@@ -9,7 +9,7 @@
   margin-inline: auto;
 }
 
-.article-layout .glass-card {
+.article-layout:has(.article-sidebar) .glass-card {
   flex: 1;
   min-width: 0;
   margin-inline: 0;

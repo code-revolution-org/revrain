@@ -1,0 +1,20 @@
+{{- /* Breadcrumb Navigation / 面包屑导航 */}}
+{{- $ancestors := .Ancestors.Reverse }}
+{{- $count := len $ancestors }}
+<nav class="breadcrumb-nav" aria-label="Breadcrumb">
+  <ol>
+    {{- if le $count 2 }}
+      {{- /* 2层及以内：全部显示 / 2 levels or fewer: show all */}}
+      {{- range $ancestor := $ancestors }}
+    <li><a href="{{ $ancestor.RelPermalink }}">{{ $ancestor.LinkTitle }}</a></li>
+      {{- end }}
+    {{- else }}
+      {{- $first := index $ancestors 0 }}
+      {{- $parent := index $ancestors (sub $count 1) }}
+    <li><a href="{{ $first.RelPermalink }}">{{ $first.LinkTitle }}</a></li>
+    <li><span class="breadcrumb-ellipsis">&hellip;</span></li>
+    <li><a href="{{ $parent.RelPermalink }}">{{ $parent.LinkTitle }}</a></li>
+    {{- end }}
+    <li><span class="breadcrumb-current" aria-current="page">{{ .LinkTitle }}</span></li>
+  </ol>
+</nav>
