@@ -84,93 +84,104 @@
 }
 
 // TOC Navigation / 目录导航
-.sidebar-section.sidebar-toc {
-  background: none;
-  border: none;
-  padding: 0;
-  margin-bottom: 0.5rem;
+.sidebar-toc {
+  margin-bottom: 1rem;
 
   h4 {
-    border-bottom: none !important;
-    padding-bottom: 0 !important;
-    margin-bottom: 0.5rem !important;
+    color: $text-secondary;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0;
+    border-bottom: none;
   }
 
   nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: block !important;
+    display: block;
+  }
+
+  nav ul ul,
+  nav ul ol {
+    margin-left: 16px;
+  }
+
+  nav > ul {
+    margin-left: 0;
   }
 
   nav li {
-    margin: 0;
+    margin: 5px 0;
+    padding: 1px 0;
+
+    // Left marker bar / 左侧标记条
+    &::before {
+      content: '';
+      width: 5px;
+      height: 10px;
+      background: $accent;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 10px;
+      border-radius: 2px;
+      opacity: 0.5;
+      transition: all 0.2s ease;
+      box-shadow: 0 0 6px rgba($accent, 0.3);
+    }
+
+    &:hover::before {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      opacity: 1;
+    }
   }
 
   nav a {
-    display: flex;
-    align-items: center;
-    padding: 0.4rem 0.6rem;
     color: $text-secondary;
     font-size: 0.82rem;
     text-decoration: none;
-    border-radius: 4px;
-    transition: all 0.2s ease;
-    line-height: 1.5;
-    background: none;
+    transition: color 0.2s ease;
+    display: inline;
 
     &:hover {
       color: $accent;
-      background: rgba($accent, 0.08);
     }
 
     &.active {
       color: $accent;
-      background: rgba($accent, 0.12);
+      opacity: 1;
     }
   }
 
-  // Nested items / 嵌套子项
-  nav ul ul {
-    padding-left: 1rem;
+  // Nested items / 嵌套子项（默认隐藏）
+  nav ul ul,
+  nav ul ol {
+    transform: scaleY(0);
+    height: 0;
     overflow: hidden;
-    max-height: 500px;
-    opacity: 1;
+    transition: transform 0.3s ease;
+    transform-origin: top;
 
-    a {
-      font-size: 0.78rem;
-      color: rgba($text-secondary, 0.8);
+    > li:last-child {
+      margin-bottom: 0;
     }
   }
 
-  // Collapsed nested items / 折叠子项
-  nav li.collapsed > ul {
-    max-height: 0;
-    opacity: 0;
+  // Expanded nested items / 展开后所有后代都显示
+  nav li.active > ul,
+  nav li.active > ol,
+  nav li.expanded > ul,
+  nav li.expanded > ol,
+  nav li.active ul,
+  nav li.expanded ul {
+    height: auto;
+    transform: scaleY(1);
   }
-}
-
-// TOC Arrow / 目录折叠箭头
-.toc-arrow {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 0;
-  height: 0;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-top: 7px solid $text-secondary;
-  margin-left: auto;
-  cursor: pointer;
-  flex-shrink: 0;
-
-  &:hover {
-    border-top-color: $accent;
-  }
-}
-
-li.collapsed > a > .toc-arrow {
-  transform: rotate(-90deg);
 }
 
 // Mobile responsive / 移动端响应

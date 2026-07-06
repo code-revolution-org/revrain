@@ -6,10 +6,26 @@ function initTOC() {
   const article = document.querySelector('.glass-card');
   if (!tocNav || !article) return;
 
+  // Remove empty li placeholders from Hugo / 移除 Hugo 生成的空占位 li
+  // Hoist child ul up before removing / 删除前先将子 ul 提升到父级
+  let changed = true;
+  while (changed) {
+    changed = false;
+    tocNav.querySelectorAll('li').forEach((li) => {
+      if (li.querySelector(':scope > a')) return;
+      const childUl = li.querySelector(':scope > ul');
+      if (childUl && li.parentElement) {
+        li.parentElement.insertBefore(childUl, li);
+      }
+      li.remove();
+      changed = true;
+    });
+  }
+
   const links = tocNav.querySelectorAll('a');
   if (links.length === 0) return;
 
-  // Add collapse to h2 items / 给有子项的标题添加折叠功能
+  // Add collapse to nested items / 给嵌套项添加折叠功能
   tocNav.querySelectorAll('li').forEach((li) => {
     const subList = li.querySelector('ul');
     if (!subList) return;
@@ -17,24 +33,8 @@ function initTOC() {
     const link = li.querySelector(':scope > a');
     if (!link) return;
 
-    // Default collapsed / 默认折叠
-    li.classList.add('collapsed');
-
-    const arrow = document.createElement('span');
-    arrow.className = 'toc-arrow';
-    link.appendChild(arrow);
-
-    arrow.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      li.classList.toggle('collapsed');
-    });
-  });
-
-  // Smooth scroll with header offset / 平滑滚动并预留导航栏空间
-  links.forEach((link) => {
+    // Click to toggle expand / 点击切换展开
     link.addEventListener('click', (e) => {
-      if (e.target.classList.contains('toc-arrow')) return;
       const id = link.getAttribute('href')?.slice(1);
       const target = id && document.getElementById(id);
       if (target) {
@@ -44,18 +44,27 @@ function initTOC() {
         window.scrollTo({ top: y, behavior: 'smooth' });
         history.replaceState(null, null, `#${id}`);
       }
+      li.classList.toggle('expanded');
     });
   });
 
   // Highlight active heading on scroll / 滚动时高亮当前标题
-  const headings = article.querySelectorAll('h2, h3, h4');
+  const headings = article.querySelectorAll('h2, h3, h4, h5, h6');
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           links.forEach((l) => l.classList.remove('active'));
           const active = tocNav.querySelector(`a[href="#${entry.target.id}"]`);
-          if (active) active.classList.add('active');
+          if (active) {
+            active.classList.add('active');
+            // Expand parent items / 展开父级
+            let parent = active.closest('li');
+            while (parent) {
+              parent.classList.add('expanded');
+              parent = parent.parentElement?.closest('li');
+            }
+          }
         }
       });
     },
