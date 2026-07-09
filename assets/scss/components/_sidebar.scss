@@ -184,8 +184,8 @@
   }
 }
 
-// Mobile responsive / 移动端响应
-@media (max-width: 1024px) {
+// Tablet responsive / 平板端响应
+@include tablet {
   .article-layout {
     flex-direction: column;
   }

@@ -2,20 +2,18 @@
 
 // 404 Page / 404页面
 .error-404 {
-  position: fixed;
-  inset: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  z-index: 10;
+  min-height: calc(100vh - 12rem);
   gap: 1.5rem;
+  padding: 2rem 1rem;
 }
 
 // 404 number / 404数字
 .error-404__code {
-  font-size: clamp(6rem, 20vw, 12rem);
+  font-size: clamp(4rem, 20vw, 12rem);
   font-weight: 700;
   color: $text-primary;
   line-height: 1;
@@ -23,19 +21,28 @@
 
 // Error text / 错误文字
 .error-404__text {
-  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-size: clamp(0.9rem, 2vw, 1.25rem);
   color: $text-secondary;
 }
 
 // Actions / 操作区
 .error-404__actions {
   display: flex;
-  gap: 1.25rem;
+  gap: 1rem;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-@media (max-width: 640px) {
+// Mobile / 移动端
+@include mobile {
+  .error-404 {
+    gap: 1rem;
+  }
+
+  .error-404__code {
+    font-size: clamp(3rem, 18vw, 6rem);
+  }
+
   .error-404__actions {
     flex-direction: column;
     align-items: center;
@@ -43,6 +50,40 @@
 
   .btn {
     width: 100%;
-    max-width: 280px;
+    max-width: 240px;
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+}
+
+// Mobile Landscape / 移动端横屏
+@include mobile-landscape {
+  .error-404 {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem 3rem;
+    padding: 1rem 2rem;
+  }
+
+  .error-404__code {
+    font-size: clamp(3rem, 12vw, 5rem);
+  }
+
+  .error-404__text {
+    font-size: 0.9rem;
+  }
+
+  .error-404__actions {
+    flex-direction: row;
+    gap: 0.75rem;
+  }
+
+  .btn {
+    width: auto;
+    max-width: none;
+    padding: 10px 20px;
+    font-size: 13px;
   }
 }

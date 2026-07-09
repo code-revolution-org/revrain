@@ -3,7 +3,7 @@
 // Tag Cloud / 标签云
 .tag-cloud {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
   gap: 0.75rem;
   margin-top: 1.5rem;
 }

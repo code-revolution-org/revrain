@@ -51,7 +51,7 @@
 }
 
 // Mobile responsive / 移动端响应
-@media (max-width: 640px) {
+@include mobile {
   .prev-next-nav {
     flex-direction: column;
   }

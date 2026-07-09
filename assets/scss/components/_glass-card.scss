@@ -135,6 +135,22 @@
   }
 }
 
+// Mobile responsive / 移动端响应
+@include mobile {
+  .glass-card {
+    padding: clamp(1rem, 3vw, 1.5rem);
+    border-radius: $glass-radius;
+  }
+}
+
+// Mobile responsive / 移动端响应
+@include mobile {
+  .glass-card {
+    padding: 1rem;
+    border-radius: 8px;
+  }
+}
+
 // Article Page / 文章页专用样式
 .glass-card {
   // Article title / 文章标题
@@ -298,5 +314,13 @@
     tr:hover td {
       background: rgba($shroud, 0.2);
     }
+  }
+}
+
+// Mobile responsive / 移动端响应
+@include mobile {
+  .glass-card {
+    padding: clamp(1rem, 3vw, 1.5rem);
+    border-radius: $glass-radius;
   }
 }

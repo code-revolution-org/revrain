@@ -1,3 +1,5 @@
+@use 'variables' as *;
+
 // Flexbox Layout Mixins / 弹性布局混入
 
 // Center content horizontally and vertically / 水平垂直居中
@@ -46,4 +48,48 @@
   justify-content: center;
   align-items: center;
   gap: $gap;
+}
+
+// Responsive Breakpoint Mixins / 响应式断点混入
+
+// Mobile / 移动端 (max-width: $bp-mobile)
+@mixin mobile {
+  @media (max-width: $bp-mobile) {
+    @content;
+  }
+}
+
+// Tablet / 平板端 (max-width: $bp-tablet)
+@mixin tablet {
+  @media (max-width: $bp-tablet) {
+    @content;
+  }
+}
+
+// Desktop / 桌面端 (min-width: $bp-desktop)
+@mixin desktop {
+  @media (min-width: $bp-desktop) {
+    @content;
+  }
+}
+
+// Wide / 宽屏端 (min-width: $bp-wide)
+@mixin wide {
+  @media (min-width: $bp-wide) {
+    @content;
+  }
+}
+
+// Mobile Landscape / 移动端横屏
+@mixin mobile-landscape {
+  @media (max-width: $bp-mobile) and (orientation: landscape) {
+    @content;
+  }
+}
+
+// Tablet Landscape / 平板端横屏
+@mixin tablet-landscape {
+  @media (max-width: $bp-tablet) and (orientation: landscape) {
+    @content;
+  }
 }

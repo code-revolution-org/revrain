@@ -16,4 +16,6 @@ Thumbs.db
 
 node_modules/
 
+.mimocode/
+
 开发遵守.md

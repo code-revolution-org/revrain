@@ -3,7 +3,7 @@
 // Card Grid / 卡片网格（横向布局）
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
   gap: 1rem;
   margin-top: 1.5rem;
 }
@@ -20,8 +20,9 @@
   transition: all 0.2s ease;
   height: 170px;
 
-  @media (max-width: 640px) {
+  @include mobile {
     height: 160px;
+    padding: 1rem 1.25rem;
   }
 
   &:hover {

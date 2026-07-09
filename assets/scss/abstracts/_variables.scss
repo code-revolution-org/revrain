@@ -12,6 +12,12 @@ $text-secondary: $twilight; // Secondary text / 次要文字
 $text-primary: $moon; // Primary text / 主要文字
 $border-primary: $shroud; // Border color / 边框颜色
 
+// Breakpoints / 断点
+$bp-mobile: 480px; // Mobile / 移动端
+$bp-tablet: 768px; // Tablet / 平板
+$bp-desktop: 1024px; // Desktop / 桌面
+$bp-wide: 1280px; // Wide / 宽屏
+
 // Glass / 毛玻璃
 $glass-bg-opacity: 0.35; // Background opacity / 背景不透明度
 $glass-border-opacity: 0.6; // Border opacity / 边框不透明度
