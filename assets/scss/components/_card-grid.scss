@@ -18,6 +18,11 @@
   gap: 0.5rem;
   text-decoration: none;
   transition: all 0.2s ease;
+  height: 170px;
+
+  @media (max-width: 640px) {
+    height: 160px;
+  }
 
   &:hover {
     border-color: $accent;
@@ -31,6 +36,11 @@
     margin: 0;
     line-height: 1.3;
     min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
   }
 
   // Card description / 卡片描述
