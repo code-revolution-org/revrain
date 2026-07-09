@@ -34,6 +34,14 @@ themesDir = "../../"
     name = "友情链接"
     url = "https://github.com/code-revolution-org"
 
+# 数字雨配置 / Digital rain config
+[params.digitalRain]
+  enable = true  # 是否启用 / Enable (true/false)
+  chars = "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"  # 字符集 / Character set
+  fontSize = 14  # 字体大小 / Font size (10-32, px)
+  moonChance = 0.02  # 月白色概率 / Moon white probability (0-1)
+  resetChance = 0.025  # 重置概率 / Reset probability (0-1)
+
 [module]
   [module.hugoVersion]
     extended = false

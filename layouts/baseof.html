@@ -4,7 +4,13 @@
   {{ partial "head.html" . }}
 </head>
 <body>
-  <canvas id="digital-rain-canvas"></canvas>
+  {{- $dr := site.Params.digitalRain | default dict }}
+  <canvas id="digital-rain-canvas"
+    data-enable="{{ $dr.enable }}"
+    data-chars="{{ $dr.chars }}"
+    data-font-size="{{ $dr.fontSize }}"
+    data-moon-chance="{{ $dr.moonChance }}"
+    data-reset-chance="{{ $dr.resetChance }}"></canvas>
   <header>
     {{ partial "header.html" . }}
   </header>
