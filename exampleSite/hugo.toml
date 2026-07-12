@@ -3,7 +3,11 @@ locale = 'en-US'
 title = 'revrain'
 
 theme = "revrain"
-themesDir = "../../"   
+themesDir = "../../"
+
+[params]
+  logo = "/revrain.png"  # 导航栏 logo，可选；未设置则只显示站点标题 / Nav bar logo, optional; shows site title only if unset
+  favicon = "/revrain.png"   # 浏览器标签页图标，可选；未设置则使用默认 favicon.ico / Browser tab icon, optional; defaults to favicon.ico
 
 [menus]
   [[menus.main]]

@@ -1,5 +1,8 @@
 <div class="header__brand">
-  <img class="header__icon" src="{{ relURL "favicon.ico" }}" alt="">
+  {{/* 导航栏 logo / Navigation bar logo */}}
+  {{ with site.Params.logo }}
+    <img class="header__icon" src="{{ relURL . }}" alt="{{ site.Title }}">
+  {{ end }}
   <a class="header__title" href="{{ relURL "" }}">{{ site.Title }}</a>
 </div>
 {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
