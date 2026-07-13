@@ -1,6 +1,7 @@
 baseURL = 'https://example.org/'
 locale = 'en-US'
 title = 'revrain'
+enableRobotsTXT = true  # 启用 robots.txt / Enable robots.txt
 
 theme = "revrain"
 themesDir = "../../"
@@ -8,6 +9,10 @@ themesDir = "../../"
 [params]
   logo = "/revrain.png"  # 导航栏 logo，可选；未设置则只显示站点标题 / Nav bar logo, optional; shows site title only if unset
   favicon = "/revrain.png"   # 浏览器标签页图标，可选；未设置则使用默认 favicon.ico / Browser tab icon, optional; defaults to favicon.ico
+  description = "代码革命 - 致力于技术分享与开源协作的开发者组织"  # 站点描述，用于 SEO / Site description for SEO
+  images = ["/revrain.png"]  # 默认社交分享图片，用于 og:image 和 twitter:image / Default social share image
+  [params.social]
+    twitter = ""  # Twitter 账号，用于 twitter:site / Twitter account for twitter:site
 
 [menus]
   [[menus.main]]

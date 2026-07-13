@@ -3,6 +3,7 @@ title = '随笔示例'
 date = 2023-07-01T09:00:00-07:00
 draft = false
 summary = '一篇关于日常生活的随笔。'
+description = '日常生活随笔，记录生活中的美好瞬间。'  # SEO 描述 / SEO description
 +++
 
 生活就像一场旅行，不在乎目的地，在乎的是沿途的风景。

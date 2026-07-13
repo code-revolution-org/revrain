@@ -5,6 +5,7 @@ draft = false
 layout = 'about'
 subtitle = '用代码改变世界'
 avatar = 'favicon.ico'
+description = '代码革命 - 致力于技术分享与开源协作的开发者组织'  # SEO 描述 / SEO description
 links = [
   { name = 'Bilibili', url = 'https://space.bilibili.com' },
   { name = 'GitHub 个人', url = 'https://github.com/code-revo' },
