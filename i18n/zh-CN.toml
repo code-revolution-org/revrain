@@ -1,0 +1,74 @@
+[page_not_found]
+other = "页面未找到"
+
+[back_to_home]
+other = "返回首页"
+
+[go_back]
+other = "返回"
+
+[taxonomy]
+other = "分类法"
+
+[categories]
+other = "分类"
+
+[tags]
+other = "标签"
+
+[all_sections]
+other = "全部栏目"
+
+[pages]
+other = "页"
+
+[prev]
+other = "上一页"
+
+[next]
+other = "下一页"
+
+[copyright]
+other = "© %d revrain 主题 · 由 Hugo 构建"
+
+[github]
+other = "GitHub"
+
+[rss]
+other = "RSS"
+
+[toc]
+other = "目录"
+
+[back]
+other = "返回"
+
+[article_navigation]
+other = "文章导航"
+
+[toggle_menu]
+other = "切换菜单"
+
+[breadcrumb]
+other = "面包屑导航"
+
+[page_navigation]
+other = "页面导航"
+
+[category_pagination]
+other = "分类分页"
+
+[menu_home]
+other = "首页"
+
+[menu_browse]
+other = "浏览"
+
+[menu_taxonomy]
+other = "分类"
+
+[menu_about]
+other = "关于"
+
+[friendly_links]
+other = "友情链接"

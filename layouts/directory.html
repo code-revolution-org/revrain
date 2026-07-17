@@ -1,7 +1,7 @@
 {{ define "main" }}
 {{- if or .Content .Site.Sections }}
 <div class="glass-card">
-  <h1>{{ .Title }}</h1>
+  <h1>{{ T "all_sections" }}</h1>
   {{ with .Content }}
   <div>{{ . }}</div>
   {{ end }}
@@ -13,7 +13,7 @@
       {{/* 显示栏目简介，如果未填写则不显示 / Show summary, hidden if empty */}}
       {{ with .Params.summary }}<p>{{ . }}</p>{{ end }}
       <div class="card-meta">
-        <span>{{ len .Pages }} pages</span>
+        <span>{{ len .Pages }} {{ T "pages" }}</span>
         <span>&rarr;</span>
       </div>
     </a>

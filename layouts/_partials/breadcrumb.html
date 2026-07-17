@@ -1,7 +1,7 @@
 {{- /* Breadcrumb Navigation / 面包屑导航 */}}
 {{- $ancestors := .Ancestors.Reverse }}
 {{- $count := len $ancestors }}
-<nav class="breadcrumb-nav" aria-label="Breadcrumb">
+<nav class="breadcrumb-nav"{{ with T "breadcrumb" }} aria-label="{{ . }}"{{ end }}>
   <ol>
     {{- if le $count 2 }}
       {{- /* 2层及以内：全部显示 / 2 levels or fewer: show all */}}

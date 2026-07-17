@@ -2,10 +2,10 @@
 {{- $hasPrev := .PrevInSection }}
 {{- $hasNext := .NextInSection }}
 {{- if or $hasPrev $hasNext }}
-<nav class="prev-next-nav" aria-label="Article navigation">
+<nav class="prev-next-nav"{{ with T "article_navigation" }} aria-label="{{ . }}"{{ end }}>
   {{- if $hasPrev }}
   <a href="{{ .PrevInSection.RelPermalink }}" class="prev-next-link prev-link">
-    <span class="prev-next-label">&larr; Prev</span>
+    <span class="prev-next-label">&larr; {{ T "prev" }}</span>
     <span class="prev-next-title">{{ .PrevInSection.Title }}</span>
   </a>
   {{- else }}
@@ -14,7 +14,7 @@
 
   {{- if $hasNext }}
   <a href="{{ .NextInSection.RelPermalink }}" class="prev-next-link next-link">
-    <span class="prev-next-label">Next &rarr;</span>
+    <span class="prev-next-label">{{ T "next" }} &rarr;</span>
     <span class="prev-next-title">{{ .NextInSection.Title }}</span>
   </a>
   {{- end }}

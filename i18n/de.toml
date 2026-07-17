@@ -1,0 +1,75 @@
+[page_not_found]
+other = "Seite nicht gefunden"
+
+[back_to_home]
+other = "Zurück zur Startseite"
+
+[go_back]
+other = "Zurück"
+
+[taxonomy]
+other = "Taxonomie"
+
+[categories]
+other = "Kategorien"
+
+[tags]
+other = "Tags"
+
+[all_sections]
+other = "Alle Abschnitte"
+
+[pages]
+one = "Seite"
+other = "Seiten"
+
+[prev]
+other = "Zurück"
+
+[next]
+other = "Weiter"
+
+[copyright]
+other = "© %d revrain Theme · Erstellt mit Hugo"
+
+[github]
+other = "GitHub"
+
+[rss]
+other = "RSS"
+
+[toc]
+other = "Inhaltsverzeichnis"
+
+[back]
+other = "Zurück"
+
+[article_navigation]
+other = "Artikelnavigation"
+
+[toggle_menu]
+other = "Menü umschalten"
+
+[breadcrumb]
+other = "Brotkrümelnavigation"
+
+[page_navigation]
+other = "Seitennavigation"
+
+[category_pagination]
+other = "Kategorie-Seitenumbruch"
+
+[menu_home]
+other = "Startseite"
+
+[menu_browse]
+other = "Durchsuchen"
+
+[menu_taxonomy]
+other = "Taxonomie"
+
+[menu_about]
+other = "Über"
+
+[friendly_links]
+other = "Nützliche Links"

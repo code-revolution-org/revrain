@@ -1,10 +1,67 @@
 baseURL = 'https://example.org/'
-locale = 'en-US'
-title = 'revrain'
+defaultContentLanguage = 'en-US'
 enableRobotsTXT = true  # 启用 robots.txt / Enable robots.txt
 
 theme = "revrain"
 themesDir = "../../"
+
+[languages]
+  [languages.en-US]
+    languageName = "English"
+    locale = 'en-US'
+    title = 'revrain'
+    weight = 10
+  [languages.zh-CN]
+    languageName = "简体中文"
+    locale = 'zh-CN'
+    title = 'revrain'
+    weight = 20
+  [languages.zh-TW]
+    languageName = "繁體中文"
+    locale = 'zh-TW'
+    title = 'revrain'
+    weight = 30
+  [languages.ja]
+    languageName = "日本語"
+    locale = 'ja'
+    title = 'revrain'
+    weight = 40
+  [languages.ko]
+    languageName = "한국어"
+    locale = 'ko'
+    title = 'revrain'
+    weight = 50
+  [languages.fr]
+    languageName = "Français"
+    locale = 'fr'
+    title = 'revrain'
+    weight = 60
+  [languages.de]
+    languageName = "Deutsch"
+    locale = 'de'
+    title = 'revrain'
+    weight = 70
+  [languages.es]
+    languageName = "Español"
+    locale = 'es'
+    title = 'revrain'
+    weight = 80
+  [languages.ru]
+    languageName = "Русский"
+    locale = 'ru'
+    title = 'revrain'
+    weight = 90
+  [languages.ar]
+    languageName = "العربية"
+    locale = 'ar'
+    languageDirection = 'rtl'
+    title = 'revrain'
+    weight = 100
+  [languages.pt-BR]
+    languageName = "Português (Brasil)"
+    locale = 'pt-BR'
+    title = 'revrain'
+    weight = 110
 
 [params]
   logo = "/revrain.png"  # 导航栏 logo，可选；未设置则只显示站点标题 / Nav bar logo, optional; shows site title only if unset
@@ -17,21 +74,25 @@ themesDir = "../../"
 [menus]
   [[menus.main]]
     name = 'Home'
+    identifier = 'menu_home'
     pageRef = '/'
     weight = 10
 
   [[menus.main]]
     name = 'Browse'
+    identifier = 'menu_browse'
     pageRef = '/browse'
     weight = 20
 
   [[menus.main]]
     name = 'Taxonomy'
+    identifier = 'menu_taxonomy'
     pageRef = '/tags'
     weight = 30
 
   [[menus.main]]
-    name = 'about'
+    name = 'About'
+    identifier = 'menu_about'
     pageRef = '/about'
     weight = 40
 
@@ -40,7 +101,8 @@ themesDir = "../../"
   rss = "/index.xml"
 
   [[params.footer.links]]
-    name = "友情链接"
+    name = "Friendly Links"
+    identifier = "friendly_links"
     url = "https://github.com/code-revolution-org"
 
 # 数字雨配置 / Digital rain config

@@ -1,17 +1,21 @@
 <footer class="site-footer">
   <div class="footer-content">
-    <!-- Copyright / 版权声明 -->
-    <p class="copyright">© {{ now.Year }} revrain Theme · Built with Hugo.</p>
-    <!-- Footer links / 页脚链接 -->
+    <p class="copyright">{{ T "copyright" (now.Year) }}</p>
     <nav class="footer-links">
       {{ with .Site.Params.footer.github }}
-        <a href="{{ . }}" target="_blank" rel="noopener">GitHub</a>
+        <a href="{{ . }}" target="_blank" rel="noopener">{{ T "github" }}</a>
       {{ end }}
       {{ with .Site.Params.footer.rss }}
-        <a href="{{ relURL (strings.TrimPrefix "/" .) }}" target="_blank" rel="noopener">RSS</a>
+        <a href="{{ relURL (strings.TrimPrefix "/" .) }}" target="_blank" rel="noopener">{{ T "rss" }}</a>
       {{ end }}
       {{ range .Site.Params.footer.links }}
-        <a href="{{ if hasPrefix .url "http" }}{{ .url }}{{ else }}{{ relURL (strings.TrimPrefix "/" .url) }}{{ end }}" target="_blank" rel="noopener">{{ .name }}</a>
+        {{- $linkName := .name }}
+        {{- with .identifier }}
+          {{- with T . }}
+            {{- $linkName = . }}
+          {{- end }}
+        {{- end }}
+        <a href="{{ if hasPrefix .url "http" }}{{ .url }}{{ else }}{{ relURL (strings.TrimPrefix "/" .url) }}{{ end }}" target="_blank" rel="noopener">{{ $linkName }}</a>
       {{ end }}
     </nav>
   </div>

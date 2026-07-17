@@ -1,0 +1,77 @@
+[page_not_found]
+other = "Страница не найдена"
+
+[back_to_home]
+other = "Вернуться на главную"
+
+[go_back]
+other = "Назад"
+
+[taxonomy]
+other = "Таксономия"
+
+[categories]
+other = "Категории"
+
+[tags]
+other = "Теги"
+
+[all_sections]
+other = "Все разделы"
+
+[pages]
+one = "страница"
+few = "страницы"
+many = "страниц"
+other = "страницы"
+
+[prev]
+other = "Назад"
+
+[next]
+other = "Вперёд"
+
+[copyright]
+other = "© %d тема revrain · Создано с помощью Hugo"
+
+[github]
+other = "GitHub"
+
+[rss]
+other = "RSS"
+
+[toc]
+other = "Содержание"
+
+[back]
+other = "Назад"
+
+[article_navigation]
+other = "Навигация по статье"
+
+[toggle_menu]
+other = "Переключить меню"
+
+[breadcrumb]
+other = "Навигационная цепочка"
+
+[page_navigation]
+other = "Навигация по страницам"
+
+[category_pagination]
+other = "Постраничная навигация по категориям"
+
+[menu_home]
+other = "Главная"
+
+[menu_browse]
+other = "Обзор"
+
+[menu_taxonomy]
+other = "Таксономия"
+
+[menu_about]
+other = "О нас"
+
+[friendly_links]
+other = "Полезные ссылки"

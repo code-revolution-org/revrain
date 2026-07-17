@@ -1,0 +1,74 @@
+[page_not_found]
+other = "頁面未找到"
+
+[back_to_home]
+other = "返回首頁"
+
+[go_back]
+other = "返回"
+
+[taxonomy]
+other = "分類法"
+
+[categories]
+other = "分類"
+
+[tags]
+other = "標籤"
+
+[all_sections]
+other = "全部欄目"
+
+[pages]
+other = "頁"
+
+[prev]
+other = "上一頁"
+
+[next]
+other = "下一頁"
+
+[copyright]
+other = "© %d revrain 主題 · 由 Hugo 建構"
+
+[github]
+other = "GitHub"
+
+[rss]
+other = "RSS"
+
+[toc]
+other = "目錄"
+
+[back]
+other = "返回"
+
+[article_navigation]
+other = "文章導航"
+
+[toggle_menu]
+other = "切換選單"
+
+[breadcrumb]
+other = "麵包屑導航"
+
+[page_navigation]
+other = "頁面導航"
+
+[category_pagination]
+other = "分類分頁"
+
+[menu_home]
+other = "首頁"
+
+[menu_browse]
+other = "瀏覽"
+
+[menu_taxonomy]
+other = "分類"
+
+[menu_about]
+other = "關於"
+
+[friendly_links]
+other = "友情連結"

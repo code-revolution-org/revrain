@@ -1,11 +1,11 @@
 {{ define "main" }}
 {{- if or .Pages site.Taxonomies.categories }}
 <div class="glass-card">
-  <h1>Taxonomy</h1>
+  <h1>{{ T "taxonomy" }}</h1>
   {{ .Content }}
 
   {{- with site.Taxonomies.categories }}
-  <h2>Categories</h2>
+  <h2>{{ T "categories" }}</h2>
   {{- $perPage := 9 }}
   <div class="tag-cloud cat-cloud" data-per-page="{{ $perPage }}">
     {{ range .Alphabetical }}
@@ -15,16 +15,16 @@
     </a>
     {{ end }}
   </div>
-  <nav class="pagination cat-pagination" aria-label="Category pagination" style="display:none;">
-    <a href="#" class="pagination-prev cat-prev">&laquo; Prev</a>
+  <nav class="pagination cat-pagination"{{ with T "category_pagination" }} aria-label="{{ . }}"{{ end }} style="display:none;">
+    <a href="#" class="pagination-prev cat-prev">&laquo; {{ T "prev" }}</a>
     <span class="pagination-current cat-info"></span>
-    <a href="#" class="pagination-next cat-next">Next &raquo;</a>
+    <a href="#" class="pagination-next cat-next">{{ T "next" }} &raquo;</a>
   </nav>
   {{- end }}
 
   {{- $paginator := .Paginator }}
   {{- with .Pages }}
-  <h2>Tags</h2>
+  <h2>{{ T "tags" }}</h2>
   <div class="tag-cloud">
     {{ range . }}
     <a href="{{ .RelPermalink }}" class="tag-pill">
@@ -35,13 +35,13 @@
   </div>
 
   {{- if gt $paginator.TotalPages 1 }}
-  <nav class="pagination" aria-label="Page navigation">
+  <nav class="pagination"{{ with T "page_navigation" }} aria-label="{{ . }}"{{ end }}>
     {{- if $paginator.HasPrev }}
-    <a href="{{ $paginator.Prev.URL }}" class="pagination-prev">&laquo; Prev</a>
+    <a href="{{ $paginator.Prev.URL }}" class="pagination-prev">&laquo; {{ T "prev" }}</a>
     {{- end }}
     <span class="pagination-current">{{ $paginator.PageNumber }} / {{ $paginator.TotalPages }}</span>
     {{- if $paginator.HasNext }}
-    <a href="{{ $paginator.Next.URL }}" class="pagination-next">Next &raquo;</a>
+    <a href="{{ $paginator.Next.URL }}" class="pagination-next">{{ T "next" }} &raquo;</a>
     {{- end }}
   </nav>
   {{- end }}

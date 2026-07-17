@@ -1,0 +1,74 @@
+[page_not_found]
+other = "ページが見つかりません"
+
+[back_to_home]
+other = "ホームに戻る"
+
+[go_back]
+other = "戻る"
+
+[taxonomy]
+other = "分類体系"
+
+[categories]
+other = "カテゴリ"
+
+[tags]
+other = "タグ"
+
+[all_sections]
+other = "全セクション"
+
+[pages]
+other = "ページ"
+
+[prev]
+other = "前へ"
+
+[next]
+other = "次へ"
+
+[copyright]
+other = "© %d revrain テーマ · Hugo で構築"
+
+[github]
+other = "GitHub"
+
+[rss]
+other = "RSS"
+
+[toc]
+other = "目次"
+
+[back]
+other = "戻る"
+
+[article_navigation]
+other = "記事ナビゲーション"
+
+[toggle_menu]
+other = "メニュー切替"
+
+[breadcrumb]
+other = "パンくずリスト"
+
+[page_navigation]
+other = "ページナビゲーション"
+
+[category_pagination]
+other = "カテゴリページネーション"
+
+[menu_home]
+other = "ホーム"
+
+[menu_browse]
+other = "閲覧"
+
+[menu_taxonomy]
+other = "分類"
+
+[menu_about]
+other = "概要"
+
+[friendly_links]
+other = "相互リンク"

@@ -1,0 +1,79 @@
+[page_not_found]
+other = "الصفحة غير موجودة"
+
+[back_to_home]
+other = "العودة إلى الصفحة الرئيسية"
+
+[go_back]
+other = "رجوع"
+
+[taxonomy]
+other = "تصنيف"
+
+[categories]
+other = "تصنيفات"
+
+[tags]
+other = "وسوم"
+
+[all_sections]
+other = "جميع الأقسام"
+
+[pages]
+zero = "صفحة"
+one = "صفحة"
+two = "صفحتان"
+few = "صفحات"
+many = "صفحة"
+other = "صفحة"
+
+[prev]
+other = "السابق"
+
+[next]
+other = "التالي"
+
+[copyright]
+other = "© %d سمة revrain · تم الإنشاء باستخدام Hugo"
+
+[github]
+other = "GitHub"
+
+[rss]
+other = "RSS"
+
+[toc]
+other = "جدول المحتويات"
+
+[back]
+other = "رجوع"
+
+[article_navigation]
+other = "تنقل المقال"
+
+[toggle_menu]
+other = "تبديل القائمة"
+
+[breadcrumb]
+other = "مسار التنقل"
+
+[page_navigation]
+other = "تنقل الصفحات"
+
+[category_pagination]
+other = "ترقيم الصفحات حسب التصنيف"
+
+[menu_home]
+other = "الرئيسية"
+
+[menu_browse]
+other = "تصفح"
+
+[menu_taxonomy]
+other = "تصنيف"
+
+[menu_about]
+other = "حول"
+
+[friendly_links]
+other = "روابط مفيدة"
