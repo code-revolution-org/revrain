@@ -1,5 +1,5 @@
 +++
-title = 'posts'
+title = '文章'
 date = 2023-01-01T08:30:00-07:00
 draft = false
 summary = '涵盖技术分享、生活随笔等多个主题的文章合集。'

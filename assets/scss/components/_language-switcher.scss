@@ -1,0 +1,83 @@
+@use '../abstracts' as *;
+
+// Language Switcher Component / 语言切换器组件
+
+.lang-switcher {
+  position: relative;
+  margin-left: 1rem;
+
+  // Toggle button / 切换按钮
+  &__toggle {
+    @include flex-center-gap(0.375rem);
+    padding: 0.375rem 0.625rem;
+    background-color: transparent;
+    border: 1px solid $border-primary;
+    border-radius: 8px;
+    color: $text-secondary;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+
+    &:hover,
+    &:focus-visible {
+      border-color: $accent;
+      color: $accent;
+      outline: none;
+    }
+  }
+
+  // Dropdown arrow icon / 下拉箭头图标
+  &__icon {
+    transition: transform 0.2s ease;
+
+    .lang-switcher.is-open & {
+      transform: rotate(180deg);
+    }
+  }
+
+  // Dropdown list / 下拉列表
+  &__list {
+    display: none;
+    position: absolute;
+    top: calc(100% + 4px);
+    right: 0;
+    min-width: 100%;
+    margin: 0;
+    padding: 0.25rem 0;
+    list-style: none;
+    background-color: $bg-primary;
+    border: 1px solid $border-primary;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 102;
+
+    .lang-switcher.is-open & {
+      display: block;
+    }
+  }
+
+  // List item / 列表项
+  &__list li {
+    a {
+      display: block;
+      padding: 0.5rem 0.75rem;
+      color: $text-secondary;
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: all 0.15s ease;
+
+      &:hover,
+      &:focus-visible {
+        background-color: rgba($accent, 0.1);
+        color: $accent;
+      }
+    }
+
+    // Current language highlight / 当前语言高亮
+    &[aria-selected="true"] a {
+      color: $accent;
+      font-weight: 500;
+    }
+  }
+}

@@ -3,11 +3,14 @@
   {{ with site.Params.logo }}
     <img class="header__icon" src="{{ relURL . }}" alt="{{ site.Title }}">
   {{ end }}
-  <a class="header__title" href="{{ relURL "" }}">{{ site.Title }}</a>
+  <a class="header__title" href="{{ relLangURL "" }}">{{ site.Title }}</a>
 </div>
-{{ partial "menu.html" (dict "menuID" "main" "page" .) }}
-<button class="header__menu-toggle"{{ with T "toggle_menu" }} aria-label="{{ . }}"{{ end }} aria-expanded="false">
-  <span></span>
-  <span></span>
-  <span></span>
-</button>
+<div class="header__actions">
+  {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+  {{ partial "language-switcher.html" . }}
+  <button class="header__menu-toggle"{{ with T "toggle_menu" }} aria-label="{{ . }}"{{ end }} aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</div>

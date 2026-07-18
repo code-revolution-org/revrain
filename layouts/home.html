@@ -16,10 +16,10 @@
   {{- if or .Params.primaryButton .Params.secondaryButton }}
   <div class="hero-buttons">
     {{- with .Params.primaryButton }}
-    <a href="{{ if hasPrefix .url "http" }}{{ .url }}{{ else }}{{ relURL (strings.TrimPrefix "/" .url) }}{{ end }}" class="btn btn-primary">{{ .text }}</a>
+    <a href="{{ if hasPrefix .url "http" }}{{ .url }}{{ else }}{{ relLangURL (strings.TrimPrefix "/" .url) }}{{ end }}" class="btn btn-primary">{{ .text }}</a>
     {{- end }}
     {{- with .Params.secondaryButton }}
-    <a href="{{ if hasPrefix .url "http" }}{{ .url }}{{ else }}{{ relURL (strings.TrimPrefix "/" .url) }}{{ end }}" class="btn btn-secondary">{{ .text }}</a>
+    <a href="{{ if hasPrefix .url "http" }}{{ .url }}{{ else }}{{ relLangURL (strings.TrimPrefix "/" .url) }}{{ end }}" class="btn btn-secondary">{{ .text }}</a>
     {{- end }}
   </div>
   {{- end }}

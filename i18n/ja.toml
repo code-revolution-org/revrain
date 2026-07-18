@@ -72,3 +72,6 @@ other = "概要"
 
 [friendly_links]
 other = "相互リンク"
+
+[language_switcher]
+other = "言語"

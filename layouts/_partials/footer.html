@@ -1,12 +1,12 @@
 <footer class="site-footer">
   <div class="footer-content">
-    <p class="copyright">{{ T "copyright" (now.Year) }}</p>
+    <p class="copyright">{{ printf (T "copyright") now.Year }}</p>
     <nav class="footer-links">
       {{ with .Site.Params.footer.github }}
         <a href="{{ . }}" target="_blank" rel="noopener">{{ T "github" }}</a>
       {{ end }}
       {{ with .Site.Params.footer.rss }}
-        <a href="{{ relURL (strings.TrimPrefix "/" .) }}" target="_blank" rel="noopener">{{ T "rss" }}</a>
+        <a href="{{ relLangURL (strings.TrimPrefix "/" .) }}" target="_blank" rel="noopener">{{ T "rss" }}</a>
       {{ end }}
       {{ range .Site.Params.footer.links }}
         {{- $linkName := .name }}

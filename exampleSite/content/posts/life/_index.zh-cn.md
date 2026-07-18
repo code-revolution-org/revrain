@@ -1,5 +1,5 @@
 +++
-title = 'life'
+title = '生活'
 date = 2023-06-15T10:00:00-07:00
 draft = false
 summary = '生活随笔，记录日常点滴与感悟。'

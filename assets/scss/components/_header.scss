@@ -76,11 +76,16 @@ header {
 }
 
 // Navigation list / 导航列表
-.header__nav ul {
-  @include flex-gap(1.5rem);
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.header__nav {
+  display: flex;
+  align-items: center;
+
+  ul {
+    @include flex-gap(1.5rem);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
 }
 
 // Navigation links / 导航链接
@@ -93,6 +98,12 @@ header {
   &.active {
     color: $accent;
   }
+}
+
+// Right-side actions container / 右侧操作区
+.header__actions {
+  @include flex-center;
+  gap: 0.5rem;
 }
 
 // Mobile responsive / 移动端响应
@@ -109,7 +120,6 @@ header {
     background-color: $bg-primary;
     border-bottom: 1px solid $border-primary;
     padding: 1rem;
-    transform: translateY(-100%);
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
@@ -117,7 +127,6 @@ header {
 
     // Open state / 打开状态
     &.is-open {
-      transform: translateY(0);
       opacity: 1;
       visibility: visible;
     }

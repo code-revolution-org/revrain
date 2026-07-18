@@ -72,3 +72,6 @@ other = "소개"
 
 [friendly_links]
 other = "유용한 링크"
+
+[language_switcher]
+other = "언어"

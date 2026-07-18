@@ -73,3 +73,6 @@ other = "About"
 
 [friendly_links]
 other = "Friendly Links"
+
+[language_switcher]
+other = "Language"

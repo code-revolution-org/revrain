@@ -14,6 +14,7 @@ subtitle = "A Hugo theme by Code Revolution, built for geeks and developers."
   url = "/about"
   text = "About Us"
 +++
-代码革命是一个致力于技术分享与开源协作的开发者组织。  
 
-汇聚热爱编程的开发者，共同学习、共同成长，通过开源协作和技术分享，推动代码革命，让技术创造更多可能。
+Code Revolution is a developer community dedicated to technology sharing and open-source collaboration.
+
+We bring together passionate programmers to learn and grow together, driving the code revolution through open-source collaboration and technology sharing, making technology create more possibilities.

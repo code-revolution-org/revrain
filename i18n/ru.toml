@@ -75,3 +75,6 @@ other = "О нас"
 
 [friendly_links]
 other = "Полезные ссылки"
+
+[language_switcher]
+other = "Язык"

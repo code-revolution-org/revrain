@@ -1,0 +1,24 @@
+{{- /* 语言切换器下拉菜单 / Language switcher dropdown */ -}}
+{{- if gt (len site.Languages) 1 }}
+  <div class="lang-switcher" role="navigation" aria-label="{{ T "language_switcher" }}">
+    <button class="lang-switcher__toggle" aria-expanded="false" aria-haspopup="listbox">
+      {{- /* 显示当前语言标签 / Show current language label */ -}}
+      <span class="lang-switcher__label">{{ site.Language.Label }}</span>
+      <svg class="lang-switcher__icon" width="12" height="12" viewBox="0 0 12 12" fill="none">
+        <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <ul class="lang-switcher__list" role="listbox" aria-label="{{ T "language_switcher" }}">
+      {{- /* 获取当前页面的所有翻译版本 / Get all translations of current page */ -}}
+      {{- range .AllTranslations }}
+        <li role="option"{{ if eq .Language.Lang site.Language.Lang }} aria-selected="true"{{ end }}>
+          <a href="{{ .RelPermalink }}"
+             lang="{{ .Language.Lang }}"
+             hreflang="{{ .Language.Lang }}">
+            {{ .Language.Label }}
+          </a>
+        </li>
+      {{- end }}
+    </ul>
+  </div>
+{{- end }}
