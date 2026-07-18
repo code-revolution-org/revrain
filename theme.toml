@@ -1,0 +1,13 @@
+name = "revrain"
+license = "MIT"
+licenselink = "https://github.com/code-revolution-org/revrain/blob/main/LICENSE"
+description = "A Hugo theme by Code Revolution, built for geeks and developers."
+homepage = "https://github.com/code-revolution-org/revrain"
+demosite = "https://code-revolution-org.github.io/revrain/"
+tags = ["geek", "developer", "tech", "dark", "digital rain"]
+features = ["multilingual", "responsive", "seo", "syntax highlighting", "math"]
+min_version = "0.156.0"
+
+[author]
+  name = "code-revo"
+  homepage = "https://www.daimarevo.com/"

@@ -1,11 +1,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 {{/* 浏览器标签页图标 / Browser tab icon */}}
-{{ with site.Params.favicon }}
+{{- with site.Params.favicon }}
+  {{- if ne . "" }}
   <link rel="icon" href="{{ relURL . }}">
-{{ else }}
-  <link rel="icon" href="{{ relURL "favicon.ico" }}" type="image/x-icon">
-{{ end }}
+  {{- else }}
+  <link rel="icon" href="data:,">
+  {{- end }}
+{{- else }}
+  <link rel="icon" href="data:,">
+{{- end }}
 
 <title>
     {{ if .IsHome }}

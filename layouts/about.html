@@ -19,7 +19,7 @@
   {{- with .Params.links }}
   <div class="about__links">
     {{- range . }}
-    <a href="{{ .url }}" class="about__link" target="_blank" rel="noopener">
+    <a href="{{ .url | urls.AbsURL }}" class="about__link" target="_blank" rel="noopener">
       {{ .name }}
     </a>
     {{- end }}

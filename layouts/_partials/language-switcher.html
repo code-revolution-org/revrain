@@ -1,5 +1,5 @@
 {{- /* 语言切换器下拉菜单 / Language switcher dropdown */ -}}
-{{- if gt (len site.Languages) 1 }}
+{{- if gt (len .AllTranslations) 1 }}
   <div class="lang-switcher" role="navigation" aria-label="{{ T "language_switcher" }}">
     <button class="lang-switcher__toggle" aria-expanded="false" aria-haspopup="listbox">
       {{- /* 显示当前语言标签 / Show current language label */ -}}

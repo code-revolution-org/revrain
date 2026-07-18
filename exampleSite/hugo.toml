@@ -66,7 +66,7 @@ themesDir = "../../"
 
 [params]
   logo = "/revrain.png"  # 导航栏 logo，可选；未设置则只显示站点标题 / Nav bar logo, optional; shows site title only if unset
-  favicon = "/revrain.png"   # 浏览器标签页图标，可选；未设置则使用默认 favicon.ico / Browser tab icon, optional; defaults to favicon.ico
+  favicon = "/favicon.ico"   # 浏览器标签页图标，可选；未设置则不显示 / Browser tab icon, optional; not shown if unset
   description = "代码革命 - 致力于技术分享与开源协作的开发者组织"  # 站点描述，用于 SEO / Site description for SEO
   images = ["/revrain.png"]  # 默认社交分享图片，用于 og:image 和 twitter:image / Default social share image
   [params.social]
@@ -116,8 +116,8 @@ themesDir = "../../"
 
 [module]
   [module.hugoVersion]
-    extended = false
-    min = '0.146.0'
+    extended = true
+    min = '0.156.0'
 
 [markup.tableOfContents]
   startLevel = 2
