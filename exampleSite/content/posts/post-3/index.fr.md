@@ -3,7 +3,7 @@ title = 'Article 3'
 date = 2023-03-15T11:00:00-07:00
 draft = false
 tags = ['red','green','blue']
-categories = ['技術', 'Technologie', '旅行', 'Voyage']
+categories = ['Technologie', 'Voyage']
 summary = "Récemment, j'ai visité le parc national de Bryce Canyon. Les paysages naturels m'ont profondément impressionné. Debout sur le belvédère, contemplant les impressionnants groupes de piliers de roche, j'ai ressenti la grandeur de la nature."
 description = "Récit de voyage au parc national de Bryce Canyon, ressentir la grandeur de la nature."
 +++

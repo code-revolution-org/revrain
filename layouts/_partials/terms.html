@@ -1,19 +1,22 @@
 {{- /*
 For a given taxonomy, renders a list of terms assigned to the page.
 
-@context {page} page The current page.
-@context {string} taxonomy The taxonomy.
+@context {page}   page      The current page.
+@context {string} taxonomy  The taxonomy.
+@context {string} class     (optional) Wrapper CSS class, default "".
 
 @example: {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+@example: {{ partial "terms.html" (dict "taxonomy" "tags" "page" . "class" "sidebar-section") }}
 */}}
 
 {{- $page := .page }}
 {{- $taxonomy := .taxonomy }}
+{{- $class := .class | default "" }}
 
 {{- with $page.GetTerms $taxonomy }}
   {{- $label := (index . 0).Parent.LinkTitle }}
-  <div>
-    <div>{{ $label }}:</div>
+  <div{{ with $class }} class="{{ . }}"{{ end }}>
+    <div>{{ $label }}</div>
     <ul>
       {{- range . }}
         <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>

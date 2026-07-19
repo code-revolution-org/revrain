@@ -3,7 +3,7 @@ title = 'Artículo 2'
 date = 2023-02-15T10:00:00-07:00
 draft = false
 tags = ['red', 'green']
-categories = ['生活', 'Vida']
+categories = ['Vida']
 summary = 'La vida es como un viaje, con altibajos, con risas y lágrimas. Lo importante es que en este proceso crezcamos constantemente y nos volvamos más fuertes.'
 description = 'Reflexionar sobre los viajes de la vida y valorar cada experiencia en el proceso de crecimiento.'
 +++

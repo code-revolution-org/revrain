@@ -32,27 +32,8 @@ Renders tags, categories, and table of contents.
   </div>
   {{- end }}
 
-  {{- with .page.GetTerms "categories" }}
-  <div class="sidebar-section">
-    <h4>{{ (index . 0).Parent.LinkTitle }}</h4>
-    <ul>
-      {{- range . }}
-        <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
-      {{- end }}
-    </ul>
-  </div>
-  {{- end }}
-
-  {{- with .page.GetTerms "tags" }}
-  <div class="sidebar-section">
-    <h4>{{ (index . 0).Parent.LinkTitle }}</h4>
-    <ul>
-      {{- range . }}
-        <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
-      {{- end }}
-    </ul>
-  </div>
-  {{- end }}
+  {{- partial "terms.html" (dict "taxonomy" "categories" "page" .page "class" "sidebar-section") }}
+  {{- partial "terms.html" (dict "taxonomy" "tags" "page" .page "class" "sidebar-section") }}
 
 </aside>
 {{- end }}
