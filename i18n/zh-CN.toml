@@ -28,9 +28,6 @@ other = "上一页"
 [next]
 other = "下一页"
 
-[copyright]
-other = "© %d revrain 主题 · 由 Hugo 构建"
-
 [github]
 other = "GitHub"
 

@@ -28,9 +28,6 @@ other = "前へ"
 [next]
 other = "次へ"
 
-[copyright]
-other = "© %d revrain テーマ · Hugo で構築"
-
 [github]
 other = "GitHub"
 

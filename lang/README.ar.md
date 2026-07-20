@@ -1,16 +1,183 @@
 # revrain
-revrain — سمة Hugo من ثورة الكود، مصممة للمهووسين والمطورين.
-<br>
+
+سمة Hugo من Code Revolution، مصممة للمهووسين والمطورين.
+
 [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md) | [English](../README.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | [Español](README.es.md) | [Português](README.pt-BR.md) | [Русский](README.ru.md) | [العربية](README.ar.md)
 
-一、تطوير المواقع الإلكترونية
-<br>
->مبني على Hugo v0.163.1extended;وثائق README مبنية على ترجمة بالذكاء الاصطناعي.
-1. الألوان
+## المميزات
 
-| اللون          | قيمة اللون | الاستخدام                                              |
-| -------------- | ---------- | ------------------------------------------------------ |
-| سواد الهاوية   | #0A0A0F    | الخلفية الرئيسية                                       |
-| أخضر المطر     | #00D4AA    | اللون الرئيسي، المطر الرقمي، التمييز التفاعلي، الروابط |
-| الشفق          | #8B92A8    | النص الرئيسي، المعلومات الثانوية، الحدود              |
-| أبيض القمر     | #E8EAF0    | العناوين، النص المهم                                   |
+- **المطر الرقمي** — رسوم متحركة Canvas بأسلوب المصفوفة، قابل للتكوين بالكامل
+- **المورفولوجيا الزجاجية** — بطاقات زجاجية مصنفرة مع تمويه الخلفية
+- **متعدد اللغات** — 11 لغة مع مُبدّل اللغة
+- **تحسين محركات البحث** — Open Graph، Twitter Card، البيانات المنظمة JSON-LD، مخطط breadcrumb
+- **متجاوب** — Mobile-first، 4 نقاط توقف (480 / 768 / 1024 / 1280px)
+- **تمييز بناء الجملة** — مدمج في Hugo
+- **دعم الرياضيات** — مدمج في Hugo
+- **السمة الداكنة** — لوحة ألوان محسّنة للمطورين
+
+## البداية السريعة
+
+```toml
+theme = "revrain"
+```
+
+## التكوين
+
+### المعاملات العامة
+
+```toml
+[params]
+  logo = "/logo.png"          # شعار شريط التنقل (اختياري)
+  favicon = "/favicon.ico"    # أيقونة تبويب المتصفح (اختياري)
+  description = "..."         # وصف الموقع لتحسين محركات البحث
+  images = ["/og-image.png"]  # صورة المشاركة الاجتماعية الافتراضية
+
+[params.social]
+  twitter = "username"        # حساب Twitter لـ twitter:site
+```
+
+### التذييل
+
+```toml
+[params.footer]
+  github = "https://github.com/username"
+  rss = "/index.xml"
+  copyright = "مدونتي · جميع الحقوق محفوظة"  # اختياري، لا يظهر إذا لم يتم تكوينه
+
+  [[params.footer.links]]
+    name = "اسم الرابط"
+    url = "https://example.com"
+```
+
+**سلوك حقوق النشر:**
+- غير مكوّن → لا يظهر
+- مكوّن → يُعرض كـ `© 2026 مدونتي · جميع الحقوق محفوظة` (السنة تتحدث تلقائيًا)
+- متعدد اللغات: قم بالتكوين لكل لغة (انظر أدناه)
+
+### المطر الرقمي
+
+```toml
+[params.digitalRain]
+  enable = true
+  chars = "アイウエオカキクケコ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  fontSize = 14       # 10–32 بكسل
+  moonChance = 0.02   # احتمال حرف أبيض قمري
+  resetChance = 0.025 # احتمال إعادة تعيين القطرة
+```
+
+### متعدد اللغات
+
+قم بتكوين حقوق النشر لكل لغة:
+
+```toml
+[languages.en-US]
+  label = "English"
+  weight = 10
+  [languages.en-US.params.footer]
+    copyright = "My Blog · All Rights Reserved"
+
+[languages.ar]
+  label = "العربية"
+  weight = 20
+  [languages.ar.params.footer]
+    copyright = "مدونتي · جميع الحقوق محفوظة"
+```
+
+### القائمة
+
+```toml
+[[menus.main]]
+  name = "Home"
+  identifier = "menu_home"  # مفتاح i18n (اختياري)
+  pageRef = "/"
+  weight = 10
+```
+
+## المحتوى
+
+### الصفحة الرئيسية
+
+```markdown
++++
+title = "موقعي"
+subtitle = "مرحبًا بك في موقعي"
+logo = "/logo.png"
+logoAlt = "شعار الموقع"
+
+[primaryButton]
+  url = "/browse"
+  text = "ابدأ"
+
+[secondaryButton]
+  url = "/about"
+  text = "حول"
++++
+```
+
+### صفحة حول
+
+```markdown
++++
+title = "حول"
+layout = "about"
+subtitle = "تغيير العالم بالكود"
+avatar = "/avatar.png"
+
+links = [
+  { name = "GitHub", url = "https://github.com/username" },
+  { name = "Twitter", url = "https://twitter.com/username" }
+]
++++
+```
+
+### مقال
+
+```markdown
++++
+title = "مقالتي"
+date = 2025-01-15
+draft = false
+tags = ["تقنية", "hugo"]
+categories = ["دليل"]
+summary = "ملخص المقال"
+description = "وصف لتحسين محركات البحث"
++++
+```
+
+### صفحة التصفح
+
+```markdown
++++
+title = "التصفح"
+layout = "directory"
++++
+```
+
+## نظام الألوان
+
+| الاسم | القيمة | الاستخدام |
+|-------|--------|-----------|
+| سواد الهاوية | `#0A0A0F` | الخلفية الرئيسية |
+| أخضر المطر | `#00D4AA` | اللون الرئيسي، المطر الرقمي، الروابط |
+| الشفق | `#8B92A8` | النص الثانوي، الحدود |
+| أبيض القمر | `#E8EAF0` | النص الرئيسي، العناوين |
+| الحجاب | `#2A2A35` | الألواح الزجاجية، الحدود |
+
+## حزمة الخطوط
+
+خطوط النظام مع احتياطي CJK:
+
+- اللاتينية: Inter، Noto Sans
+- الصينية: Noto Sans SC/TC، Source Han Sans
+- اليابانية: Noto Sans JP، Source Han Sans JP
+- الكورية: Noto Sans KR، Nanum Gothic
+- العربية: Noto Sans Arabic
+- السيريلية: Noto Sans
+
+## الحد الأدنى للمتطلبات
+
+- Hugo Extended >= 0.156.0
+
+## الترخيص
+
+رخصة MIT. راجع [LICENSE](../LICENSE).

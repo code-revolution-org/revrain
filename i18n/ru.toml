@@ -31,9 +31,6 @@ other = "Назад"
 [next]
 other = "Вперёд"
 
-[copyright]
-other = "© %d тема revrain · Создано с помощью Hugo"
-
 [github]
 other = "GitHub"
 

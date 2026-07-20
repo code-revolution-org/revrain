@@ -12,57 +12,79 @@ themesDir = "../../"
     locale = 'en-US'
     title = 'revrain'
     weight = 10
+    [languages.en-US.params.footer]
+      copyright = "revrain Theme · Built with Hugo."
   [languages.zh-CN]
     label = "简体中文"
     locale = 'zh-CN'
     title = 'revrain'
     weight = 20
+    [languages.zh-CN.params.footer]
+      copyright = "revrain 主题 · 由 Hugo 构建"
   [languages.zh-TW]
     label = "繁體中文"
     locale = 'zh-TW'
     title = 'revrain'
     weight = 30
+    [languages.zh-TW.params.footer]
+      copyright = "revrain 主題 · 由 Hugo 構建"
   [languages.ja]
     label = "日本語"
     locale = 'ja'
     title = 'revrain'
     weight = 40
+    [languages.ja.params.footer]
+      copyright = "revrain テーマ · Hugo で構築"
   [languages.ko]
     label = "한국어"
     locale = 'ko'
     title = 'revrain'
     weight = 50
+    [languages.ko.params.footer]
+      copyright = "revrain 테마 · Hugo로 제작"
   [languages.fr]
     label = "Français"
     locale = 'fr'
     title = 'revrain'
     weight = 60
+    [languages.fr.params.footer]
+      copyright = "thème revrain · Construit avec Hugo."
   [languages.de]
     label = "Deutsch"
     locale = 'de'
     title = 'revrain'
     weight = 70
+    [languages.de.params.footer]
+      copyright = "revrain-Theme · Erstellt mit Hugo."
   [languages.es]
     label = "Español"
     locale = 'es'
     title = 'revrain'
     weight = 80
+    [languages.es.params.footer]
+      copyright = "tema revrain · Construido con Hugo."
   [languages.ru]
     label = "Русский"
     locale = 'ru'
     title = 'revrain'
     weight = 90
+    [languages.ru.params.footer]
+      copyright = "тема revrain · Создано с помощью Hugo."
   [languages.ar]
     label = "العربية"
     locale = 'ar'
     direction = 'rtl'
     title = 'revrain'
     weight = 100
+    [languages.ar.params.footer]
+      copyright = "ثيم revrain · تم بناؤه باستخدام Hugo."
   [languages.pt-BR]
     label = "Português (Brasil)"
     locale = 'pt-BR'
     title = 'revrain'
     weight = 110
+    [languages.pt-BR.params.footer]
+      copyright = "tema revrain · Construído com Hugo."
 
 [params]
   logo = "/revrain.png"  # 导航栏 logo，可选；未设置则只显示站点标题 / Nav bar logo, optional; shows site title only if unset

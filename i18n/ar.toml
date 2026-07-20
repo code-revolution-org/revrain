@@ -33,9 +33,6 @@ other = "السابق"
 [next]
 other = "التالي"
 
-[copyright]
-other = "© %d سمة revrain · تم الإنشاء باستخدام Hugo"
-
 [github]
 other = "GitHub"
 

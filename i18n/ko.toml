@@ -28,9 +28,6 @@ other = "이전"
 [next]
 other = "다음"
 
-[copyright]
-other = "© %d revrain 테마 · Hugo로 제작"
-
 [github]
 other = "GitHub"
 

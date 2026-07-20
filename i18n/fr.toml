@@ -29,9 +29,6 @@ other = "Précédent"
 [next]
 other = "Suivant"
 
-[copyright]
-other = "© %d thème revrain · Construit avec Hugo"
-
 [github]
 other = "GitHub"
 
