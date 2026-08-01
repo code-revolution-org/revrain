@@ -44,7 +44,7 @@
     margin-bottom: 0;
   }
 
-  > div:first-child {
+  > h4 {
     color: $text-secondary;
     font-size: 0.8rem;
     font-weight: 600;
@@ -146,7 +146,9 @@
     font-size: 0.82rem;
     text-decoration: none;
     transition: color 0.2s ease;
-    display: inline;
+    display: inline-block;
+    padding: 0.4rem 0.25rem; // 增大点击区域 / Larger hit target (WCAG 2.5.8)
+    line-height: 1.4;
 
     &:hover {
       color: $accent;
@@ -164,7 +166,8 @@
     transform: scaleY(0);
     height: 0;
     overflow: hidden;
-    transition: transform 0.3s ease;
+    visibility: hidden; // 隐藏的链接不再可聚焦 / Hidden links are not focusable
+    transition: transform 0.3s ease, visibility 0s linear 0.3s;
     transform-origin: top;
 
     > li:last-child {
@@ -181,6 +184,8 @@
   nav li.expanded ul {
     height: auto;
     transform: scaleY(1);
+    visibility: visible;
+    transition: transform 0.3s ease, visibility 0s linear 0s;
   }
 }
 

@@ -72,3 +72,12 @@ other = "相互リンク"
 
 [language_switcher]
 other = "言語"
+
+[skip_to_content]
+other = "本文へスキップ"
+
+[main_navigation]
+other = "メインナビゲーション"
+
+[footer_navigation]
+other = "フッターナビゲーション"

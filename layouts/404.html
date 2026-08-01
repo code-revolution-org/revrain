@@ -4,7 +4,7 @@
   <p class="error-404__text">{{ T "page_not_found" }}</p>
   <div class="error-404__actions">
     <a href="{{ relLangURL "" }}" class="btn btn-primary">{{ T "back_to_home" }}</a>
-    <button onclick="history.back()" class="btn btn-secondary">{{ T "go_back" }}</button>
+    <button type="button" onclick="history.back()" class="btn btn-secondary">{{ T "go_back" }}</button>
   </div>
 </section>
 {{ end }}

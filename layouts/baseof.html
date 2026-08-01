@@ -4,8 +4,11 @@
   {{ partial "head.html" . }}
 </head>
 <body>
+  {{- /* 跳转到主内容 / Skip link for keyboard & assistive tech users (WCAG 2.4.1) */ -}}
+  <a class="skip-link" href="#main-content">{{ T "skip_to_content" }}</a>
   {{- $dr := site.Params.digitalRain | default dict }}
-  <canvas id="digital-rain-canvas"
+  {{- /* 纯装饰画布，对辅助技术隐藏 / Decorative canvas, hidden from assistive tech (WCAG 1.1.1) */}}
+  <canvas id="digital-rain-canvas" role="presentation" aria-hidden="true"
     data-enable="{{ $dr.enable }}"
     data-chars="{{ $dr.chars }}"
     data-font-size="{{ $dr.fontSize }}"
@@ -14,7 +17,7 @@
   <header>
     {{ partial "header.html" . }}
   </header>
-  <main>
+  <main id="main-content" tabindex="-1">
     {{ block "main" . }}{{ end }}
   </main>
   <footer>

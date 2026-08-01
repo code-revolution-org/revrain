@@ -32,6 +32,12 @@ function init() {
   ctx = canvas.getContext('2d');
   resize();
   window.addEventListener('resize', resize);
+
+  // 尊重系统"减少动态效果"设置：只绘制一帧静态画面 / Respect prefers-reduced-motion: draw a single static frame only
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    drawFrame();
+    return;
+  }
   animate();
 }
 
@@ -43,6 +49,20 @@ function resize() {
   drops = new Array(columns).fill(0).map(() => Math.floor(Math.random() * -100));
   // 低性能设备跳帧 / Skip frames on low-end devices
   skipFactor = navigator.hardwareConcurrency <= 2 ? 3 : 1;
+}
+
+// 绘制单帧静态画面 / Draw a single static frame
+function drawFrame() {
+  ctx.fillStyle = ABYSS_FADE;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.font = `${config.fontSize}px monospace`;
+  for (let i = 0; i < columns; i += skipFactor) {
+    const char = config.chars[Math.floor(Math.random() * config.chars.length)];
+    const x = i * config.fontSize;
+    const y = (drops[i] % Math.floor(canvas.height / config.fontSize)) * config.fontSize;
+    ctx.fillStyle = Math.random() < config.moonChance ? MOON : RAIN;
+    ctx.fillText(char, x, y);
+  }
 }
 
 function animate() {

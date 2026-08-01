@@ -39,7 +39,9 @@
     color: $text-secondary;
     text-decoration: none;
     transition: color 0.2s ease;
-    line-height: 1;
+    line-height: 1.4;
+    padding: 0.4rem 0.25rem; // 增大点击区域 / Larger hit target (WCAG 2.5.8)
+    border-radius: 4px;
 
     &:hover {
       color: $accent;

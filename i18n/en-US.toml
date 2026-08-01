@@ -73,3 +73,12 @@ other = "Friendly Links"
 
 [language_switcher]
 other = "Language"
+
+[skip_to_content]
+other = "Skip to content"
+
+[main_navigation]
+other = "Main navigation"
+
+[footer_navigation]
+other = "Footer navigation"

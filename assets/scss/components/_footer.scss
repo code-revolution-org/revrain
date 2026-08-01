@@ -33,6 +33,7 @@
       color: $text-secondary;
       font-size: 0.875rem;
       text-decoration: none;
+      padding: 0.5rem 0.25rem; // 增大点击区域 / Larger hit target (WCAG 2.5.8)
       transition: color 0.2s ease;
 
       &:hover {

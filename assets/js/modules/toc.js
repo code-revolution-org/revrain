@@ -41,7 +41,9 @@ function initTOC() {
         e.preventDefault();
         const headerHeight = document.querySelector('header')?.offsetHeight || 64;
         const y = target.getBoundingClientRect().top + window.scrollY - headerHeight - 16;
-        window.scrollTo({ top: y, behavior: 'smooth' });
+        // 系统开启"减少动态效果"时禁用平滑滚动 / Use instant scroll when reduced motion is on
+        const smooth = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        window.scrollTo({ top: y, behavior: smooth ? 'smooth' : 'auto' });
         history.replaceState(null, null, `#${id}`);
       }
       li.classList.toggle('expanded');

@@ -16,7 +16,7 @@ For a given taxonomy, renders a list of terms assigned to the page.
 {{- with $page.GetTerms $taxonomy }}
   {{- $label := (index . 0).Parent.LinkTitle }}
   <div{{ with $class }} class="{{ . }}"{{ end }}>
-    <div>{{ $label }}</div>
+    <h4>{{ $label }}</h4>
     <ul>
       {{- range . }}
         <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>

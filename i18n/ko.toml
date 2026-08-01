@@ -72,3 +72,12 @@ other = "유용한 링크"
 
 [language_switcher]
 other = "언어"
+
+[skip_to_content]
+other = "본문으로 건너뛰기"
+
+[main_navigation]
+other = "메인 내비게이션"
+
+[footer_navigation]
+other = "바닥글 내비게이션"

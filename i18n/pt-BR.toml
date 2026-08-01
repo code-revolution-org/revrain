@@ -73,3 +73,12 @@ other = "Links úteis"
 
 [language_switcher]
 other = "Idioma"
+
+[skip_to_content]
+other = "Pular para o conteúdo"
+
+[main_navigation]
+other = "Navegação principal"
+
+[footer_navigation]
+other = "Navegação do rodapé"

@@ -1,14 +1,16 @@
 <div class="header__brand">
-  {{/* 导航栏 logo / Navigation bar logo */}}
+  {{/* 导航栏 logo；相邻的站点标题链接已提供名称，故 alt 留空（装饰性）/ Logo; adjacent site-title link provides the name, so alt="" (decorative) */}}
   {{ with site.Params.logo }}
-    <img class="header__icon" src="{{ relURL . }}" alt="{{ site.Title }}">
+    <img class="header__icon" src="{{ relURL . }}" alt="" aria-hidden="true">
   {{ end }}
   <a class="header__title" href="{{ relLangURL "" }}">{{ site.Title }}</a>
 </div>
 <div class="header__actions">
   {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
   {{ partial "language-switcher.html" . }}
-  <button class="header__menu-toggle"{{ with T "toggle_menu" }} aria-label="{{ . }}"{{ end }} aria-expanded="false">
+  <button class="header__menu-toggle" type="button"
+    {{ with T "toggle_menu" }}aria-label="{{ . }}"{{ end }}
+    aria-expanded="false" aria-controls="header-nav">
     <span></span>
     <span></span>
     <span></span>

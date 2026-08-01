@@ -72,3 +72,12 @@ other = "友情連結"
 
 [language_switcher]
 other = "語言"
+
+[skip_to_content]
+other = "跳到主要內容"
+
+[main_navigation]
+other = "主導覽"
+
+[footer_navigation]
+other = "頁尾導覽"

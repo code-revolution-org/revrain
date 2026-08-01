@@ -1,5 +1,8 @@
 {{- /* Back Button Partial / 返回按钮 */}}
-<a href="javascript:history.back()" class="back-button"{{ with T "go_back" }} aria-label="{{ . }}"{{ end }}>
-  <span class="back-arrow">&larr;</span>
+{{- /* 避免 javascript: href；有历史记录时返回，否则回退到首页 / Avoid javascript: href; go back when history exists, else fall back to home */}}
+<a href="{{ .Site.Home.RelPermalink }}" class="back-button"
+   onclick="if (history.length > 1) { history.back(); return false; }"
+   {{ with T "go_back" }}aria-label="{{ . }}"{{ end }}>
+  <span class="back-arrow" aria-hidden="true">&larr;</span>
   <span class="back-text">{{ T "back" }}</span>
 </a>

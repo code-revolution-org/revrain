@@ -3,7 +3,7 @@
     {{ with .Site.Params.footer.copyright }}
       <p class="copyright">© {{ now.Year }} {{ . }}</p>
     {{ end }}
-    <nav class="footer-links">
+    <nav class="footer-links"{{ with T "footer_navigation" }} aria-label="{{ . }}"{{ end }}>
       {{ with .Site.Params.footer.github }}
         <a href="{{ . }}" target="_blank" rel="noopener">{{ T "github" }}</a>
       {{ end }}

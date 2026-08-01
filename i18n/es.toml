@@ -73,3 +73,12 @@ other = "Enlaces de interés"
 
 [language_switcher]
 other = "Idioma"
+
+[skip_to_content]
+other = "Saltar al contenido"
+
+[main_navigation]
+other = "Navegación principal"
+
+[footer_navigation]
+other = "Navegación del pie de página"

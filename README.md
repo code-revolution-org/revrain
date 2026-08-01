@@ -14,6 +14,7 @@ A Hugo theme by Code Revolution, built for geeks and developers.
 - **Syntax Highlighting** — Built-in via Hugo
 - **Math Support** — Built-in via Hugo
 - **Dark Theme** — Developer-optimized color palette
+- **Accessibility** — WCAG 2.2 AA-aligned: skip link, visible focus, reduced-motion support, ARIA landmarks
 
 ## Quick Start
 
