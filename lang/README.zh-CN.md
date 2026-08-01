@@ -177,6 +177,7 @@ layout = "directory"
 ## 最低要求
 
 - Hugo Extended >= 0.156.0
+- Dart Sass（SCSS 编译所需）
 
 ## 许可证
 

@@ -177,6 +177,7 @@ Fuentes del sistema con fallback CJK:
 ## Requisitos mínimos
 
 - Hugo Extended >= 0.156.0
+- Dart Sass (requerido para la compilación SCSS)
 
 ## Licencia
 

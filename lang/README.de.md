@@ -177,6 +177,7 @@ Systemfonts mit CJK-Fallback:
 ## Mindestanforderungen
 
 - Hugo Extended >= 0.156.0
+- Dart Sass (für die SCSS-Kompilierung erforderlich)
 
 ## Lizenz
 

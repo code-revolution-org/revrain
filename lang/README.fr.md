@@ -177,6 +177,7 @@ Polices système avec fallback CJK :
 ## Prérequis
 
 - Hugo Extended >= 0.156.0
+- Dart Sass (requis pour la compilation SCSS)
 
 ## Licence
 

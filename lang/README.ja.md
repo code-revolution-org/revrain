@@ -177,6 +177,7 @@ layout = "directory"
 ## 最低要件
 
 - Hugo Extended >= 0.156.0
+- Dart Sass（SCSS のコンパイルに必要）
 
 ## ライセンス
 

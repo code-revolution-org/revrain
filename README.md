@@ -178,6 +178,7 @@ Uses system fonts with CJK fallbacks:
 ## Minimum Requirements
 
 - Hugo Extended >= 0.156.0
+- Dart Sass (required for SCSS compilation)
 
 ## License
 

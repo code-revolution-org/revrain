@@ -2,7 +2,7 @@
   {{- $opts := dict
     "transpiler" "dartsass"
     "outputStyle" (cond hugo.IsDevelopment "expanded" "compressed")
-    "sourceMap" (cond hugo.IsDevelopment true false)
+    "enableSourceMap" (cond hugo.IsDevelopment true false)
     "targetPath" "css/main.css"
   }}
   {{- with . | css.Sass $opts }}
