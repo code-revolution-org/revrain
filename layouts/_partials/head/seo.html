@@ -12,17 +12,26 @@
 {{- $locale := site.Language.Locale | default "en_US" | replaceRE "-" "_" }}
 {{- $twitter := site.Params.social.twitter | default "" }}
 {{- with $twitter }}{{ if not (hasPrefix . "@") }}{{ $twitter = printf "@%s" . }}{{ end }}{{ end }}
-
-{{/* SEO robots 控制 / SEO robots control */}}
-{{- with .Params.robots }}
-<meta name="robots" content="{{ . }}">
-{{- end }}
+{{- $is404 := eq .Kind "404" }}
 
 {{/* SEO 元标签 / SEO meta tags */}}
 <meta name="description" content="{{ $desc }}">
 
+{{/* SEO robots 控制 / SEO robots control */}}
+{{- if $is404 }}
+<meta name="robots" content="noindex">
+{{- else }}
+  {{- with .Params.robots }}
+<meta name="robots" content="{{ . }}">
+  {{- end }}
+{{- end }}
+
 {{/* Canonical URL / 规范化链接 */}}
+{{- if $is404 }}
+<link rel="canonical" href="{{ site.Home.Permalink }}">
+{{- else }}
 <link rel="canonical" href="{{ .Permalink }}">
+{{- end }}
 
 {{/* 分页 rel=next/prev / Pagination rel=next/prev */}}
 {{- if in (slice "section" "taxonomy" "term") .Kind }}
@@ -36,6 +45,7 @@
   {{- end }}
 {{- end }}
 
+{{- if not $is404 }}
 {{/* Open Graph / 开放图谱 */}}
 <meta property="og:title" content="{{ .Title }}">
 <meta property="og:description" content="{{ $desc }}">
@@ -90,4 +100,5 @@
 {{- if gt (len $breadcrumb) 1 }}
 {{- $schema := dict "@context" "https://schema.org" "@type" "BreadcrumbList" "itemListElement" $breadcrumb }}
 {{ printf `<script type="application/ld+json">%s</script>` ($schema | jsonify) | safeHTML }}
+{{- end }}
 {{- end }}
