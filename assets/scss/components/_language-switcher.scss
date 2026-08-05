@@ -4,7 +4,7 @@
 
 .lang-switcher {
   position: relative;
-  margin-left: 1rem;
+  margin-inline-start: 1rem;
 
   // Toggle button / 切换按钮
   &__toggle {
@@ -40,7 +40,7 @@
     display: none;
     position: absolute;
     top: calc(100% + 4px);
-    right: 0;
+    inset-inline-end: 0;
     min-width: 100%;
     margin: 0;
     padding: 0.25rem 0;

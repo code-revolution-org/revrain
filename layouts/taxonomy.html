@@ -16,9 +16,9 @@
     {{ end }}
   </div>
   <nav class="pagination cat-pagination"{{ with T "category_pagination" }} aria-label="{{ . }}"{{ end }} style="display:none;">
-    <a href="#" class="pagination-prev cat-prev">&laquo; {{ T "prev" }}</a>
+    <a href="#" class="pagination-prev cat-prev">{{ T "prev" }}</a>
     <span class="pagination-current cat-info"></span>
-    <a href="#" class="pagination-next cat-next">{{ T "next" }} &raquo;</a>
+    <a href="#" class="pagination-next cat-next">{{ T "next" }}</a>
   </nav>
   {{- end }}
 
@@ -37,11 +37,11 @@
   {{- if gt $paginator.TotalPages 1 }}
   <nav class="pagination"{{ with T "page_navigation" }} aria-label="{{ . }}"{{ end }}>
     {{- if $paginator.HasPrev }}
-    <a href="{{ $paginator.Prev.URL }}" class="pagination-prev">&laquo; {{ T "prev" }}</a>
+    <a href="{{ $paginator.Prev.URL }}" class="pagination-prev">{{ T "prev" }}</a>
     {{- end }}
     <span class="pagination-current">{{ $paginator.PageNumber }} / {{ $paginator.TotalPages }}</span>
     {{- if $paginator.HasNext }}
-    <a href="{{ $paginator.Next.URL }}" class="pagination-next">{{ T "next" }} &raquo;</a>
+    <a href="{{ $paginator.Next.URL }}" class="pagination-next">{{ T "next" }}</a>
     {{- end }}
   </nav>
   {{- end }}

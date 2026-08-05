@@ -29,7 +29,7 @@
 }
 
 .next-link {
-  text-align: right;
+  text-align: end;
   align-items: flex-end;
 }
 
@@ -57,7 +57,7 @@
   }
 
   .next-link {
-    text-align: left;
+    text-align: start;
     align-items: flex-start;
   }
 }

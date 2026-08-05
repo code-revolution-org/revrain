@@ -14,7 +14,7 @@
       {{ with .Params.summary }}<p>{{ . }}</p>{{ end }}
       <div class="card-meta">
         <span>{{ len .Pages }} {{ T "pages" }}</span>
-        <span>&rarr;</span>
+        <span class="card-arrow" aria-hidden="true"></span>
       </div>
     </a>
     {{ end }}

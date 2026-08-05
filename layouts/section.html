@@ -17,7 +17,7 @@
       {{- with .Params.summary }}<p>{{ . }}</p>{{ end }}
       <div class="card-meta">
         <span>{{ len .Pages }} {{ T "pages" }}</span>
-        <span>&rarr;</span>
+        <span class="card-arrow" aria-hidden="true"></span>
       </div>
     </a>
     {{- end }}
@@ -43,11 +43,11 @@
   {{- if gt .Paginator.TotalPages 1 }}
   <nav class="pagination"{{ with T "page_navigation" }} aria-label="{{ . }}"{{ end }}>
     {{- if .Paginator.HasPrev }}
-    <a href="{{ .Paginator.Prev.URL }}" class="pagination-prev">&laquo; {{ T "prev" }}</a>
+    <a href="{{ .Paginator.Prev.URL }}" class="pagination-prev">{{ T "prev" }}</a>
     {{- end }}
     <span class="pagination-current">{{ .Paginator.PageNumber }} / {{ .Paginator.TotalPages }}</span>
     {{- if .Paginator.HasNext }}
-    <a href="{{ .Paginator.Next.URL }}" class="pagination-next">{{ T "next" }} &raquo;</a>
+    <a href="{{ .Paginator.Next.URL }}" class="pagination-next">{{ T "next" }}</a>
     {{- end }}
   </nav>
   {{- end }}

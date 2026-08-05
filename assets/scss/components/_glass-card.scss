@@ -71,9 +71,9 @@
 
   // Blockquote / 引用块
   blockquote {
-    border-left: 3px solid $accent;
-    padding-left: 1rem;
-    margin-left: 0;
+    border-inline-start: 3px solid $accent;
+    padding-inline-start: 1rem;
+    margin-inline-start: 0;
     color: $text-secondary;
     font-style: italic;
   }
@@ -214,7 +214,7 @@
   // Article blockquote / 文章引用块
   > blockquote {
     color: $text-secondary;
-    border-left-color: $accent;
+    border-inline-start-color: $accent;
     background: rgba($shroud, 0.3);
     padding: 0.75rem 1rem;
     border-radius: 0 8px 8px 0;
@@ -289,7 +289,7 @@
     td {
       padding: 0.5rem 0.75rem;
       border: 1px solid rgba($border-primary, 0.3);
-      text-align: left;
+      text-align: start;
     }
 
     th {
