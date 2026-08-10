@@ -1,0 +1,42 @@
+{{- /*
+Basic SEO meta tags / 基础 SEO 元标签
+Outputs description, robots, canonical and pagination rel links.
+输出 description、robots、canonical 与分页 rel 链接。
+
+@context {dict} page The page context / 页面上下文
+@context {dict} seo  Shared SEO variables / 共享 SEO 变量
+*/}}
+
+{{- $page := .page }}
+{{- $seo := .seo }}
+
+{{/* SEO 元标签 / SEO meta tags */}}
+<meta name="description" content="{{ $seo.desc }}">
+
+{{/* SEO robots 控制 / SEO robots control */}}
+{{- if $seo.is404 }}
+<meta name="robots" content="noindex">
+{{- else }}
+  {{- with $page.Params.robots }}
+<meta name="robots" content="{{ . }}">
+  {{- end }}
+{{- end }}
+
+{{/* Canonical URL / 规范化链接 */}}
+{{- if $seo.is404 }}
+<link rel="canonical" href="{{ site.Home.Permalink }}">
+{{- else }}
+<link rel="canonical" href="{{ $page.Permalink }}">
+{{- end }}
+
+{{/* 分页 rel=next/prev / Pagination rel=next/prev */}}
+{{- if in (slice "section" "taxonomy" "term") $page.Kind }}
+  {{- with $page.Paginator }}
+    {{- if .HasPrev }}
+<link rel="prev" href="{{ .Prev.URL | absURL }}">
+    {{- end }}
+    {{- if .HasNext }}
+<link rel="next" href="{{ .Next.URL | absURL }}">
+    {{- end }}
+  {{- end }}
+{{- end }}

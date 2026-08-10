@@ -1,0 +1,20 @@
+{{- /*
+Twitter Card / 推特卡片
+Outputs twitter:* meta tags for X/Twitter sharing.
+输出 twitter:* 推特分享元标签。
+
+@context {dict} page The page context / 页面上下文
+@context {dict} seo  Shared SEO variables / 共享 SEO 变量
+*/}}
+
+{{- $page := .page }}
+{{- $seo := .seo }}
+
+{{/* Twitter Card / 推特卡片 */}}
+{{- $cardType := "summary" }}
+{{- with $seo.img }}{{ $cardType = "summary_large_image" }}{{ end }}
+<meta name="twitter:card" content="{{ $cardType }}">
+<meta name="twitter:title" content="{{ $page.Title }}">
+<meta name="twitter:description" content="{{ $seo.desc }}">
+{{- with $seo.img }}<meta name="twitter:image" content="{{ $seo.img | absURL }}">{{ end }}
+{{- with $seo.twitter }}<meta name="twitter:site" content="{{ . }}">{{ end }}

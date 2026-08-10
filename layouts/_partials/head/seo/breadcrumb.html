@@ -1,0 +1,20 @@
+{{- /*
+Breadcrumb structured data / 面包屑结构化数据
+Outputs a BreadcrumbList JSON-LD schema from page ancestors.
+根据页面祖先输出 BreadcrumbList 结构化数据。
+
+@context {dict} page The page context / 页面上下文
+*/}}
+
+{{- $page := .page }}
+
+{{/* 面包屑结构化数据 / Breadcrumb structured data */}}
+{{- $breadcrumb := slice }}
+{{- range $page.Ancestors.Reverse }}
+  {{- $breadcrumb = $breadcrumb | append (dict "@type" "ListItem" "position" (add (len $breadcrumb) 1) "name" .LinkTitle "item" .Permalink) }}
+{{- end }}
+{{- $breadcrumb = $breadcrumb | append (dict "@type" "ListItem" "position" (add (len $breadcrumb) 1) "name" $page.LinkTitle "item" $page.Permalink) }}
+{{- if gt (len $breadcrumb) 1 }}
+{{- $schema := dict "@context" "https://schema.org" "@type" "BreadcrumbList" "itemListElement" $breadcrumb }}
+{{ printf `<script type="application/ld+json">%s</script>` ($schema | jsonify) | safeHTML }}
+{{- end }}

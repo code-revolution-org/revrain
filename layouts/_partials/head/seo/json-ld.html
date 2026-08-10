@@ -1,0 +1,25 @@
+{{- /*
+JSON-LD structured data / JSON-LD 结构化数据
+Outputs WebSite schema on home and Article schema on pages.
+首页输出 WebSite 结构，文章页输出 Article 结构。
+
+@context {dict} page The page context / 页面上下文
+@context {dict} seo  Shared SEO variables / 共享 SEO 变量
+*/}}
+
+{{- $page := .page }}
+{{- $seo := .seo }}
+
+{{/* JSON-LD 结构化数据 / JSON-LD structured data */}}
+{{- /* 使用 dict + jsonify + printf + safeHTML 绕过 JS 转义 / Use dict + jsonify + printf + safeHTML to bypass JS escaping */}}
+{{- /* 使用 site.Home.Permalink 替代 site.BaseURL（官方推荐）/ Use site.Home.Permalink instead of site.BaseURL (official recommendation) */}}
+{{- if $page.IsHome }}
+{{- $schema := dict "@context" "https://schema.org" "@type" "WebSite" "name" site.Title "url" site.Home.Permalink "description" site.Params.description }}
+{{ printf `<script type="application/ld+json">%s</script>` ($schema | jsonify) | safeHTML }}
+{{- else if $page.IsPage }}
+{{- $author := dict "@type" "Organization" "name" site.Title }}
+{{- $schema := dict "@context" "https://schema.org" "@type" "Article" "headline" $page.Title "url" $page.Permalink "description" $seo.desc "author" $author }}
+{{- if not $page.Date.IsZero }}{{ $schema = merge $schema (dict "datePublished" ($page.Date.Format "2006-01-02T15:04:05Z07:00")) }}{{ end }}
+{{- with $page.Lastmod }}{{ $schema = merge $schema (dict "dateModified" (.Format "2006-01-02T15:04:05Z07:00")) }}{{ end }}
+{{ printf `<script type="application/ld+json">%s</script>` ($schema | jsonify) | safeHTML }}
+{{- end }}

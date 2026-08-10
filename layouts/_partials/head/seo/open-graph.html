@@ -1,0 +1,33 @@
+{{- /*
+Open Graph protocol / 开放图谱协议
+Outputs og:* meta tags for social sharing.
+输出 og:* 社交分享元标签。
+
+@context {dict} page The page context / 页面上下文
+@context {dict} seo  Shared SEO variables / 共享 SEO 变量
+*/}}
+
+{{- $page := .page }}
+{{- $seo := .seo }}
+
+{{/* Open Graph / 开放图谱 */}}
+<meta property="og:title" content="{{ $page.Title }}">
+<meta property="og:description" content="{{ $seo.desc }}">
+<meta property="og:url" content="{{ $page.Permalink }}">
+<meta property="og:site_name" content="{{ site.Title }}">
+<meta property="og:locale" content="{{ $seo.locale }}">
+<meta property="og:type" content="{{ if $page.IsPage }}article{{ else }}website{{ end }}">
+{{- with $seo.img }}
+<meta property="og:image" content="{{ $seo.img | absURL }}">
+{{- /* 注意：以下尺寸为推荐值，实际图片尺寸可能不同 / Note: these are recommended sizes, actual image dimensions may differ */}}
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+{{- end }}
+{{- if $page.IsPage }}
+  {{- with $page.Section }}<meta property="article:section" content="{{ . }}">{{ end }}
+  {{- if not $page.Date.IsZero }}<meta property="article:published_time" content="{{ $page.Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ end }}
+  {{- with $page.Lastmod }}<meta property="article:modified_time" content="{{ .Format "2006-01-02T15:04:05Z07:00" }}">{{ end }}
+  {{- with $page.Params.tags }}
+    {{- range first 6 . }}<meta property="article:tag" content="{{ . }}">{{ end }}
+  {{- end }}
+{{- end }}
