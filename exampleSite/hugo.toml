@@ -1,6 +1,5 @@
 baseURL = 'https://example.org/'
 defaultContentLanguage = 'en-US'
-defaultContentLanguageInSubdir = true  # 默认语言也使用子目录 / Use subdir for default lang
 enableRobotsTXT = true  # 启用 robots.txt / Enable robots.txt
 
 theme = "revrain"
