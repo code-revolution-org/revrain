@@ -4,6 +4,7 @@ date = 2023-03-15T11:00:00-07:00
 draft = false
 tags = ['red','green','blue']
 categories = ['Tech','Travel']
+images = ['bryce-canyon.jpg']
 summary = 'Recently I visited Bryce Canyon National Park, and the natural scenery there left me in awe. Standing on the observation deck, looking at the spectacular rock formations, I felt the incredible work of nature.'
 description = 'A travel journal of Bryce Canyon National Park, experiencing the wonders of nature.'
 +++

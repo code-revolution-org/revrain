@@ -4,6 +4,7 @@ date = 2023-03-15T11:00:00-07:00
 draft = false
 tags = ['red', 'green', 'blue']
 categories = ['Técnica', 'Viajes']
+images = ['bryce-canyon.jpg']
 summary = 'Recientemente visité el Parque Nacional Bryce Canyon, y el paisaje natural me dejó profundamente impresionado. Desde el mirador, contemplé las impresionantes formaciones rocosas y sentí la maravillosa obra de la naturaleza.'
 description = 'Relato de viaje al Parque Nacional Bryce Canyon, experimentando la maravillosa obra de la naturaleza.'
 +++

@@ -1,0 +1,45 @@
+{{- /*
+Get images for social sharing meta tags / 获取社交分享元标签图片
+Mirrors Hugo's built-in lookup chain: page images param → featured page resource
+(*feature* / *cover* / *thumbnail*) → site params.images.
+镜像 Hugo 内置查找链：页面 images 参数 → 页面封面资源 → 站点 params.images。
+
+@context {page} The page context / 页面上下文
+@returns {[]dict} Each item: { RelPermalink, Permalink } / 每项含相对与绝对链接
+*/}}
+
+{{- $imgs := slice }}
+{{- $imgParams := .Params.images }}
+{{- $resources := .Resources.ByType "image" }}
+
+{{- /* 未配置 images 时自动查找封面资源 / Auto-discover featured image when images unset */}}
+{{- if not $imgParams }}
+  {{- $featured := $resources.GetMatch "*feature*" }}
+  {{- if not $featured }}{{ $featured = $resources.GetMatch "{*cover*,*thumbnail*}" }}{{ end }}
+  {{- with $featured }}
+    {{- $imgs = $imgs | append (dict "RelPermalink" .RelPermalink "Permalink" .Permalink) }}
+  {{- end }}
+{{- end }}
+
+{{- /* 兜底：站点 params.images 首项 / Fallback: first site params.images entry */}}
+{{- if and (not $imgParams) (not $imgs) }}
+  {{- with site.Params.images }}
+    {{- $imgParams = first 1 . }}
+  {{- end }}
+{{- end }}
+
+{{- /* 解析 images 各项：页面资源→全局资源→静态/相对路径；外部 URL 原样 / Resolve each entry: page resource → global resource → static/relative; external URL as-is */}}
+{{- range $imgParams }}
+  {{- $img := . }}
+  {{- if eq (urls.Parse $img).Scheme "" }}
+    {{- with or ($resources.GetMatch $img) (resources.GetMatch $img) }}
+      {{- $imgs = $imgs | append (dict "RelPermalink" .RelPermalink "Permalink" .Permalink) }}
+    {{- else }}
+      {{- $imgs = $imgs | append (dict "RelPermalink" (relURL $img) "Permalink" (absURL $img)) }}
+    {{- end }}
+  {{- else }}
+    {{- $imgs = $imgs | append (dict "RelPermalink" $img "Permalink" $img) }}
+  {{- end }}
+{{- end }}
+
+{{- return $imgs }}

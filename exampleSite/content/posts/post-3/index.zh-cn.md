@@ -4,6 +4,7 @@ date = 2023-03-15T11:00:00-07:00
 draft = false
 tags = ['red','green','blue']
 categories = ['技术','旅行']
+images = ['bryce-canyon.jpg']
 summary = '最近去了一趟布莱斯峡谷国家公园，那里的自然风光让我震撼不已。站在观景台上，看着眼前壮观的石柱群，感受到了大自然的鬼斧神工。'
 description = '布莱斯峡谷国家公园游记，感受大自然的鬼斧神工。'  # SEO 描述 / SEO description
 +++

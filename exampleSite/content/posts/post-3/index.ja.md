@@ -4,6 +4,7 @@ date = 2023-03-15T11:00:00-07:00
 draft = false
 tags = ['red','green','blue']
 categories = ['技術','旅行']
+images = ['bryce-canyon.jpg']
 summary = '最近ブライスキャニオン国立公園を訪れました。その自然の景色に圧倒されました。展望台に立ち、目の前に広がる壮大な岩柱群を見つめ、大自然の凄腕を感じました。'
 description = 'ブライスキャニオン国立公園の旅日記。大自然の凄腕を感じる。'
 +++

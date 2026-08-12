@@ -4,6 +4,7 @@ date = 2023-03-15T11:00:00-07:00
 draft = false
 tags = ['red', 'green', 'blue']
 categories = ['Technik', 'Reisen']
+images = ['bryce-canyon.jpg']
 summary = 'Kürzlich war ich im Bryce Canyon National Park, und die natürliche Landschaft hat mich zutiefst beeindruckt. Auf der Aussichtsplattform betrachtete ich die beeindruckenden Felsnadeln und spürte die wunderbare Schöpfung der Natur.'
 description = 'Reisebericht über den Bryce Canyon National Park und das Erleben der wunderbaren Schöpfung der Natur.'
 +++

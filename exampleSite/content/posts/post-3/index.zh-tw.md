@@ -4,6 +4,7 @@ date = 2023-03-15T11:00:00-07:00
 draft = false
 tags = ['red','green','blue']
 categories = ['技術','旅行']
+images = ['bryce-canyon.jpg']
 summary = '最近去了一趟布萊斯峽谷國家公園，那裡的自然風光讓我震撼不已。站在觀景臺上，看著眼前壯觀的石柱群，感受到了大自然的鬼斧神工。'
 description = '布萊斯峽谷國家公園遊記，感受大自然的鬼斧神工。'
 +++

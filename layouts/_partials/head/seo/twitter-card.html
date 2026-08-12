@@ -12,9 +12,9 @@ Outputs twitter:* meta tags for X/Twitter sharing.
 
 {{/* Twitter Card / 推特卡片 */}}
 {{- $cardType := "summary" }}
-{{- with $seo.img }}{{ $cardType = "summary_large_image" }}{{ end }}
+{{- with index $seo.imgs 0 }}{{ $cardType = "summary_large_image" }}{{ end }}
 <meta name="twitter:card" content="{{ $cardType }}">
 <meta name="twitter:title" content="{{ $page.Title }}">
 <meta name="twitter:description" content="{{ $seo.desc }}">
-{{- with $seo.img }}<meta name="twitter:image" content="{{ $seo.img | absURL }}">{{ end }}
+{{- with index $seo.imgs 0 }}<meta name="twitter:image" content="{{ .Permalink }}">{{ end }}
 {{- with $seo.twitter }}<meta name="twitter:site" content="{{ . }}">{{ end }}

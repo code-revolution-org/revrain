@@ -4,6 +4,7 @@ date = 2023-03-15T11:00:00-07:00
 draft = false
 tags = ['red','green','blue']
 categories = ['기술','여행']
+images = ['bryce-canyon.jpg']
 summary = '최근 브라이스 캐니언 국립공원을 방문했습니다. 그곳의 자연 경관에 감동을 받았습니다. 전망대에 서서 눈앞에 펼쳐진 장관의 기둥들을 바라보며, 대자연의 위대함을 느꼈습니다.'
 description = '브라이스 캐니언 국립공원 여행기. 대자연의 위대함을 느끼다.'
 +++

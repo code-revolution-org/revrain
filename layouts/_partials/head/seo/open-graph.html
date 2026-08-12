@@ -17,11 +17,8 @@ Outputs og:* meta tags for social sharing.
 <meta property="og:site_name" content="{{ site.Title }}">
 <meta property="og:locale" content="{{ $seo.locale }}">
 <meta property="og:type" content="{{ if $page.IsPage }}article{{ else }}website{{ end }}">
-{{- with $seo.img }}
-<meta property="og:image" content="{{ $seo.img | absURL }}">
-{{- /* 注意：以下尺寸为推荐值，实际图片尺寸可能不同 / Note: these are recommended sizes, actual image dimensions may differ */}}
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
+{{- with index $seo.imgs 0 }}
+<meta property="og:image" content="{{ .Permalink }}">
 {{- end }}
 {{- if $page.IsPage }}
   {{- with $page.Section }}<meta property="article:section" content="{{ . }}">{{ end }}
