@@ -55,17 +55,17 @@ other = "Навигационная цепочка"
 [page_navigation]
 other = "Навигация по страницам"
 
-[category_pagination]
-other = "Постраничная навигация по категориям"
-
 [menu_home]
 other = "Главная"
 
 [menu_browse]
 other = "Обзор"
 
-[menu_taxonomy]
-other = "Таксономия"
+[menu_tags]
+other = "Теги"
+
+[menu_categories]
+other = "Категории"
 
 [menu_about]
 other = "О нас"

@@ -52,17 +52,17 @@ other = "브레드크럼"
 [page_navigation]
 other = "페이지 내비게이션"
 
-[category_pagination]
-other = "카테고리 페이지네이션"
-
 [menu_home]
 other = "홈"
 
 [menu_browse]
 other = "둘러보기"
 
-[menu_taxonomy]
-other = "분류"
+[menu_tags]
+other = "태그"
+
+[menu_categories]
+other = "카테고리"
 
 [menu_about]
 other = "소개"

@@ -52,17 +52,17 @@ other = "パンくずリスト"
 [page_navigation]
 other = "ページナビゲーション"
 
-[category_pagination]
-other = "カテゴリページネーション"
-
 [menu_home]
 other = "ホーム"
 
 [menu_browse]
 other = "閲覧"
 
-[menu_taxonomy]
-other = "分類"
+[menu_tags]
+other = "タグ"
+
+[menu_categories]
+other = "カテゴリ"
 
 [menu_about]
 other = "概要"

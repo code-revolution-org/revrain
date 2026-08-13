@@ -53,17 +53,17 @@ other = "Migas de pan"
 [page_navigation]
 other = "Navegación de página"
 
-[category_pagination]
-other = "Paginación de categorías"
-
 [menu_home]
 other = "Inicio"
 
 [menu_browse]
 other = "Explorar"
 
-[menu_taxonomy]
-other = "Taxonomía"
+[menu_tags]
+other = "Etiquetas"
+
+[menu_categories]
+other = "Categorías"
 
 [menu_about]
 other = "Acerca de"

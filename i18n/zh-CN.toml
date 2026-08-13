@@ -52,16 +52,16 @@ other = "面包屑导航"
 [page_navigation]
 other = "页面导航"
 
-[category_pagination]
-other = "分类分页"
-
 [menu_home]
 other = "首页"
 
 [menu_browse]
 other = "浏览"
 
-[menu_taxonomy]
+[menu_tags]
+other = "标签"
+
+[menu_categories]
 other = "分类"
 
 [menu_about]

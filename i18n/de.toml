@@ -53,17 +53,17 @@ other = "Brotkrümelnavigation"
 [page_navigation]
 other = "Seitennavigation"
 
-[category_pagination]
-other = "Kategorie-Seitenumbruch"
-
 [menu_home]
 other = "Startseite"
 
 [menu_browse]
 other = "Durchsuchen"
 
-[menu_taxonomy]
-other = "Taxonomie"
+[menu_tags]
+other = "Tags"
+
+[menu_categories]
+other = "Kategorien"
 
 [menu_about]
 other = "Über"

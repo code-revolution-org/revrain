@@ -57,17 +57,17 @@ other = "مسار التنقل"
 [page_navigation]
 other = "تنقل الصفحات"
 
-[category_pagination]
-other = "ترقيم الصفحات حسب التصنيف"
-
 [menu_home]
 other = "الرئيسية"
 
 [menu_browse]
 other = "تصفح"
 
-[menu_taxonomy]
-other = "تصنيف"
+[menu_tags]
+other = "وسوم"
+
+[menu_categories]
+other = "تصنيفات"
 
 [menu_about]
 other = "حول"

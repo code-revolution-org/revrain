@@ -1,32 +1,20 @@
 {{ define "main" }}
-{{- if or .Pages site.Taxonomies.categories }}
+{{- with .Data.Terms }}
 <div class="glass-card">
-  <h1>{{ T "taxonomy" }}</h1>
-  {{ .Content }}
+  {{- /* 标题优先取当前分类法名称的 i18n 翻译，无翻译时回退页面标题 / Title: i18n taxonomy name, fallback to page title */}}
+  <h1>{{ T $.Data.Plural | default $.Title }}</h1>
+  {{ $.Content }}
 
-  {{- with site.Taxonomies.categories }}
-  <h2>{{ T "categories" }}</h2>
-  {{- $perPage := 9 }}
-  <div class="tag-cloud cat-cloud" data-per-page="{{ $perPage }}">
-    {{ range .Alphabetical }}
-    <a href="{{ .Page.RelPermalink }}" class="tag-pill">
-      {{ .Page.LinkTitle }}
-      <span class="tag-count">{{ len .Page.Pages }}</span>
-    </a>
-    {{ end }}
-  </div>
-  <nav class="pagination cat-pagination"{{ with T "category_pagination" }} aria-label="{{ . }}"{{ end }} style="display:none;">
-    <a href="#" class="pagination-prev cat-prev">{{ T "prev" }}</a>
-    <span class="pagination-current cat-info"></span>
-    <a href="#" class="pagination-next cat-next">{{ T "next" }}</a>
-  </nav>
-  {{- end }}
-
-  {{- $paginator := .Paginator }}
-  {{- with .Pages }}
-  <h2>{{ T "tags" }}</h2>
+  {{- /* 服务端分页术语云：每页 pagerSize 个术语，生成真实分页 URL / Server-side paginated term cloud
+      注意：head 中的 meta.html 已调用 .Paginator（rel=prev/next），分页缓存首次调用后不可变，
+      此处必须使用 .Paginator 而非 .Paginate 以免二次分页调用失效（官方 Paginate 文档）；
+      术语默认按字母序排列（taxonomy 页 .Pages 默认排序） /
+      Note: meta.html in head already calls .Paginator (rel=prev/next); pagination is cached after
+      the first call, so use .Paginator here — a second .Paginate call would have no effect.
+      Terms are sorted alphabetically by default on taxonomy pages. */}}
+  {{- $paginator := $.Paginator }}
   <div class="tag-cloud">
-    {{ range . }}
+    {{ range $paginator.Pages }}
     <a href="{{ .RelPermalink }}" class="tag-pill">
       {{ .LinkTitle }}
       <span class="tag-count">{{ len .Pages }}</span>
@@ -44,7 +32,6 @@
     <a href="{{ $paginator.Next.URL }}" class="pagination-next">{{ T "next" }}</a>
     {{- end }}
   </nav>
-  {{- end }}
   {{- end }}
 </div>
 {{- end }}

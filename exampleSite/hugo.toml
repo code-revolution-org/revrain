@@ -85,6 +85,11 @@ themesDir = "../../"
     [languages.pt-BR.params.footer]
       copyright = "tema revrain · Construído com Hugo."
 
+# 分类法配置 / Taxonomy configuration
+[taxonomies]
+  category = 'categories'
+  tag = 'tags'
+
 [params]
   logo = "/revrain.png"  # 导航栏 logo，可选；未设置则只显示站点标题 / Nav bar logo, optional; shows site title only if unset
   favicon = "/favicon.ico"   # 浏览器标签页图标，可选；未设置则不显示 / Browser tab icon, optional; not shown if unset
@@ -107,16 +112,22 @@ themesDir = "../../"
     weight = 20
 
   [[menus.main]]
-    name = 'Taxonomy'
-    identifier = 'menu_taxonomy'
+    name = 'Tags'
+    identifier = 'menu_tags'
     pageRef = '/tags'
     weight = 30
+
+  [[menus.main]]
+    name = 'Categories'
+    identifier = 'menu_categories'
+    pageRef = '/categories'
+    weight = 40
 
   [[menus.main]]
     name = 'About'
     identifier = 'menu_about'
     pageRef = '/about'
-    weight = 40
+    weight = 50
 
 [params.footer]
   github = "https://github.com/code-revolution-org/revrain"
@@ -139,6 +150,10 @@ themesDir = "../../"
   [module.hugoVersion]
     extended = true
     min = '0.156.0'
+
+# 分页配置 / Pagination configuration
+[pagination]
+  pagerSize = 22  # 每页条数，用于分类法/栏目/术语页 / Items per page for taxonomy/section/term pages
 
 [markup.tableOfContents]
   startLevel = 2

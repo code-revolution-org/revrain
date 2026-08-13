@@ -53,17 +53,17 @@ other = "Breadcrumb"
 [page_navigation]
 other = "Page navigation"
 
-[category_pagination]
-other = "Category pagination"
-
 [menu_home]
 other = "Home"
 
 [menu_browse]
 other = "Browse"
 
-[menu_taxonomy]
-other = "Taxonomy"
+[menu_tags]
+other = "Tags"
+
+[menu_categories]
+other = "Categories"
 
 [menu_about]
 other = "About"

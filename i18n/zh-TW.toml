@@ -52,16 +52,16 @@ other = "麵包屑導航"
 [page_navigation]
 other = "頁面導航"
 
-[category_pagination]
-other = "分類分頁"
-
 [menu_home]
 other = "首頁"
 
 [menu_browse]
 other = "瀏覽"
 
-[menu_taxonomy]
+[menu_tags]
+other = "標籤"
+
+[menu_categories]
 other = "分類"
 
 [menu_about]

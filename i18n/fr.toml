@@ -53,17 +53,17 @@ other = "Fil d'Ariane"
 [page_navigation]
 other = "Navigation de page"
 
-[category_pagination]
-other = "Pagination des catégories"
-
 [menu_home]
 other = "Accueil"
 
 [menu_browse]
 other = "Parcourir"
 
-[menu_taxonomy]
-other = "Taxonomie"
+[menu_tags]
+other = "Tags"
+
+[menu_categories]
+other = "Catégories"
 
 [menu_about]
 other = "À propos"

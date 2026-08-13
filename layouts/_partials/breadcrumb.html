@@ -6,14 +6,20 @@
     {{- if le $count 2 }}
       {{- /* 2层及以内：全部显示 / 2 levels or fewer: show all */}}
       {{- range $ancestor := $ancestors }}
-    <li><a href="{{ $ancestor.RelPermalink }}">{{ $ancestor.LinkTitle }}</a></li>
+      {{- /* 分类法层级显示 i18n 名称 / Show i18n name for taxonomy ancestors */}}
+      {{- $ancestorName := $ancestor.LinkTitle }}
+      {{- if eq $ancestor.Kind "taxonomy" }}{{ $ancestorName = T $ancestor.Data.Plural | default $ancestorName }}{{ end }}
+    <li><a href="{{ $ancestor.RelPermalink }}">{{ $ancestorName }}</a></li>
       {{- end }}
     {{- else }}
       {{- $first := index $ancestors 0 }}
       {{- $parent := index $ancestors (sub $count 1) }}
     <li><a href="{{ $first.RelPermalink }}">{{ $first.LinkTitle }}</a></li>
     <li><span class="breadcrumb-ellipsis">&hellip;</span></li>
-    <li><a href="{{ $parent.RelPermalink }}">{{ $parent.LinkTitle }}</a></li>
+      {{- /* 分类法层级显示 i18n 名称 / Show i18n name for taxonomy ancestors */}}
+      {{- $parentName := $parent.LinkTitle }}
+      {{- if eq $parent.Kind "taxonomy" }}{{ $parentName = T $parent.Data.Plural | default $parentName }}{{ end }}
+    <li><a href="{{ $parent.RelPermalink }}">{{ $parentName }}</a></li>
     {{- end }}
     <li><span class="breadcrumb-current" aria-current="page">{{ .LinkTitle }}</span></li>
   </ol>

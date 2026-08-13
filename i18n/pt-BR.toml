@@ -53,17 +53,17 @@ other = "Fila de pão"
 [page_navigation]
 other = "Navegação de página"
 
-[category_pagination]
-other = "Paginação de categorias"
-
 [menu_home]
 other = "Início"
 
 [menu_browse]
 other = "Explorar"
 
-[menu_taxonomy]
-other = "Taxonomia"
+[menu_tags]
+other = "Tags"
+
+[menu_categories]
+other = "Categorias"
 
 [menu_about]
 other = "Sobre"
