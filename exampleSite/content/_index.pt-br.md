@@ -3,14 +3,14 @@ title = 'revrain'
 date = 2023-01-01T08:00:00-07:00
 draft = false
 logo = "/favicon.ico"
-logoAlt = "revrain logo"
+logo_alt = "revrain logo"
 subtitle = "Tema Hugo criado pelo Code Revolution, feito para geek e desenvolvedores."
 
-[primaryButton]
+[primary_button]
   url = "/browse"
   text = "Começar a Explorar"
 
-[secondaryButton]
+[secondary_button]
   url = "/about"
   text = "Sobre Nós"
 +++

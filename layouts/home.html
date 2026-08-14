@@ -2,7 +2,7 @@
 
 <section class="hero">
   {{ with .Params.logo }}
-  <img src="{{ relURL (strings.TrimPrefix "/" .) }}" alt="{{ $.Params.logoAlt }}" class="hero-logo" />
+  <img src="{{ relURL (strings.TrimPrefix "/" .) }}" alt="{{ $.Params.logo_alt }}" class="hero-logo" />
   {{ end }}
 
   {{ with .Params.title }}
@@ -13,12 +13,12 @@
   <p class="hero-subtitle">{{ . }}</p>
   {{ end }}
 
-  {{- if or .Params.primaryButton .Params.secondaryButton }}
+  {{- if or .Params.primary_button .Params.secondary_button }}
   <div class="hero-buttons">
-    {{- with .Params.primaryButton }}
+    {{- with .Params.primary_button }}
     <a href="{{ if hasPrefix .url "http" }}{{ .url }}{{ else }}{{ relLangURL (strings.TrimPrefix "/" .url) }}{{ end }}" class="btn btn-primary">{{ .text }}</a>
     {{- end }}
-    {{- with .Params.secondaryButton }}
+    {{- with .Params.secondary_button }}
     <a href="{{ if hasPrefix .url "http" }}{{ .url }}{{ else }}{{ relLangURL (strings.TrimPrefix "/" .url) }}{{ end }}" class="btn btn-secondary">{{ .text }}</a>
     {{- end }}
   </div>

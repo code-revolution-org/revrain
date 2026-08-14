@@ -3,14 +3,14 @@ title = 'revrain'
 date = 2023-01-01T08:00:00-07:00
 draft = false
 logo = "/favicon.ico"
-logoAlt = "revrain logo"
+logo_alt = "revrain logo"
 subtitle = "コードレボリューションが手掛けるHugoテーマ。ゲッカーとデベロッパーのために生まれた。"
 
-[primaryButton]
+[primary_button]
   url = "/browse"
   text = "探索を始める"
 
-[secondaryButton]
+[secondary_button]
   url = "/about"
   text = "私たちについて"
 +++

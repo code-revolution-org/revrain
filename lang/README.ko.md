@@ -57,12 +57,12 @@ theme = "revrain"
 ### 디지털 비
 
 ```toml
-[params.digitalRain]
+[params.digital_rain]
   enable = true
   chars = "アイウエオカキクケコ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-  fontSize = 14       # 10–32 px
-  moonChance = 0.02   # 문 흰색 문자 확률
-  resetChance = 0.025 # 비 리셋 확률
+  font_size = 14       # 10–32 px
+  moon_chance = 0.02   # 문 흰색 문자 확률
+  reset_chance = 0.025 # 비 리셋 확률
 ```
 
 ### 수학 공식
@@ -121,13 +121,13 @@ theme = "revrain"
 title = "내 사이트"
 subtitle = "내 사이트에 오신 것을 환영합니다"
 logo = "/logo.png"
-logoAlt = "사이트 로고"
+logo_alt = "사이트 로고"
 
-[primaryButton]
+[primary_button]
   url = "/browse"
   text = "시작하기"
 
-[secondaryButton]
+[secondary_button]
   url = "/about"
   text = "소개"
 +++

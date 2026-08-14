@@ -11,14 +11,14 @@
 <body>
   {{- /* 跳转到主内容 / Skip link for keyboard & assistive tech users (WCAG 2.4.1) */ -}}
   <a class="skip-link" href="#main-content">{{ T "skip_to_content" }}</a>
-  {{- $dr := site.Params.digitalRain | default dict }}
+  {{- $dr := site.Params.digital_rain | default dict }}
   {{- /* 纯装饰画布，对辅助技术隐藏 / Decorative canvas, hidden from assistive tech (WCAG 1.1.1) */}}
   <canvas id="digital-rain-canvas" role="presentation" aria-hidden="true"
     data-enable="{{ $dr.enable }}"
     data-chars="{{ $dr.chars }}"
-    data-font-size="{{ $dr.fontSize }}"
-    data-moon-chance="{{ $dr.moonChance }}"
-    data-reset-chance="{{ $dr.resetChance }}"></canvas>
+    data-font-size="{{ $dr.font_size }}"
+    data-moon-chance="{{ $dr.moon_chance }}"
+    data-reset-chance="{{ $dr.reset_chance }}"></canvas>
   <header>
     {{ partial "header.html" . }}
   </header>

@@ -57,12 +57,12 @@ theme = "revrain"
 ### Цифровой дождь
 
 ```toml
-[params.digitalRain]
+[params.digital_rain]
   enable = true
   chars = "アイウエオカキクケコ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-  fontSize = 14       # 10–32 px
-  moonChance = 0.02   # Вероятность лунно-белого символа
-  resetChance = 0.025 # Вероятность сброса капли
+  font_size = 14       # 10–32 px
+  moon_chance = 0.02   # Вероятность лунно-белого символа
+  reset_chance = 0.025 # Вероятность сброса капли
 ```
 
 ### Математика
@@ -121,13 +121,13 @@ theme = "revrain"
 title = "Мой сайт"
 subtitle = "Добро пожаловать на мой сайт"
 logo = "/logo.png"
-logoAlt = "Логотип сайта"
+logo_alt = "Логотип сайта"
 
-[primaryButton]
+[primary_button]
   url = "/browse"
   text = "Начать"
 
-[secondaryButton]
+[secondary_button]
   url = "/about"
   text = "О нас"
 +++

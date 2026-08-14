@@ -57,12 +57,12 @@ theme = "revrain"
 ### المطر الرقمي
 
 ```toml
-[params.digitalRain]
+[params.digital_rain]
   enable = true
   chars = "アイウエオカキクケコ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-  fontSize = 14       # 10–32 بكسل
-  moonChance = 0.02   # احتمال حرف أبيض قمري
-  resetChance = 0.025 # احتمال إعادة تعيين القطرة
+  font_size = 14       # 10–32 بكسل
+  moon_chance = 0.02   # احتمال حرف أبيض قمري
+  reset_chance = 0.025 # احتمال إعادة تعيين القطرة
 ```
 
 ### الرياضيات
@@ -121,13 +121,13 @@ theme = "revrain"
 title = "موقعي"
 subtitle = "مرحبًا بك في موقعي"
 logo = "/logo.png"
-logoAlt = "شعار الموقع"
+logo_alt = "شعار الموقع"
 
-[primaryButton]
+[primary_button]
   url = "/browse"
   text = "ابدأ"
 
-[secondaryButton]
+[secondary_button]
   url = "/about"
   text = "حول"
 +++

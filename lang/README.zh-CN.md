@@ -57,12 +57,12 @@ theme = "revrain"
 ### 数字雨
 
 ```toml
-[params.digitalRain]
+[params.digital_rain]
   enable = true
   chars = "アイウエオカキクケコ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-  fontSize = 14       # 10–32 px
-  moonChance = 0.02   # 月白色字符概率
-  resetChance = 0.025 # 雨滴重置概率
+  font_size = 14       # 10–32 px
+  moon_chance = 0.02   # 月白色字符概率
+  reset_chance = 0.025 # 雨滴重置概率
 ```
 
 ### 数学公式
@@ -121,13 +121,13 @@ theme = "revrain"
 title = "我的站点"
 subtitle = "欢迎来到我的站点"
 logo = "/logo.png"
-logoAlt = "站点 logo"
+logo_alt = "站点 logo"
 
-[primaryButton]
+[primary_button]
   url = "/browse"
   text = "开始探索"
 
-[secondaryButton]
+[secondary_button]
   url = "/about"
   text = "关于我们"
 +++

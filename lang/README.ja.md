@@ -57,12 +57,12 @@ theme = "revrain"
 ### デジタルレイン
 
 ```toml
-[params.digitalRain]
+[params.digital_rain]
   enable = true
   chars = "アイウエオカキクケコ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-  fontSize = 14       # 10–32 px
-  moonChance = 0.02   # ムーンホワイト文字の確率
-  resetChance = 0.025 # 雨リセットの確率
+  font_size = 14       # 10–32 px
+  moon_chance = 0.02   # ムーンホワイト文字の確率
+  reset_chance = 0.025 # 雨リセットの確率
 ```
 
 ### 数式
@@ -121,13 +121,13 @@ theme = "revrain"
 title = "私のサイト"
 subtitle = "私のサイトへようこそ"
 logo = "/logo.png"
-logoAlt = "サイトロゴ"
+logo_alt = "サイトロゴ"
 
-[primaryButton]
+[primary_button]
   url = "/browse"
   text = "はじめに"
 
-[secondaryButton]
+[secondary_button]
   url = "/about"
   text = "概要"
 +++

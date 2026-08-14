@@ -57,12 +57,12 @@ theme = "revrain"
 ### Chuva digital
 
 ```toml
-[params.digitalRain]
+[params.digital_rain]
   enable = true
   chars = "アイウエオカキクケコ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-  fontSize = 14       # 10–32 px
-  moonChance = 0.02   # Probabilidade de caractere branco lunar
-  resetChance = 0.025 # Probabilidade de redefinição de gota
+  font_size = 14       # 10–32 px
+  moon_chance = 0.02   # Probabilidade de caractere branco lunar
+  reset_chance = 0.025 # Probabilidade de redefinição de gota
 ```
 
 ### Matemática
@@ -121,13 +121,13 @@ Configure o copyright por idioma:
 title = "Meu site"
 subtitle = "Bem-vindo ao meu site"
 logo = "/logo.png"
-logoAlt = "Logo do site"
+logo_alt = "Logo do site"
 
-[primaryButton]
+[primary_button]
   url = "/browse"
   text = "Começar"
 
-[secondaryButton]
+[secondary_button]
   url = "/about"
   text = "Sobre"
 +++
