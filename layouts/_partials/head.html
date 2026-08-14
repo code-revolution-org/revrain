@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 {{/* 浏览器标签页图标 / Browser tab icon */}}
 {{- if site.Params.favicon }}
-  <link rel="icon" href="{{ relURL site.Params.favicon }}">
+  <link rel="icon" href="{{ relURL (strings.TrimPrefix "/" site.Params.favicon) }}">
 {{- else }}
   {{/* 空 data URI 顶掉浏览器默认的 /favicon.ico 请求，避免 404 / Empty data URI suppresses the default /favicon.ico request */}}
   <link rel="icon" href="data:,">

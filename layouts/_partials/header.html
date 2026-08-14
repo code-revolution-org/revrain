@@ -1,7 +1,7 @@
 <div class="header__brand">
   {{/* 导航栏 logo；相邻的站点标题链接已提供名称，故 alt 留空（装饰性）/ Logo; adjacent site-title link provides the name, so alt="" (decorative) */}}
   {{ with site.Params.logo }}
-    <img class="header__icon" src="{{ relURL . }}" alt="" aria-hidden="true">
+    <img class="header__icon" src="{{ relURL (strings.TrimPrefix "/" .) }}" alt="" aria-hidden="true">
   {{ end }}
   <a class="header__title" href="{{ relLangURL "" }}">{{ site.Title }}</a>
 </div>

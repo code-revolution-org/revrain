@@ -35,7 +35,7 @@ Mirrors Hugo's built-in lookup chain: page images param → featured page resour
     {{- with or ($resources.GetMatch $img) (resources.GetMatch $img) }}
       {{- $imgs = $imgs | append (dict "RelPermalink" .RelPermalink "Permalink" .Permalink) }}
     {{- else }}
-      {{- $imgs = $imgs | append (dict "RelPermalink" (relURL $img) "Permalink" (absURL $img)) }}
+      {{- $imgs = $imgs | append (dict "RelPermalink" (relURL (strings.TrimPrefix "/" $img)) "Permalink" (absURL (strings.TrimPrefix "/" $img))) }}
     {{- end }}
   {{- else }}
     {{- $imgs = $imgs | append (dict "RelPermalink" $img "Permalink" $img) }}
