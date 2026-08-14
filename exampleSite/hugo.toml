@@ -155,6 +155,15 @@ themesDir = "../../"
 [pagination]
   pagerSize = 22  # 每页条数，用于分类法/栏目/术语页 / Items per page for taxonomy/section/term pages
 
+# 数学公式支持 / Math support (Goldmark passthrough + transform.ToMath)
+# 官方推荐定界符：块级 \[...\] / $$...$$，行内 \(...\)（勿配置 $...$，避免与 Markdown 冲突）
+# Official delimiters: block \[...\] / $$...$$, inline \(...\) (avoid $...$ which conflicts with Markdown)
+[markup.goldmark.extensions.passthrough]
+  enable = true
+  [markup.goldmark.extensions.passthrough.delimiters]
+    block = [['\[', '\]'], ['$$', '$$']]
+    inline = [['\(', '\)']]
+
 [markup.tableOfContents]
   startLevel = 2
   endLevel = 6

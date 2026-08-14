@@ -12,7 +12,7 @@
 - **تحسين محركات البحث** — Open Graph، Twitter Card، البيانات المنظمة JSON-LD، مخطط breadcrumb
 - **متجاوب** — Mobile-first، 4 نقاط توقف (480 / 768 / 1024 / 1280px)
 - **تمييز بناء الجملة** — مدمج في Hugo
-- **دعم الرياضيات** — مدمج في Hugo
+- **دعم الرياضيات** — عرض KaTeX من جانب الخادم بواسطة Hugo (transform.ToMath)، بدون JavaScript في المتصفح
 - **السمة الداكنة** — لوحة ألوان محسّنة للمطورين
 
 ## البداية السريعة
@@ -64,6 +64,25 @@ theme = "revrain"
   moonChance = 0.02   # احتمال حرف أبيض قمري
   resetChance = 0.025 # احتمال إعادة تعيين القطرة
 ```
+
+### الرياضيات
+
+تُعرض الصيغ الرياضية وقت البناء بواسطة محرك KaTeX المدمج في Hugo (`transform.ToMath`) — لا حاجة إلى JavaScript من جانب المتصفح. فعّل ملحق passthrough في Goldmark في الإعدادات:
+
+```toml
+[markup.goldmark.extensions.passthrough]
+  enable = true
+  [markup.goldmark.extensions.passthrough.delimiters]
+    block = [['\[', '\]'], ['$$', '$$']]
+    inline = [['\(', '\)']]
+```
+
+استخدم هذه المحددات في المحتوى:
+
+- سطري: `\(...\)`
+- كتلي: `$$...$$` أو `\[...\]`
+
+**إشعار CDN:** يتم تحميل ورقة أنماط KaTeX (`katex.min.css` v0.17.0، المطلوبة لمخرجات `htmlAndMathml`) من شبكة jsDelivr مع التحقق من سلامة الموارد الفرعية (SRI). يُرخَّص KaTeX بموجب [رخصة MIT](https://github.com/KaTeX/KaTeX/blob/main/LICENSE) (Copyright (c) 2013-2020 Khan Academy and other contributors). يُحمَّل فقط في الصفحات التي تحتوي على صيغ رياضية.
 
 ### متعدد اللغات
 

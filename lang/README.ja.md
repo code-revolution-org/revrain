@@ -12,7 +12,7 @@
 - **SEO** — Open Graph、Twitter Card、JSON-LD 構造化データ、パンくずリスト Schema
 - **レスポンシブ** — モバイルファースト、4ブレークポイント（480 / 768 / 1024 / 1280px）
 - **シンタックスハイライト** — Hugo 内蔵
-- **数式サポート** — Hugo 内蔵
+- **数式サポート** — Hugo サーバーサイド KaTeX レンダリング（transform.ToMath）、クライアント JS 不要
 - **ダークテーマ** — 開発者向けのカラーパレット
 
 ## クイックスタート
@@ -64,6 +64,25 @@ theme = "revrain"
   moonChance = 0.02   # ムーンホワイト文字の確率
   resetChance = 0.025 # 雨リセットの確率
 ```
+
+### 数式
+
+数式はビルド時に Hugo 内蔵の KaTeX エンジン（`transform.ToMath`）によってレンダリングされます——クライアント側 JavaScript は不要です。設定で Goldmark passthrough 拡張を有効にします：
+
+```toml
+[markup.goldmark.extensions.passthrough]
+  enable = true
+  [markup.goldmark.extensions.passthrough.delimiters]
+    block = [['\[', '\]'], ['$$', '$$']]
+    inline = [['\(', '\)']]
+```
+
+コンテンツでは以下の区切り文字を使用します：
+
+- インライン：`\(...\)`
+- ブロック：`$$...$$` または `\[...\]`
+
+**CDN について：** KaTeX スタイルシート（`katex.min.css` v0.17.0、`htmlAndMathml` 出力に必須）は jsDelivr CDN から読み込まれ、Subresource Integrity（SRI）検証付きです。KaTeX は [MIT ライセンス](https://github.com/KaTeX/KaTeX/blob/main/LICENSE)（Copyright (c) 2013-2020 Khan Academy and other contributors）で提供されています。数式を含むページでのみ読み込まれます。
 
 ### 多言語
 

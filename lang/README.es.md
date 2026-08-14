@@ -12,7 +12,7 @@ Un tema de Hugo por Code Revolution, diseñado para frikis y desarrolladores.
 - **SEO** — Open Graph, Twitter Card, datos estructurados JSON-LD, esquema breadcrumb
 - **Responsive** — Mobile-first, 4 breakpoints (480 / 768 / 1024 / 1280px)
 - **Resaltado de sintaxis** — Integrado en Hugo
-- **Soporte matemático** — Integrado en Hugo
+- **Soporte matemático** — Renderizado KaTeX del lado del servidor por Hugo (transform.ToMath), sin JS del lado del cliente
 - **Tema oscuro** — Paleta de colores optimizada para desarrolladores
 
 ## Inicio rápido
@@ -64,6 +64,25 @@ theme = "revrain"
   moonChance = 0.02   # Probabilidad de carácter blanco lunar
   resetChance = 0.025 # Probabilidad de reinicio de gota
 ```
+
+### Matemáticas
+
+Las fórmulas matemáticas se renderizan en tiempo de compilación con el motor KaTeX integrado en Hugo (`transform.ToMath`) — no se requiere JavaScript del lado del cliente. Active la extensión passthrough de Goldmark en su configuración:
+
+```toml
+[markup.goldmark.extensions.passthrough]
+  enable = true
+  [markup.goldmark.extensions.passthrough.delimiters]
+    block = [['\[', '\]'], ['$$', '$$']]
+    inline = [['\(', '\)']]
+```
+
+Use estos delimitadores en su contenido:
+
+- En línea: `\(...\)`
+- En bloque: `$$...$$` o `\[...\]`
+
+**Aviso CDN:** La hoja de estilo de KaTeX (`katex.min.css` v0.17.0, necesaria para la salida `htmlAndMathml`) se carga desde el CDN jsDelivr con verificación de integridad de subrecursos (SRI). KaTeX está licenciado bajo la [licencia MIT](https://github.com/KaTeX/KaTeX/blob/main/LICENSE) (Copyright (c) 2013-2020 Khan Academy and other contributors). Solo se carga en páginas que contienen fórmulas.
 
 ### Multilingüe
 

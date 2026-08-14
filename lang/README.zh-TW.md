@@ -12,7 +12,7 @@
 - **SEO** — Open Graph、Twitter Card、JSON-LD 結構化資料、麵包屑 Schema
 - **響應式** — 移動優先，4 個斷點（480 / 768 / 1024 / 1280px）
 - **程式碼高亮** — Hugo 內建支援
-- **數學公式** — Hugo 內建支援
+- **數學公式** — Hugo 伺服器端 KaTeX 渲染（transform.ToMath），無需用戶端 JS
 - **深色主題** — 針對開發者優化的配色方案
 
 ## 快速開始
@@ -64,6 +64,25 @@ theme = "revrain"
   moonChance = 0.02   # 月白色字元機率
   resetChance = 0.025 # 雨滴重置機率
 ```
+
+### 數學公式
+
+數學公式在建置時由 Hugo 內建的 KaTeX 引擎（`transform.ToMath`）渲染——無需用戶端 JavaScript。在設定中啟用 Goldmark passthrough 擴充功能：
+
+```toml
+[markup.goldmark.extensions.passthrough]
+  enable = true
+  [markup.goldmark.extensions.passthrough.delimiters]
+    block = [['\[', '\]'], ['$$', '$$']]
+    inline = [['\(', '\)']]
+```
+
+在內容中使用以下定界符：
+
+- 行內：`\(...\)`
+- 區塊：`$$...$$` 或 `\[...\]`
+
+**CDN 聲明：** KaTeX 樣式表（`katex.min.css` v0.17.0，`htmlAndMathml` 輸出必需）從 jsDelivr CDN 載入，並帶有子資源完整性（SRI）驗證。KaTeX 採用 [MIT 授權](https://github.com/KaTeX/KaTeX/blob/main/LICENSE)（版權歸 Khan Academy 及其他貢獻者，2013-2020）。僅在包含公式的頁面載入。
 
 ### 多語言
 

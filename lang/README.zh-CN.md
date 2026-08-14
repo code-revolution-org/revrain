@@ -12,7 +12,7 @@
 - **SEO** — Open Graph、Twitter Card、JSON-LD 结构化数据、面包屑 Schema
 - **响应式** — 移动优先，4 个断点（480 / 768 / 1024 / 1280px）
 - **代码高亮** — Hugo 内置支持
-- **数学公式** — Hugo 内置支持
+- **数学公式** — Hugo 服务端 KaTeX 渲染（transform.ToMath），无需客户端 JS
 - **深色主题** — 针对开发者优化的配色方案
 
 ## 快速开始
@@ -64,6 +64,25 @@ theme = "revrain"
   moonChance = 0.02   # 月白色字符概率
   resetChance = 0.025 # 雨滴重置概率
 ```
+
+### 数学公式
+
+数学公式在构建时由 Hugo 内置的 KaTeX 引擎（`transform.ToMath`）渲染——无需客户端 JavaScript。在配置中启用 Goldmark passthrough 扩展：
+
+```toml
+[markup.goldmark.extensions.passthrough]
+  enable = true
+  [markup.goldmark.extensions.passthrough.delimiters]
+    block = [['\[', '\]'], ['$$', '$$']]
+    inline = [['\(', '\)']]
+```
+
+在内容中使用以下定界符：
+
+- 行内：`\(...\)`
+- 块级：`$$...$$` 或 `\[...\]`
+
+**CDN 声明：** KaTeX 样式表（`katex.min.css` v0.17.0，`htmlAndMathml` 输出必需）从 jsDelivr CDN 加载，并带有子资源完整性（SRI）校验。KaTeX 采用 [MIT 许可证](https://github.com/KaTeX/KaTeX/blob/main/LICENSE)（版权归 Khan Academy 及其他贡献者，2013-2020）。仅在包含公式的页面加载。
 
 ### 多语言
 

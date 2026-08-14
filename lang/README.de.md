@@ -12,7 +12,7 @@ Ein Hugo-Theme von Code Revolution, entwickelt für Geeks und Entwickler.
 - **SEO** — Open Graph, Twitter Card, JSON-LD strukturierte Daten, Breadcrumb-Schema
 - **Responsiv** — Mobile-First, 4 Breakpoints (480 / 768 / 1024 / 1280px)
 - **Syntax-Highlighting** — Hugo-integriert
-- **Mathematik-Unterstützung** — Hugo-integriert
+- **Mathematik-Unterstützung** — Serverseitiges KaTeX-Rendering durch Hugo (transform.ToMath), ohne Client-JS
 - **Dunkles Theme** — Für Entwickler optimierte Farbpalette
 
 ## Schnellstart
@@ -64,6 +64,25 @@ theme = "revrain"
   moonChance = 0.02   # Wahrscheinlichkeit für Mond-Weiß-Zeichen
   resetChance = 0.025 # Wahrscheinlichkeit für Regentropfen-Reset
 ```
+
+### Mathematik
+
+Mathematische Formeln werden zur Build-Zeit von der in Hugo integrierten KaTeX-Engine (`transform.ToMath`) gerendert — kein clientseitiges JavaScript erforderlich. Aktivieren Sie die Goldmark-passthrough-Erweiterung in Ihrer Konfiguration:
+
+```toml
+[markup.goldmark.extensions.passthrough]
+  enable = true
+  [markup.goldmark.extensions.passthrough.delimiters]
+    block = [['\[', '\]'], ['$$', '$$']]
+    inline = [['\(', '\)']]
+```
+
+Verwenden Sie diese Trennzeichen in Ihrem Inhalt:
+
+- Inline: `\(...\)`
+- Block: `$$...$$` oder `\[...\]`
+
+**CDN-Hinweis:** Das KaTeX-Stylesheet (`katex.min.css` v0.17.0, für die `htmlAndMathml`-Ausgabe erforderlich) wird vom jsDelivr-CDN mit Subresource-Integrity-Prüfung (SRI) geladen. KaTeX ist unter der [MIT-Lizenz](https://github.com/KaTeX/KaTeX/blob/main/LICENSE) lizenziert (Copyright (c) 2013-2020 Khan Academy and other contributors). Es wird nur auf Seiten mit Formeln geladen.
 
 ### Mehrsprachig
 

@@ -12,7 +12,7 @@
 - **SEO** — Open Graph, Twitter Card, JSON-LD 구조화 데이터, 브레드크럼 스키마
 - **반응형** — 모바일 퍼스트, 4개 브레이크포인트 (488 / 768 / 1024 / 1280px)
 - **구문 강조** — Hugo 내장 지원
-- **수학 공식** — Hugo 내장 지원
+- **수학 공식** — Hugo 서버 측 KaTeX 렌더링(transform.ToMath), 클라이언트 JS 불필요
 - **다크 테마** — 개발자 최적화 색상 팔레트
 
 ## 빠른 시작
@@ -64,6 +64,25 @@ theme = "revrain"
   moonChance = 0.02   # 문 흰색 문자 확률
   resetChance = 0.025 # 비 리셋 확률
 ```
+
+### 수학 공식
+
+수학 공식은 빌드 시 Hugo에 내장된 KaTeX 엔진(`transform.ToMath`)으로 렌더링됩니다——클라이언트 측 JavaScript가 필요 없습니다. 설정에서 Goldmark passthrough 확장을 활성화하세요:
+
+```toml
+[markup.goldmark.extensions.passthrough]
+  enable = true
+  [markup.goldmark.extensions.passthrough.delimiters]
+    block = [['\[', '\]'], ['$$', '$$']]
+    inline = [['\(', '\)']]
+```
+
+콘텐츠에서 다음 구분 기호를 사용하세요:
+
+- 인라인: `\(...\)`
+- 블록: `$$...$$` 또는 `\[...\]`
+
+**CDN 고지:** KaTeX 스타일시트(`katex.min.css` v0.17.0, `htmlAndMathml` 출력에 필수)는 jsDelivr CDN에서 로드되며 SRI(Subresource Integrity) 검증이 적용됩니다. KaTeX는 [MIT 라이선스](https://github.com/KaTeX/KaTeX/blob/main/LICENSE)(Copyright (c) 2013-2020 Khan Academy and other contributors)로 제공됩니다. 수학 공식이 포함된 페이지만 로드됩니다.
 
 ### 다국어
 
