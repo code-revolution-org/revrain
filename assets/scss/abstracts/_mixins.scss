@@ -30,12 +30,6 @@
   align-items: center;
 }
 
-// Allow items to wrap onto multiple lines / 自动换行
-@mixin flex-wrap {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 // Flex with configurable gap / 带间距排列
 @mixin flex-gap($gap: 1rem) {
   display: flex;
@@ -66,30 +60,9 @@
   }
 }
 
-// Desktop / 桌面端 (min-width: $bp-desktop)
-@mixin desktop {
-  @media (min-width: $bp-desktop) {
-    @content;
-  }
-}
-
-// Wide / 宽屏端 (min-width: $bp-wide)
-@mixin wide {
-  @media (min-width: $bp-wide) {
-    @content;
-  }
-}
-
 // Mobile Landscape / 移动端横屏
 @mixin mobile-landscape {
   @media (max-width: $bp-mobile) and (orientation: landscape) {
-    @content;
-  }
-}
-
-// Tablet Landscape / 平板端横屏
-@mixin tablet-landscape {
-  @media (max-width: $bp-tablet) and (orientation: landscape) {
     @content;
   }
 }
