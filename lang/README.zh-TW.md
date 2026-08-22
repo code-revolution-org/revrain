@@ -28,13 +28,20 @@ theme = "revrain"
 ```toml
 [params]
   logo = "/logo.png"          # 導航列 logo（可選）
-  favicon = "/favicon.ico"    # 瀏覽器標籤頁圖示（可選）
   description = "..."         # 站點描述，用於 SEO
   images = ["/og-image.png"]  # 預設社交分享圖片
 
 [params.social]
   twitter = "username"        # Twitter 帳號，用於 twitter:site
+
+[params.favicons]             # 瀏覽器標籤頁圖示（全部可選）
+  svg = "/favicon.svg"                # SVG 向量圖示
+  icon_32 = "/favicon-32x32.png"      # 32x32 PNG
+  icon_16 = "/favicon-16x16.png"      # 16x16 PNG
+  apple_touch = "/apple-touch-icon.png"  # iOS 主螢幕圖示
 ```
+
+**favicon 查找鏈：** 每個條目按 *配置路徑 → static/ 下的規範檔名 → 跳過* 解析。若完全未配置或不存在任何圖示，則輸出空 `data:` URI 以抑制瀏覽器預設的 `/favicon.ico` 請求（避免 404）。路徑可以是外部 URL（`https://...`）或站台相對路徑。
 
 ### 頁尾
 

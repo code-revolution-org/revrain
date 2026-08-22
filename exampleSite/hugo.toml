@@ -92,11 +92,16 @@ themesDir = "../../"
 
 [params]
   logo = "/revrain.png"  # 导航栏 logo，可选；未设置则只显示站点标题 / Nav bar logo, optional; shows site title only if unset
-  favicon = "/favicon.ico"   # 浏览器标签页图标，可选；未设置则不显示 / Browser tab icon, optional; not shown if unset
   description = "代码革命 - 致力于技术分享与开源协作的开发者组织"  # 站点描述，用于 SEO / Site description for SEO
   images = ["/revrain.png"]  # 默认社交分享图片，用于 og:image 和 twitter:image / Default social share image
   [params.social]
     twitter = ""  # Twitter 账号，用于 twitter:site / Twitter account for twitter:site
+  # 浏览器标签页图标：配置优先，未配置则回退 static/ 下的规范文件名，全部缺失时输出空 data URI 避免 404 / Site icons: config takes precedence, falls back to convention filenames in static/, empty data URI suppresses 404 when all are missing
+  [params.favicons]
+    svg = "/favicon.svg"  # SVG 矢量图标 / SVG vector icon
+    icon_32 = "/favicon-32x32.png"  # 32x32 PNG / 32x32 PNG
+    icon_16 = "/favicon-16x16.png"  # 16x16 PNG / 16x16 PNG
+    apple_touch = "/apple-touch-icon.png"  # iOS 主屏图标 / iOS home screen icon
 
 [menus]
   [[menus.main]]

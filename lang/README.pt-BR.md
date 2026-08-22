@@ -28,13 +28,20 @@ theme = "revrain"
 ```toml
 [params]
   logo = "/logo.png"          # Logo da barra de navegação (opcional)
-  favicon = "/favicon.ico"    # Ícone da aba do navegador (opcional)
   description = "..."         # Descrição do site para SEO
   images = ["/og-image.png"]  # Imagem de compartilhamento social padrão
 
 [params.social]
   twitter = "username"        # Conta do Twitter para twitter:site
+
+[params.favicons]             # Ícones da aba do navegador (todos opcionais)
+  svg = "/favicon.svg"                # Ícone vetorial SVG
+  icon_32 = "/favicon-32x32.png"      # 32x32 PNG
+  icon_16 = "/favicon-16x16.png"      # 16x16 PNG
+  apple_touch = "/apple-touch-icon.png"  # Ícone da tela inicial do iOS
 ```
+
+**Cadeia de pesquisa de favicons:** cada entrada é resolvida como *caminho configurado → nome de arquivo convencional em `static/` → omitido*. Se nenhum ícone for configurado ou presente, um URI `data:` vazio é emitido para suprimir a solicitação padrão `/favicon.ico` do navegador (sem 404). Os caminhos podem ser URLs externas (`https://...`) ou caminhos relativos ao site.
 
 ### Rodapé
 

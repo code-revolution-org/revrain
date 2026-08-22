@@ -2,7 +2,7 @@
 title = 'revrain'
 date = 2023-01-01T08:00:00-07:00
 draft = false
-logo = "/favicon.ico"
+logo = "/revrain.png"
 logo_alt = "revrain logo"
 subtitle = "由程式碼革命推出的 Hugo 主題，專為駭客和開發者而生。"
 

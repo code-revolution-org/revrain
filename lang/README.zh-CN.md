@@ -28,13 +28,20 @@ theme = "revrain"
 ```toml
 [params]
   logo = "/logo.png"          # 导航栏 logo（可选）
-  favicon = "/favicon.ico"    # 浏览器标签页图标（可选）
   description = "..."         # 站点描述，用于 SEO
   images = ["/og-image.png"]  # 默认社交分享图片
 
 [params.social]
   twitter = "username"        # Twitter 账号，用于 twitter:site
+
+[params.favicons]             # 浏览器标签页图标（全部可选）
+  svg = "/favicon.svg"                # SVG 矢量图标
+  icon_32 = "/favicon-32x32.png"      # 32x32 PNG
+  icon_16 = "/favicon-16x16.png"      # 16x16 PNG
+  apple_touch = "/apple-touch-icon.png"  # iOS 主屏图标
 ```
+
+**favicon 查找链：** 每个条目按 *配置路径 → static/ 下的规范文件名 → 跳过* 解析。若完全未配置或不存在任何图标，则输出空 `data:` URI 以抑制浏览器默认的 `/favicon.ico` 请求（避免 404）。路径可以是外部 URL（`https://...`）或站点相对路径。
 
 ### 页脚
 

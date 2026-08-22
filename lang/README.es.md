@@ -28,13 +28,20 @@ theme = "revrain"
 ```toml
 [params]
   logo = "/logo.png"          # Logo de la barra de navegación (opcional)
-  favicon = "/favicon.ico"    # Icono de la pestaña del navegador (opcional)
   description = "..."         # Descripción del sitio para SEO
   images = ["/og-image.png"]  # Imagen de compartir social por defecto
 
 [params.social]
   twitter = "username"        # Cuenta de Twitter para twitter:site
+
+[params.favicons]             # Iconos de pestaña del navegador (todos opcionales)
+  svg = "/favicon.svg"                # Icono vectorial SVG
+  icon_32 = "/favicon-32x32.png"      # 32x32 PNG
+  icon_16 = "/favicon-16x16.png"      # 16x16 PNG
+  apple_touch = "/apple-touch-icon.png"  # Icono de pantalla de inicio de iOS
 ```
+
+**Cadena de búsqueda de favicons:** cada entrada se resuelve como *ruta configurada → nombre de archivo convencional en `static/` → omitida*. Si no se configura ni existe ningún icono, se emite un URI `data:` vacío para suprimir la solicitud predeterminada de `/favicon.ico` del navegador (sin 404). Las rutas pueden ser URL externas (`https://...`) o rutas relativas al sitio.
 
 ### Pie de página
 

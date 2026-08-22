@@ -28,13 +28,20 @@ theme = "revrain"
 ```toml
 [params]
   logo = "/logo.png"          # Navigationsleisten-Logo (optional)
-  favicon = "/favicon.ico"    # Browser-Tab-Symbol (optional)
   description = "..."         # Site-Beschreibung für SEO
   images = ["/og-image.png"]  # Standard-Social-Share-Bild
 
 [params.social]
   twitter = "username"        # Twitter-Konto für twitter:site
+
+[params.favicons]             # Browser-Tab-Symbole (alle optional)
+  svg = "/favicon.svg"                # SVG-Vektorsymbol
+  icon_32 = "/favicon-32x32.png"      # 32x32 PNG
+  icon_16 = "/favicon-16x16.png"      # 16x16 PNG
+  apple_touch = "/apple-touch-icon.png"  # iOS-Startbildschirm-Symbol
 ```
+
+**Favicon-Suchkette:** Jeder Eintrag wird als *Konfigurationspfad → Konventionsdateiname in `static/` → weggelassen* aufgelöst. Wenn kein Symbol konfiguriert oder vorhanden ist, wird eine leere `data:`-URI ausgegeben, um die Standard-`/favicon.ico`-Anfrage des Browsers zu unterdrücken (kein 404). Pfade können externe URLs (`https://...`) oder site-relative Pfade sein.
 
 ### Fußzeile
 

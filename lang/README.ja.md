@@ -28,13 +28,20 @@ theme = "revrain"
 ```toml
 [params]
   logo = "/logo.png"          # ナビゲーションバーのロゴ（任意）
-  favicon = "/favicon.ico"    # ブラウザタブアイコン（任意）
   description = "..."         # SEO 用サイト説明
   images = ["/og-image.png"]  # デフォルトのソーシャルシェアイメージ
 
 [params.social]
   twitter = "username"        # Twitter アカウント（twitter:site 用）
+
+[params.favicons]             # ブラウザタブアイコン（すべて任意）
+  svg = "/favicon.svg"                # SVG ベクターアイコン
+  icon_32 = "/favicon-32x32.png"      # 32x32 PNG
+  icon_16 = "/favicon-16x16.png"      # 16x16 PNG
+  apple_touch = "/apple-touch-icon.png"  # iOS ホーム画面アイコン
 ```
+
+**favicon の検索チェーン:** 各エントリは *設定パス → static/ 内の規約ファイル名 → 省略* の順で解決されます。アイコンが一切設定されていない、または存在しない場合は、空の `data:` URI を出力してブラウザのデフォルトの `/favicon.ico` リクエストを抑止します（404 を回避）。パスには外部 URL（`https://...`）またはサイト相対パスを使用できます。
 
 ### フッター
 

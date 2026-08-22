@@ -1,12 +1,25 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-{{/* 浏览器标签页图标 / Browser tab icon */}}
-{{- if site.Params.favicon }}
-  <link rel="icon" href="{{ relURL (strings.TrimPrefix "/" site.Params.favicon) }}">
-{{- else }}
-  {{/* 空 data URI 顶掉浏览器默认的 /favicon.ico 请求，避免 404 / Empty data URI suppresses the default /favicon.ico request */}}
-  <link rel="icon" href="data:,">
+{{- /* 浏览器标签页图标：用户配置 → 规范文件名 → data: 兜底 / Site icons: user config → convention filename → data: fallback */}}
+{{- $favicons := site.Params.favicons | default dict }}
+{{- $specs := slice
+  (dict "rel" "icon" "type" "image/svg+xml" "key" "svg" "file" "favicon.svg")
+  (dict "rel" "icon" "type" "image/png" "sizes" "32x32" "key" "icon_32" "file" "favicon-32x32.png")
+  (dict "rel" "icon" "type" "image/png" "sizes" "16x16" "key" "icon_16" "file" "favicon-16x16.png")
+  (dict "rel" "apple-touch-icon" "key" "apple_touch" "file" "apple-touch-icon.png")
+}}
+{{- $found := false }}
+{{- range $spec := $specs }}
+  {{- $path := index $favicons $spec.key | default "" }}
+  {{- /* 未配置时回退规范文件名（存在才输出）/ Fall back to convention filename if unconfigured and present */}}
+  {{- if not $path }}{{ if fileExists (printf "static/%s" $spec.file) }}{{ $path = $spec.file }}{{ end }}{{ end }}
+  {{- with $path }}
+    {{- $found = true }}
+  <link rel="{{ $spec.rel }}"{{ with $spec.type }} type="{{ . }}"{{ end }}{{ with $spec.sizes }} sizes="{{ . }}"{{ end }} href="{{ if hasPrefix . "http" }}{{ . }}{{ else }}{{ relURL (strings.TrimPrefix "/" .) }}{{ end }}">
+  {{- end }}
 {{- end }}
+{{- /* 全部缺失时用空 data URI 顶掉浏览器默认的 /favicon.ico 请求，避免 404 / Empty data URI suppresses the default /favicon.ico request when nothing is configured */}}
+{{- if not $found }}<link rel="icon" href="data:,">{{- end }}
 
 <title>
     {{- if .IsHome }}

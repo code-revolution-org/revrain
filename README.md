@@ -29,13 +29,20 @@ theme = "revrain"
 ```toml
 [params]
   logo = "/logo.png"          # Nav bar logo (optional)
-  favicon = "/favicon.ico"    # Browser tab icon (optional)
   description = "..."         # Site description for SEO
   images = ["/og-image.png"]  # Default social share image
 
 [params.social]
   twitter = "username"        # Twitter account for twitter:site
+
+[params.favicons]             # Browser tab icons (all optional)
+  svg = "/favicon.svg"                # SVG vector icon
+  icon_32 = "/favicon-32x32.png"      # 32x32 PNG
+  icon_16 = "/favicon-16x16.png"      # 16x16 PNG
+  apple_touch = "/apple-touch-icon.png"  # iOS home screen icon
 ```
+
+**Favicon lookup chain:** each entry is resolved as *config path → convention filename in `static/` → omitted*. If no icon is configured or present at all, an empty `data:` URI is emitted to suppress the browser's default `/favicon.ico` request (no 404). Paths may be external URLs (`https://...`) or site-relative paths.
 
 ### Footer
 

@@ -28,13 +28,20 @@ theme = "revrain"
 ```toml
 [params]
   logo = "/logo.png"          # شعار شريط التنقل (اختياري)
-  favicon = "/favicon.ico"    # أيقونة تبويب المتصفح (اختياري)
   description = "..."         # وصف الموقع لتحسين محركات البحث
   images = ["/og-image.png"]  # صورة المشاركة الاجتماعية الافتراضية
 
 [params.social]
   twitter = "username"        # حساب Twitter لـ twitter:site
+
+[params.favicons]             # أيقونات تبويب المتصفح (كلها اختيارية)
+  svg = "/favicon.svg"                # أيقونة SVG متجهة
+  icon_32 = "/favicon-32x32.png"      # 32x32 PNG
+  icon_16 = "/favicon-16x16.png"      # 16x16 PNG
+  apple_touch = "/apple-touch-icon.png"  # أيقونة الشاشة الرئيسية لنظام iOS
 ```
+
+**سلسلة البحث عن الأيقونات:** يتم حل كل إدخال كـ *مسار التكوين → اسم الملف التقليدي في `static/` → حذف*. إذا لم يتم تكوين أي أيقونة أو لم تكن موجودة، يتم إصدار URI `data:` فارغ لقمع طلب المتصفح الافتراضي `/favicon.ico` (بدون 404). يمكن أن تكون المسارات عناوين URL خارجية (`https://...`) أو مسارات نسبية للموقع.
 
 ### التذييل
 

@@ -28,13 +28,20 @@ theme = "revrain"
 ```toml
 [params]
   logo = "/logo.png"          # 네비게이션 바 로고 (선택사항)
-  favicon = "/favicon.ico"    # 브라우저 탭 아이콘 (선택사항)
   description = "..."         # SEO용 사이트 설명
   images = ["/og-image.png"]  # 기본 소셜 공유 이미지
 
 [params.social]
   twitter = "username"        # Twitter 계정 (twitter:site용)
+
+[params.favicons]             # 브라우저 탭 아이콘 (모두 선택사항)
+  svg = "/favicon.svg"                # SVG 벡터 아이콘
+  icon_32 = "/favicon-32x32.png"      # 32x32 PNG
+  icon_16 = "/favicon-16x16.png"      # 16x16 PNG
+  apple_touch = "/apple-touch-icon.png"  # iOS 홈 화면 아이콘
 ```
+
+**파비콘 조회 체인:** 각 항목은 *설정 경로 → static/의 규칙 파일명 → 생략* 순서로 해석됩니다. 아이콘이 전혀 설정되지 않았거나 존재하지 않으면 빈 `data:` URI를 출력하여 브라우저의 기본 `/favicon.ico` 요청을 억제합니다(404 방지). 경로는 외부 URL(`https://...`) 또는 사이트 상대 경로일 수 있습니다.
 
 ### 푸터
 
