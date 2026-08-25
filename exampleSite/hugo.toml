@@ -1,4 +1,5 @@
 baseURL = 'https://example.org/'
+copyright = '© 2026 revrain'  # 站点版权，用于 RSS feed 的 copyright 元素 / Site copyright, used by RSS feed
 defaultContentLanguage = 'en-US'
 enableRobotsTXT = true  # 启用 robots.txt / Enable robots.txt
 
@@ -8,6 +9,7 @@ themesDir = "../../"
 [languages]
   [languages.en-US]
     label = "English"
+
     locale = 'en-US'
     title = 'revrain'
     weight = 10
@@ -15,6 +17,7 @@ themesDir = "../../"
       copyright = "revrain Theme · Built with Hugo."
   [languages.zh-CN]
     label = "简体中文"
+
     locale = 'zh-CN'
     title = 'revrain'
     weight = 20
@@ -22,6 +25,7 @@ themesDir = "../../"
       copyright = "revrain 主题 · 由 Hugo 构建"
   [languages.zh-TW]
     label = "繁體中文"
+
     locale = 'zh-TW'
     title = 'revrain'
     weight = 30
@@ -29,6 +33,7 @@ themesDir = "../../"
       copyright = "revrain 主題 · 由 Hugo 構建"
   [languages.ja]
     label = "日本語"
+
     locale = 'ja'
     title = 'revrain'
     weight = 40
@@ -36,6 +41,7 @@ themesDir = "../../"
       copyright = "revrain テーマ · Hugo で構築"
   [languages.ko]
     label = "한국어"
+
     locale = 'ko'
     title = 'revrain'
     weight = 50
@@ -43,6 +49,7 @@ themesDir = "../../"
       copyright = "revrain 테마 · Hugo로 제작"
   [languages.fr]
     label = "Français"
+
     locale = 'fr'
     title = 'revrain'
     weight = 60
@@ -50,6 +57,7 @@ themesDir = "../../"
       copyright = "thème revrain · Construit avec Hugo."
   [languages.de]
     label = "Deutsch"
+
     locale = 'de'
     title = 'revrain'
     weight = 70
@@ -57,6 +65,7 @@ themesDir = "../../"
       copyright = "revrain-Theme · Erstellt mit Hugo."
   [languages.es]
     label = "Español"
+
     locale = 'es'
     title = 'revrain'
     weight = 80
@@ -64,6 +73,7 @@ themesDir = "../../"
       copyright = "tema revrain · Construido con Hugo."
   [languages.ru]
     label = "Русский"
+
     locale = 'ru'
     title = 'revrain'
     weight = 90
@@ -71,6 +81,7 @@ themesDir = "../../"
       copyright = "тема revrain · Создано с помощью Hugo."
   [languages.ar]
     label = "العربية"
+
     locale = 'ar'
     direction = 'rtl'
     title = 'revrain'
@@ -79,6 +90,7 @@ themesDir = "../../"
       copyright = "ثيم revrain · تم بناؤه باستخدام Hugo."
   [languages.pt-BR]
     label = "Português (Brasil)"
+
     locale = 'pt-BR'
     title = 'revrain'
     weight = 110
@@ -102,6 +114,10 @@ themesDir = "../../"
     icon_32 = "/favicon-32x32.png"  # 32x32 PNG / 32x32 PNG
     icon_16 = "/favicon-16x16.png"  # 16x16 PNG / 16x16 PNG
     apple_touch = "/apple-touch-icon.png"  # iOS 主屏图标 / iOS home screen icon
+  # RSS 作者信息：用于 feed 的 managingEditor/webMaster/author 元素 / RSS author info
+  [params.author]
+    name = "code-revo"
+    email = "code-revolution-org@daimarevo.com"
 
 [menus]
   [[menus.main]]
@@ -136,7 +152,6 @@ themesDir = "../../"
 
 [params.footer]
   github = "https://github.com/code-revolution-org/revrain"
-  rss = "/index.xml"
 
   [[params.footer.links]]
     name = "Friendly Links"
@@ -155,6 +170,17 @@ themesDir = "../../"
   [module.hugoVersion]
     extended = true
     min = '0.156.0'
+
+# 输出格式：仅主页与栏目生成 RSS，标签/分类不再生成，避免低质量 feed 泛滥 / RSS only for home & section
+[outputs]
+  home = ['html', 'rss']
+  section = ['html', 'rss']
+  taxonomy = ['html']
+  term = ['html']
+
+# RSS 条目上限 / Max items per feed
+[services.rss]
+  limit = 25
 
 # 分页配置 / Pagination configuration
 [pagination]

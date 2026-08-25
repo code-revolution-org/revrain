@@ -81,3 +81,6 @@ other = "主导航"
 
 [footer_navigation]
 other = "页脚导航"
+
+[rss_copied]
+other = "已复制"

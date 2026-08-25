@@ -1,14 +1,21 @@
 <footer class="site-footer">
   <div class="footer-content">
+    {{- /* RSS 订阅链接：独立于可配置链接组，固定页脚左侧 / RSS link, separate from configurable links, fixed at left */}}
+    {{- $rss := .OutputFormats.Get "rss" }}
+    {{- if not $rss }}
+      {{- /* 文章页回退到所在栏目 feed（CurrentSection），再回退站点主 feed / Fall back to section feed, then site feed */}}
+      {{- with .CurrentSection }}{{ $rss = .OutputFormats.Get "rss" }}{{ end }}
+      {{- if not $rss }}{{ $rss = site.Home.OutputFormats.Get "rss" }}{{ end }}
+    {{- end }}
+    {{- with $rss }}
+      <a class="footer-rss" href="{{ .Permalink }}" aria-label="{{ T "rss" }}" data-copy-rss="{{ .Permalink }}" data-copy-msg="{{ T "rss_copied" }}" aria-live="polite">{{ T "rss" }}</a>
+    {{- end }}
     {{ with .Site.Params.footer.copyright }}
       <p class="copyright">© {{ now.Year }} {{ . }}</p>
     {{ end }}
     <nav class="footer-links"{{ with T "footer_navigation" }} aria-label="{{ . }}"{{ end }}>
       {{ with .Site.Params.footer.github }}
         <a href="{{ . }}" target="_blank" rel="noopener">{{ T "github" }}</a>
-      {{ end }}
-      {{ with .Site.Params.footer.rss }}
-        <a href="{{ relLangURL (strings.TrimPrefix "/" .) }}" target="_blank" rel="noopener">{{ T "rss" }}</a>
       {{ end }}
       {{ range .Site.Params.footer.links }}
         {{- $linkName := .name }}

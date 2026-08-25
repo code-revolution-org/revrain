@@ -1,0 +1,69 @@
+{{- /* revrain RSS 通用 channel 模板：符合 RSS 2.0 规范与 RSS Best Practices Profile（rssboard.org/rss-profile）
+  参数：dict "ctx" <页面上下文> "pages" <待输出的文章集合>
+  要点：仅收录有发布日期的文章页（过滤目录/节点页与零值日期）；日期一律 RFC 822；
+  描述为纯文本摘要（可呈现为 HTML），全文放入 content:encoded（RSS Profile 5.2）；*/ -}}
+{{- $ctx := .ctx }}
+{{- $pages := .pages }}
+{{- /* 只收录位于栏目（section）下的文章，过滤根目录单页（如 about/browse 目录页）*/ -}}
+{{- $pages = where $pages "Section" "ne" "" }}
+{{- $authorEmail := "" }}
+{{- $authorName := "" }}
+{{- with site.Params.author }}
+  {{- if reflect.IsMap . }}
+    {{- with .email }}{{ $authorEmail = . }}{{ end }}
+    {{- with .name }}{{ $authorName = . }}{{ end }}
+  {{- else }}{{ $authorName = . }}{{ end }}
+{{- end }}
+{{- /* 最新条目的发布日期，用于 channel 级 pubDate/lastBuildDate（跳过零值）*/ -}}
+{{- $latest := "" }}
+{{- range $pages.ByDate.Reverse }}
+  {{- if not .PublishDate.IsZero }}{{ $latest = .PublishDate }}{{ break }}{{ end }}
+{{- end }}
+{{- $lang := lower site.Language.Locale }}
+{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>{{ site.Title }}</title>
+    <link>{{ $ctx.Permalink }}</link>
+    <description>{{ with site.Params.description }}{{ . }}{{ else }}Recent content on {{ site.Title }}{{ end }}</description>
+    <language>{{ $lang }}</language>
+    {{- with site.Copyright }}<copyright>{{ . }}</copyright>{{ end }}
+    {{- with $authorEmail }}<managingEditor>{{ . }}{{ with $authorName }} ({{ . }}){{ end }}</managingEditor>{{ end }}
+    {{- with $authorEmail }}<webMaster>{{ . }}{{ with $authorName }} ({{ . }}){{ end }}</webMaster>{{ end }}
+    {{- with $latest }}<pubDate>{{ .Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</pubDate>{{ end }}
+    {{- with $latest }}<lastBuildDate>{{ .Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</lastBuildDate>{{ end }}
+    <generator>Hugo</generator>
+    <docs>https://www.rssboard.org/rss-specification</docs>
+    <ttl>60</ttl>
+    {{- /* 频道图标：title 与站点标题一致（RSS 规范要求，HTML 渲染时作为 alt）*/ -}}
+    {{- with site.Params.images }}{{ with index . 0 }}<image><url>{{ absURL . }}</url><title>{{ site.Title }}</title><link>{{ site.BaseURL }}</link></image>{{ end }}{{ end }}
+    {{- with $ctx.OutputFormats.Get "RSS" }}<atom:link href="{{ .Permalink }}" rel="self" type="application/rss+xml" />{{ end }}
+    {{- range $pages }}
+      {{- if not .PublishDate.IsZero }}
+    <item>
+      <title>{{ .Title }}</title>
+      <link>{{ .Permalink }}</link>
+      <guid isPermaLink="true">{{ .Permalink }}</guid>
+      <pubDate>{{ .PublishDate.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</pubDate>
+      {{- /* 作者：文章 front matter 优先（map→author / 数组→多个 dc:creator / 字符串→dc:creator），无则回退站点作者（RSS Profile 4.1.1.20.1 + 5.3.1）*/}}
+      {{- $itemAuthor := .Params.author }}
+      {{- if $itemAuthor }}
+        {{- if reflect.IsMap $itemAuthor }}
+          {{- with $itemAuthor.email }}<author>{{ . }}{{ with $itemAuthor.name }} ({{ . }}){{ end }}</author>{{ end }}
+        {{- else if reflect.IsSlice $itemAuthor }}
+          {{- range $itemAuthor }}<dc:creator>{{ . }}</dc:creator>{{ end }}
+        {{- else }}
+          <dc:creator>{{ $itemAuthor }}</dc:creator>
+        {{- end }}
+      {{- else }}
+        {{- with $authorEmail }}<author>{{ . }}{{ with $authorName }} ({{ . }}){{ end }}</author>{{ end }}
+      {{- end }}
+      {{- range .Params.categories }}<category>{{ . }}</category>{{ end }}
+      {{- range .Params.tags }}<category>{{ . }}</category>{{ end }}
+      <description>{{ .Summary | plainify | transform.XMLEscape | safeHTML }}</description>
+      <content:encoded>{{ .Content | transform.XMLEscape | safeHTML }}</content:encoded>
+    </item>
+      {{- end }}
+    {{- end }}
+  </channel>
+</rss>

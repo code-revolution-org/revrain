@@ -81,3 +81,6 @@ other = "メインナビゲーション"
 
 [footer_navigation]
 other = "フッターナビゲーション"
+
+[rss_copied]
+other = "コピーしました"

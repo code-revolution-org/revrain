@@ -82,3 +82,6 @@ other = "Navegação principal"
 
 [footer_navigation]
 other = "Navegação do rodapé"
+
+[rss_copied]
+other = "Copiado!"

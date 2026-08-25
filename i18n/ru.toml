@@ -84,3 +84,6 @@ other = "Основная навигация"
 
 [footer_navigation]
 other = "Навигация в нижнем колонтитуле"
+
+[rss_copied]
+other = "Скопировано"

@@ -81,3 +81,6 @@ other = "메인 내비게이션"
 
 [footer_navigation]
 other = "바닥글 내비게이션"
+
+[rss_copied]
+other = "복사됨"

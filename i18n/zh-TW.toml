@@ -81,3 +81,6 @@ other = "主導覽"
 
 [footer_navigation]
 other = "頁尾導覽"
+
+[rss_copied]
+other = "已複製"
