@@ -29,6 +29,22 @@ Outputs description, robots, canonical and pagination rel links.
 <link rel="canonical" href="{{ $page.Permalink }}">
 {{- end }}
 
+{{/* 多语言 hreflang 交替链接（404 页跳过）/ hreflang alternates (skipped on 404) */}}
+{{- if not $seo.is404 }}
+  {{- with $page.AllTranslations }}
+    {{- range . }}
+<link rel="alternate" hreflang="{{ .Language.Locale }}" href="{{ .Permalink }}">
+    {{- end }}
+  {{- end }}
+  {{- if $page.IsHome }}
+    {{- range hugo.Sites }}
+      {{- if .IsDefault }}
+<link rel="alternate" hreflang="x-default" href="{{ .Home.Permalink }}">
+      {{- end }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+
 {{/* 分页 rel=next/prev / Pagination rel=next/prev */}}
 {{- if in (slice "section" "taxonomy" "term") $page.Kind }}
   {{- with $page.Paginator }}

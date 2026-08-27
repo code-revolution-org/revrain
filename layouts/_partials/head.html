@@ -27,13 +27,13 @@
 
 <title>
     {{- if .IsHome }}
-        {{ site.Title }}
+        {{- site.Title }}
     {{- else }}
         {{- $title := .Title }}
         {{- /* 分类法总览页标题优先取 i18n 翻译 / i18n taxonomy name for taxonomy pages */}}
         {{- if eq .Kind "taxonomy" }}{{ $title = T .Data.Plural | default $title }}{{ end }}
         {{- printf "%s | %s" $title site.Title }}
-    {{- end }}
+    {{- end -}}
 </title>
 
 {{/* SEO 结构化数据 / SEO structured data */}}

@@ -6,6 +6,8 @@ Renders tags, categories, and table of contents.
 
 {{- $hasToc := false }}
 {{- $toc := .page.TableOfContents }}
+{{- /* 剥掉 Hugo 默认的 <nav id="TableOfContents"> 包裹，避免 nav 嵌套 nav（屏幕阅读器地标冗余） / Strip Hugo's default <nav> wrapper to avoid nested nav landmarks */ -}}
+{{- $toc = $toc | replaceRE `<nav id="TableOfContents">` "" | replaceRE `</nav>` "" | safeHTML }}
 {{- if and $toc (findRE "<a" $toc) }}
   {{- $hasToc = true }}
 {{- end }}
