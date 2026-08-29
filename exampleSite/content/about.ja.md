@@ -4,7 +4,7 @@ date = 2023-01-01T08:00:00-07:00
 draft = false
 layout = 'about'
 subtitle = 'コードで世界を変える'
-avatar = 'favicon.ico'
+avatar = 'revrain.png'
 description = 'コードレボリューション - 技術共有とオープンソース協力に取り組む開発者組織'
 links = [
   { name = 'Bilibili', url = 'https://space.bilibili.com' },

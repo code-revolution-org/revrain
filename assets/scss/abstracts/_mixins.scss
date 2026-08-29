@@ -66,3 +66,24 @@
     @content;
   }
 }
+
+// Desktop / 桌面端 (min-width: $bp-desktop)
+@mixin desktop {
+  @media (min-width: $bp-desktop) {
+    @content;
+  }
+}
+
+// Wide / 宽屏 (min-width: $bp-wide)
+@mixin wide {
+  @media (min-width: $bp-wide) {
+    @content;
+  }
+}
+
+// Laptop / 窄笔记本与大平板横屏 (tablet < width < desktop)
+@mixin laptop {
+  @media (min-width: ($bp-tablet + 1px)) and (max-width: ($bp-desktop - 1px)) {
+    @content;
+  }
+}

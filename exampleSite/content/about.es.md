@@ -4,7 +4,7 @@ date = 2023-01-01T08:00:00-07:00
 draft = false
 layout = 'about'
 subtitle = 'Cambiar el mundo con código'
-avatar = 'favicon.ico'
+avatar = 'revrain.png'
 description = 'Code Revolution - Una organización de desarrolladores dedicada al intercambio técnico y la colaboración de código abierto'
 links = [
   { name = 'Bilibili', url = 'https://space.bilibili.com' },

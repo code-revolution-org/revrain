@@ -4,7 +4,7 @@ date = 2023-01-01T08:00:00-07:00
 draft = false
 layout = 'about'
 subtitle = '用代码改变世界'
-avatar = 'favicon.ico'
+avatar = 'revrain.png'
 description = '代码革命 - 致力于技术分享与开源协作的开发者组织'  # SEO 描述 / SEO description
 links = [
   { name = 'Bilibili', url = 'https://space.bilibili.com' },

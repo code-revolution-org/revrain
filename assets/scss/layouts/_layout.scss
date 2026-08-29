@@ -61,3 +61,11 @@ main {
     padding-bottom: 1rem;
   }
 }
+
+// Wide / 宽屏适配
+@include wide {
+  main {
+    padding-left: clamp(2rem, 4vw, 3rem);
+    padding-right: clamp(2rem, 4vw, 3rem);
+  }
+}

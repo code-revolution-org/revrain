@@ -137,3 +137,18 @@
     }
   }
 }
+
+// Desktop / 桌面端适配
+@include desktop {
+  .hero-content {
+    max-width: 720px;
+  }
+}
+
+// Wide / 宽屏适配
+@include wide {
+  .hero {
+    padding: 3rem 2rem;
+    gap: 2rem;
+  }
+}

@@ -2,7 +2,7 @@
 <div class="about">
   <div class="about__hero">
     {{- with .Params.avatar }}
-    <img src="{{ relURL (strings.TrimPrefix "/" .) }}" alt="{{ $.Title }}" class="about__avatar" />
+    <img src="{{ relURL (strings.TrimPrefix "/" .) }}" alt="{{ $.Title }}" class="about__avatar">
     {{- end }}
     <h1 class="about__title">{{ .Title }}</h1>
     {{- with .Params.subtitle }}

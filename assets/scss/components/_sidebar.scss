@@ -205,3 +205,26 @@
     }
   }
 }
+
+// Laptop / 窄笔记本与大平板横屏适配
+@include laptop {
+  .article-layout {
+    gap: 1.25rem;
+  }
+
+  .article-sidebar {
+    width: 220px;
+    padding: 1rem;
+  }
+}
+
+// Wide / 宽屏适配
+@include wide {
+  .article-layout {
+    max-width: 1200px;
+  }
+
+  .article-sidebar {
+    width: 280px;
+  }
+}

@@ -2,7 +2,7 @@
 
 <section class="hero">
   {{ with .Params.logo }}
-  <img src="{{ relURL (strings.TrimPrefix "/" .) }}" alt="{{ $.Params.logo_alt }}" class="hero-logo" />
+  <img src="{{ relURL (strings.TrimPrefix "/" .) }}" alt="{{ $.Params.logo_alt }}" class="hero-logo">
   {{ end }}
 
   {{ with .Params.title }}

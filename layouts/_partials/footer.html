@@ -1,5 +1,4 @@
-<footer class="site-footer">
-  <div class="footer-content">
+<div class="footer-content">
     {{- /* RSS 订阅链接：独立于可配置链接组，固定页脚左侧 / RSS link, separate from configurable links, fixed at left */}}
     {{- $rss := .OutputFormats.Get "rss" }}
     {{- if not $rss }}
@@ -28,4 +27,3 @@
       {{ end }}
     </nav>
   </div>
-</footer>
