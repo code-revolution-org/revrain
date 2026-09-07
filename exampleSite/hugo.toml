@@ -1,6 +1,6 @@
 baseURL = 'https://example.org/'
 copyright = '© 2026 revrain'  # 站点版权，用于 RSS feed 的 copyright 元素 / Site copyright, used by RSS feed
-defaultContentLanguage = 'en-US'
+defaultContentLanguage = 'zh-CN'
 enableRobotsTXT = true  # 启用 robots.txt / Enable robots.txt
 
 theme = "revrain"
@@ -12,7 +12,7 @@ themesDir = "../../"
 
     locale = 'en-US'
     title = 'revrain'
-    weight = 10
+    weight = 20
     [languages.en-US.params.footer]
       copyright = "revrain Theme · Built with Hugo."
   [languages.zh-CN]
@@ -20,7 +20,7 @@ themesDir = "../../"
 
     locale = 'zh-CN'
     title = 'revrain'
-    weight = 20
+    weight = 10
     [languages.zh-CN.params.footer]
       copyright = "revrain 主题 · 由 Hugo 构建"
   [languages.zh-TW]

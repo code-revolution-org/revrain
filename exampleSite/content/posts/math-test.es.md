@@ -3,7 +3,7 @@ title = 'Prueba de fórmulas matemáticas'
 date = 2026-08-14
 draft = false
 tags = ['math', 'test']
-categories = ['Tecnología']
+categories = ['Técnica']
 summary = 'Artículo de prueba para la representación matemática del lado del servidor (transform.ToMath). Todas las fórmulas siguientes se renderizan en tiempo de compilación con el motor KaTeX integrado en Hugo.'
 description = 'Prueba de fórmulas matemáticas en línea y en bloque: fracciones, integrales, matrices y funciones a trozos.'
 +++

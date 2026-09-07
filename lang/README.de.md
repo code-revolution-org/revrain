@@ -1,21 +1,27 @@
 # revrain
 
-Ein Hugo-Theme von Code Revolution, entwickelt für Geeks und Entwickler.
+Ein Hugo-Theme von [Code Revolution](https://github.com/code-revolution-org), entwickelt für Geeks und Entwickler. Dunkles Design mit Digital Rain und Glassmorphism-Optik.
 
-[简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md) | [English](../README.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | [Español](README.es.md) | [Português](README.pt-BR.md) | [Русский](README.ru.md) | [العربية](README.ar.md)
+[简体中文](../README.md) | [English](README.en-US.md) | [繁體中文](README.zh-TW.md) | [日本語](README.ja.md) | [한국어](README.ko.md) | [Français](README.fr.md) | [Español](README.es.md) | [Português (Brasil)](README.pt-BR.md) | [Русский](README.ru.md) | [العربية](README.ar.md)
 
 ## Funktionen
 
-- **Digitaler Regen** — Matrix-Stil Canvas-Animation, vollständig konfigurierbar
-- **Glasmorphism** — Geschliffene Glas-Karten mitBackdrop-Blur
-- **Mehrsprachig** — 11 Sprachen mit Sprachumschalter
-- **SEO** — Open Graph, Twitter Card, JSON-LD strukturierte Daten, Breadcrumb-Schema
-- **Responsiv** — Mobile-First, 4 Breakpoints (480 / 768 / 1024 / 1280px)
-- **Syntax-Highlighting** — Hugo-integriert
-- **Mathematik-Unterstützung** — Serverseitiges KaTeX-Rendering durch Hugo (transform.ToMath), ohne Client-JS
-- **Dunkles Theme** — Für Entwickler optimierte Farbpalette
+- **Digital Rain** — Matrix-artige Canvas-Animation; Zeichensatz, Schriftgröße, Mondweiß-Wahrscheinlichkeit und Reset-Wahrscheinlichkeit sind alle konfigurierbar. Respektiert die Systemeinstellung „Bewegung reduzieren" (zeichnet nur ein statisches Bild) und überspringt Frames automatisch auf schwachen Geräten
+- **Glassmorphism** — Milchglas-Karten mit backdrop-filter-Blur
+- **Mehrsprachig** — 11 Sprachen integriert, mit per Tastatur bedienbarem Sprachumschalter (Pfeiltasten, Home/End, Esc)
+- **SEO** — description / robots / canonical / hreflang-Alternate-Links, Pagination rel=prev/next, Open Graph, Twitter Card, JSON-LD strukturierte Daten (WebSite / Article), Breadcrumb-Schema
+- **Responsive** — Mobile-first mit 4 Breakpoints (480 / 768 / 1024 / 1280px)
+- **Syntax-Hervorhebung** — Eingebaut über Hugo
+- **Mathe-Support** — Serverseitiges Rendering durch Hugos eingebautes KaTeX (`transform.ToMath`) zur Build-Zeit; kein clientseitiges JS
+- **Dark Theme** — Für Entwickler optimierte Farbpalette (5 Bild-Farben)
+- **Barrierefreiheit** — Ausgerichtet an WCAG 2.2 AA: Skip-Link zum Hauptinhalt, ARIA-Landmarks und -Labels, Tastaturnavigation, sichtbarer Fokus, prefers-reduced-motion-Support, RTL-Layout (Arabisch)
+- **RSS** — Feeds für Startseite und Sektionen
+- **Inhaltsverzeichnis** — Sidebar-TOC mit Scroll-Spy-Highlighting und einklappbaren verschachtelten Einträgen
+- **Serverseitige Pagination** — Für Sektionen, Taxonomien und die Tag-Cloud
 
 ## Schnellstart
+
+Aktivieren Sie das Theme in Ihrer Site-Konfiguration:
 
 ```toml
 theme = "revrain"
@@ -27,54 +33,54 @@ theme = "revrain"
 
 ```toml
 [params]
-  logo = "/logo.png"          # Navigationsleisten-Logo (optional)
+  logo = "/logo.png"          # Nav-Bar-Logo (optional)
   description = "..."         # Site-Beschreibung für SEO
-  images = ["/og-image.png"]  # Standard-Social-Share-Bild
+  images = ["/og-image.png"]  # Standard-Social-Sharing-Bild
 
 [params.social]
   twitter = "username"        # Twitter-Konto für twitter:site
 
-[params.favicons]             # Browser-Tab-Symbole (alle optional)
-  svg = "/favicon.svg"                # SVG-Vektorsymbol
+[params.favicons]             # Browser-Tab-Icons (alle optional)
+  svg = "/favicon.svg"                # SVG-Vektor-Icon
   icon_32 = "/favicon-32x32.png"      # 32x32 PNG
   icon_16 = "/favicon-16x16.png"      # 16x16 PNG
-  apple_touch = "/apple-touch-icon.png"  # iOS-Startbildschirm-Symbol
+  apple_touch = "/apple-touch-icon.png"  # iOS-Home-Bildschirm-Icon
 ```
 
-**Favicon-Suchkette:** Jeder Eintrag wird als *Konfigurationspfad → Konventionsdateiname in `static/` → weggelassen* aufgelöst. Wenn kein Symbol konfiguriert oder vorhanden ist, wird eine leere `data:`-URI ausgegeben, um die Standard-`/favicon.ico`-Anfrage des Browsers zu unterdrücken (kein 404). Pfade können externe URLs (`https://...`) oder site-relative Pfade sein.
+**Favicon-Suchkette:** Jeder Eintrag wird als *konfigurierter Pfad → Konventionsdateiname in `static/` → weggelassen* aufgelöst. Wenn nichts konfiguriert ist oder keine Datei existiert, wird eine leere `data:`-URI ausgegeben, um die Standardanfrage des Browsers nach `/favicon.ico` zu unterdrücken (kein 404). Pfade können externe URLs oder site-relative Pfade sein.
 
-### Fußzeile
+### Footer
 
 ```toml
 [params.footer]
-  github = "https://github.com/username"
-  rss = "/index.xml"
-  copyright = "Mein Blog · Alle Rechte vorbehalten"  # Optional, nicht angezeigt wenn nicht gesetzt
+  github = "https://github.com/username"          # GitHub-Link (optional)
+  copyright = "Mein Blog · Alle Rechte vorbehalten" # Urheberrecht (optional, ausgeblendet wenn nicht gesetzt)
 
-  [[params.footer.links]]
+  [[params.footer.links]]                         # Link-Gruppe (optional)
     name = "Link-Name"
+    identifier = "friendly_links"                 # Optional: i18n-Key, Übersetzung gewinnt falls vorhanden
     url = "https://example.com"
 ```
 
-**Copyright-Verhalten:**
+**Verhalten des Urheberrechts:**
 - Nicht konfiguriert → nicht angezeigt
-- Konfiguriert → wird als `© 2026 Mein Blog · Alle Rechte vorbehalten` gerendert (Jahr aktualisiert automatisch)
-- Mehrsprachig: pro Sprache konfigurieren (siehe unten)
+- Konfiguriert → gerendert als `© <aktuelles Jahr> <Wert>` (Jahr wird automatisch aktualisiert)
+- Mehrsprachige Sites: pro Sprache separat konfigurierbar (siehe „Mehrsprachig")
 
-### Digitaler Regen
+### Digital Rain
 
 ```toml
 [params.digital_rain]
   enable = true
   chars = "アイウエオカキクケコ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   font_size = 14       # 10–32 px
-  moon_chance = 0.02   # Wahrscheinlichkeit für Mond-Weiß-Zeichen
-  reset_chance = 0.025 # Wahrscheinlichkeit für Regentropfen-Reset
+  moon_chance = 0.02   # Wahrscheinlichkeit eines mondweißen Zeichens (0–1)
+  reset_chance = 0.025 # Wahrscheinlichkeit eines Tropfen-Resets (0–1)
 ```
 
-### Mathematik
+### Mathe
 
-Mathematische Formeln werden zur Build-Zeit von der in Hugo integrierten KaTeX-Engine (`transform.ToMath`) gerendert — kein clientseitiges JavaScript erforderlich. Aktivieren Sie die Goldmark-passthrough-Erweiterung in Ihrer Konfiguration:
+Formeln werden zur Build-Zeit von Hugos eingebautem KaTeX-Motor (`transform.ToMath`) als HTML + MathML gerendert — kein clientseitiges JavaScript erforderlich. Aktivieren Sie die Goldmark-Passthrough-Erweiterung in Ihrer Konfiguration:
 
 ```toml
 [markup.goldmark.extensions.passthrough]
@@ -84,127 +90,182 @@ Mathematische Formeln werden zur Build-Zeit von der in Hugo integrierten KaTeX-E
     inline = [['\(', '\)']]
 ```
 
-Verwenden Sie diese Trennzeichen in Ihrem Inhalt:
+Verwenden Sie diese Begrenzer in Ihren Inhalten:
 
 - Inline: `\(...\)`
 - Block: `$$...$$` oder `\[...\]`
 
-**CDN-Hinweis:** Das KaTeX-Stylesheet (`katex.min.css` v0.17.0, für die `htmlAndMathml`-Ausgabe erforderlich) wird vom jsDelivr-CDN mit Subresource-Integrity-Prüfung (SRI) geladen. KaTeX ist unter der [MIT-Lizenz](https://github.com/KaTeX/KaTeX/blob/main/LICENSE) lizenziert (Copyright (c) 2013-2020 Khan Academy and other contributors). Es wird nur auf Seiten mit Formeln geladen.
+**CDN-Hinweis:** Das KaTeX-Stylesheet (`katex.min.css` v0.17.0, erforderlich für die `htmlAndMathml`-Ausgabe) wird vom jsDelivr-CDN mit Subresource-Integrity-Prüfung (SRI) geladen. KaTeX ist unter der [MIT-Lizenz](https://github.com/KaTeX/KaTeX/blob/main/LICENSE) lizenziert. Es wird nur auf Seiten mit Mathe geladen.
 
 ### Mehrsprachig
 
-Copyright pro Sprache konfigurieren:
+Das Projekt unterstützt 11 Sprachen, mit vereinfachtem Chinesisch als Standardsprache. Jede Sprache kann `label` (Anzeigename), `locale` (RFC 5646), `title` (Site-Titel), `weight` (Sortierung, aufsteigend) und sprachspezifische Parameter setzen:
 
 ```toml
-[languages.en-US]
-  label = "English"
-  weight = 10
-  [languages.en-US.params.footer]
-    copyright = "My Blog · All Rights Reserved"
+defaultContentLanguage = 'zh-CN'
 
-[languages.de]
-  label = "Deutsch"
-  weight = 20
-  [languages.de.params.footer]
-    copyright = "Mein Blog · Alle Rechte vorbehalten"
+[languages]
+  [languages.zh-CN]
+    label = "简体中文"
+    locale = 'zh-CN'
+    title = '我的站点'
+    weight = 10
+    [languages.zh-CN.params.footer]
+      copyright = "我的博客 · 版权所有"
+
+  [languages.en-US]
+    label = "English"
+    locale = 'en-US'
+    title = 'My Site'
+    weight = 20
+    [languages.en-US.params.footer]
+      copyright = "My Blog · All Rights Reserved"
+
+  [languages.ar]
+    label = "العربية"
+    locale = 'ar'
+    direction = 'rtl'   # Rechts-nach-links-Layout für Arabisch
+    title = 'موقعي'
+    weight = 30
 ```
 
-### Menü
+Inhalte werden über das Dateinamen-Suffix der Sprache zugeordnet; das Suffix muss klein geschrieben sein (z. B. `about.en-us.md`, `about.zh-cn.md`). Dateien ohne Suffix gehören zur Standardsprache.
+
+### Menüs
 
 ```toml
 [[menus.main]]
-  name = "Home"
-  identifier = "menu_home"  # i18n-Schlüssel (optional)
+  name = "Startseite"
+  identifier = "menu_home"  # i18n-Key (optional); Übersetzung gewinnt falls vorhanden
   pageRef = "/"
   weight = 10
 ```
 
-## Inhalte
+## Inhalt
 
 ### Startseite
 
+Die Startseite verwendet `_index.md` und unterstützt folgendes Front Matter:
+
 ```markdown
 +++
-title = "Meine Site"
-subtitle = "Willkommen auf meiner Site"
-logo = "/logo.png"
-logo_alt = "Site-Logo"
+title = "Meine Seite"           # Seitentitel
+subtitle = "Willkommen auf meiner Seite"  # Untertitel unter dem Titel
+logo = "/logo.png"             # Hero-Logo (optional)
+logo_alt = "Seiten-Logo"       # Logo-Alternativtext (Barrierefreiheit)
 
-[primary_button]
+[primary_button]               # Primärer Button
   url = "/browse"
   text = "Loslegen"
 
-[secondary_button]
+[secondary_button]             # Sekundärer Button
   url = "/about"
   text = "Über uns"
 +++
+
+Startseiten-Text, gerendert in einer Glaskarte unter den Buttons.
 ```
 
-### Über-seite
+### Über-Seite
+
+Eine eigenständige Seite mit `layout = "about"`:
 
 ```markdown
 +++
-title = "Über uns"
-layout = "about"
-subtitle = "Die Welt mit Code verändern"
-avatar = "/avatar.png"
+title = "Über uns"              # Seitentitel
+layout = "about"               # About-Layout verwenden
+subtitle = "Die Welt mit Code verändern"  # Untertitel
+avatar = "/avatar.png"         # Avatar-Bild (optional)
+description = "Site-Beschreibung für SEO"  # SEO-Beschreibung
 
-links = [
+links = [                      # Soziale/externe Links (optional)
   { name = "GitHub", url = "https://github.com/username" },
   { name = "Twitter", url = "https://twitter.com/username" }
 ]
 +++
+
+Über-Seite Text.
 ```
 
 ### Artikel
 
+Reguläre Artikel (innerhalb eines Sektionsverzeichnisses) unterstützen folgendes Front Matter:
+
 ```markdown
 +++
-title = "Mein Artikel"
-date = 2025-01-15
-draft = false
-tags = ["Technik", "hugo"]
-categories = ["Tutorial"]
-summary = "Artikel-Zusammenfassung"
-description = "SEO-Beschreibung"
+title = "Mein Artikel"          # Artikel-Titel
+date = 2025-01-15              # Veröffentlichungsdatum
+draft = false                  # Entwurf: bei true nicht bauen
+tags = ["Technik", "hugo"]     # Tags (optional)
+categories = ["Tutorial"]      # Kategorien (optional)
+summary = "Artikel-Zusammenfassung auf Kartenlisten"  # Listen-Zusammenfassung
+description = "SEO-Beschreibung; fällt auf die Zusammenfassung zurück wenn nicht gesetzt"  # SEO-Beschreibung
 +++
+
+Artikeltext.
 ```
 
 ### Browse-Seite
 
+Eine Seite mit `layout = "directory"`, die alle Sektionen auflistet:
+
 ```markdown
 +++
-title = "Durchsuchen"
-layout = "directory"
+title = "Browse"                # Seitentitel
+layout = "directory"           # Directory-Layout verwenden
+description = "Alle Sektionen und Artikel durchsuchen"  # SEO-Beschreibung
 +++
 ```
 
+### Sektionen
+
+Jede Sektion wird durch `_index.md` definiert; `summary` erscheint auf Kartenlisten:
+
+```markdown
++++
+title = 'Beiträge'              # Sektionstitel
+summary = 'Artikel zu Technik, Leben und mehr.'  # Zusammenfassung auf Kartenlisten
++++
+```
+
+## Barrierefreiheit (WCAG 2.2)
+
+- Skip-Link zum Hauptinhalt (WCAG 2.4.1)
+- ARIA-Landmarks und -Labels: Hauptnavigation, Footer-Navigation, Seitennavigation, Sprachumschalter (role=listbox)
+- Vollständige Tastaturunterstützung für den Sprachumschalter: Pfeiltasten zum Bewegen des Fokus, Home/End, Esc zum Schließen
+- Der Mobile-Menü-Button legt `aria-expanded` / `aria-controls` offen
+- Die Digital-Rain-Canvas ist für assistive Technologien verborgen (`aria-hidden`, rein dekorativ) und respektiert prefers-reduced-motion
+- TOC-Scroll-Spy und Einklappen sind vollständig per Tastatur bedienbar
+- Automatisches RTL-Layout für Arabisch (ar)
+- Sichtbare Fokus-Stile und globale prefers-reduced-motion-Unterstützung
+
 ## Farbsystem
 
-| Name | Farbwert | Verwendung |
-|------|----------|------------|
-| Abyss Schwarz | `#0A0A0F` | Hintergrund |
-| Regen Grün | `#00D4AA` | Akzent, digitaler Regen, Links |
-| Zwielicht | `#8B92A8` | Sekundärtext, Rahmen |
-| Mond Weiß | `#E8EAF0` | Primärtext, Überschriften |
-| Schleier | `#2A2A35` | Glas-Panel, Rahmen |
+| Name | Hex | Verwendung |
+|------|-----|------------|
+| Abyss Black | `#0A0A0F` | Hintergrund |
+| Rain Green | `#00D4AA` | Akzent, Digital Rain, Links |
+| Twilight | `#8B92A8` | Sekundärtext, Rahmen |
+| Moon White | `#E8EAF0` | Primärtext, Überschriften |
+| Shroud | `#2A2A35` | Glaspanele, Rahmen |
 
-## Font-Stack
+## Schriftarten
 
-Systemfonts mit CJK-Fallback:
+Open-Source-Systemschriften für alle vom Theme unterstützten Sprachen:
 
 - Lateinisch: Inter, Noto Sans
-- Chinesisch: Noto Sans SC/TC, Source Han Sans
+- Chinesisch: Noto Sans SC/TC, Source Han Sans SC/TC
 - Japanisch: Noto Sans JP, Source Han Sans JP
-- Koreanisch: Noto Sans KR, Nanum Gothic
-- Arabisch: Noto Sans Arabic
+- Koreanisch: Noto Sans KR, Source Han Sans KR, Nanum Gothic
+- Arabisch: Noto Sans Arabic, Noto Naskh Arabic
 - Kyrillisch: Noto Sans
 
 ## Mindestanforderungen
 
 - Hugo Extended >= 0.156.0
-- Dart Sass (für die SCSS-Kompilierung erforderlich)
+- Dart Sass (erforderlich für die SCSS-Kompilierung)
 
 ## Lizenz
 
 MIT-Lizenz. Siehe [LICENSE](../LICENSE).
+
