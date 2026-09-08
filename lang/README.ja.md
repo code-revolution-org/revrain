@@ -262,7 +262,7 @@ summary = '技術共有、生活エッセイなど多様なテーマの記事集
 
 ## 最低要件
 
-- Hugo Extended >= 0.156.0
+- Hugo Extended >= 0.158.0
 - Dart Sass（SCSS コンパイルに必須）
 
 ## ライセンス

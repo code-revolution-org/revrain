@@ -262,7 +262,7 @@ Open-source system fonts covering every language the theme supports:
 
 ## Minimum Requirements
 
-- Hugo Extended >= 0.156.0
+- Hugo Extended >= 0.158.0
 - Dart Sass (required for SCSS compilation)
 
 ## License

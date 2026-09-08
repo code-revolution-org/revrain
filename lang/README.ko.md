@@ -262,7 +262,7 @@ summary = '기술 공유, 생활 에세이 등 다양한 주제의 글 모음.' 
 
 ## 최소 요구 사항
 
-- Hugo Extended >= 0.156.0
+- Hugo Extended >= 0.158.0
 - Dart Sass(SCSS 컴파일 필수)
 
 ## 라이선스

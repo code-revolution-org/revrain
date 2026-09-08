@@ -262,7 +262,7 @@ summary = '涵盖技术分享、生活随笔等多个主题的文章合集。'  
 
 ## 最低要求
 
-- Hugo Extended >= 0.156.0
+- Hugo Extended >= 0.158.0
 - Dart Sass（SCSS 编译所需）
 
 ## 许可证

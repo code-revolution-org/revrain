@@ -262,7 +262,7 @@ Open-Source-Systemschriften für alle vom Theme unterstützten Sprachen:
 
 ## Mindestanforderungen
 
-- Hugo Extended >= 0.156.0
+- Hugo Extended >= 0.158.0
 - Dart Sass (erforderlich für die SCSS-Kompilierung)
 
 ## Lizenz

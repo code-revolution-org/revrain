@@ -262,7 +262,7 @@ Polices système open source couvrant toutes les langues prises en charge par le
 
 ## Exigences minimales
 
-- Hugo Extended >= 0.156.0
+- Hugo Extended >= 0.158.0
 - Dart Sass (requis pour la compilation SCSS)
 
 ## Licence

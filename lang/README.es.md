@@ -262,7 +262,7 @@ Fuentes de sistema de código abierto que cubren todos los idiomas admitidos por
 
 ## Requisitos mínimos
 
-- Hugo Extended >= 0.156.0
+- Hugo Extended >= 0.158.0
 - Dart Sass (requerido para la compilación SCSS)
 
 ## Licencia

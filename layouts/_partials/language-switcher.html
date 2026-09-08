@@ -14,8 +14,8 @@
         <li>
           <a href="{{ .RelPermalink }}"
              role="option"
-             lang="{{ .Language.Lang }}"
-             hreflang="{{ .Language.Lang }}"{{ if eq .Language.Lang site.Language.Lang }} aria-selected="true"{{ end }}>
+             lang="{{ .Language.Locale }}"
+             hreflang="{{ .Language.Locale }}"{{ if eq .Language.Locale site.Language.Locale }} aria-selected="true"{{ end }}>
             {{ .Language.Label }}
           </a>
         </li>
