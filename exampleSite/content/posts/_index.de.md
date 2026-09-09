@@ -1,8 +1,8 @@
 +++
-title = 'Artikel'
-date = 2023-01-01T08:30:00-07:00
+title = "Anleitungen"
+date = 2026-09-09
 draft = false
-summary = 'Eine Sammlung von Artikeln zu Themen wie Technikfreigabe und Lebensgedanken.'
+summary = "Anleitungen zum Theme revrain: Schnellstart, Inhaltsorganisation, Mehrsprachig, Digitaler Regen und mathematische Formeln."
 +++
 
-Hier findest du verschiedene Artikel, die ich veröffentliche, darunter Technikfreigabe und Lebensgedanken. Jeder Artikel ist ein sorgfältig verfasster Inhalt, mit dem ich hoffe, dich anzusprechen.
+Dieser Abschnitt sammelt Anleitungen zum Theme revrain und behandelt Installation, Inhaltsorganisation, Mehrsprachigkeit, digitalen Regen und mathematische Formeln.

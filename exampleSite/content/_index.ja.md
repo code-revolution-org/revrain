@@ -4,7 +4,7 @@ date = 2023-01-01T08:00:00-07:00
 draft = false
 logo = "/revrain.png"
 logo_alt = "revrain logo"
-subtitle = "コードレボリューションが手掛けるHugoテーマ。ゲッカーとデベロッパーのために生まれた。"
+subtitle = "コードレボリューションが手掛けるHugoテーマ。ギークとデベロッパーのために生まれた。"
 
 [primary_button]
   url = "/browse"

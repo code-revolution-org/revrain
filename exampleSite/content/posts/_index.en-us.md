@@ -1,8 +1,8 @@
 +++
-title = 'Posts'
-date = 2023-01-01T08:30:00-07:00
+title = "Tutorials"
+date = 2026-09-09
 draft = false
-summary = 'A collection of articles covering tech sharing, life essays, and more.'
+summary = "revrain theme tutorials: getting started, content organization, multilingual, digital rain and math formulas."
 +++
 
-Here you can find all kinds of articles I publish, covering tech sharing, life essays, and more. Every article is carefully crafted, and I hope they resonate with you.
+This section collects tutorials for the revrain theme, covering installation, content organization, multilingual setup, digital rain and math formulas.

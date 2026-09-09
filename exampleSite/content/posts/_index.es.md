@@ -1,8 +1,8 @@
 +++
-title = 'Artículos'
-date = 2023-01-01T08:30:00-07:00
+title = "Tutoriales"
+date = 2026-09-09
 draft = false
-summary = 'Una colección de artículos sobre temas como el intercambio técnico y reflexiones de vida.'
+summary = "Tutoriales del tema revrain: inicio rápido, organización del contenido, multilingüe, lluvia digital y fórmulas matemáticas."
 +++
 
-Aquí puedes encontrar los diversos artículos que publico, incluyendo intercambio técnico y reflexiones de vida. Cada artículo es un contenido cuidadosamente elaborado con el que espero resonar contigo.
+Esta sección recopila los tutoriales del tema revrain, abarcando instalación, organización del contenido, configuración multilingüe, lluvia digital y fórmulas matemáticas.

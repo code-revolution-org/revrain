@@ -1,5 +1,5 @@
 +++
-title = "Todas las categorías"
+title = "Todas las secciones"
 layout = "directory"
-description = "Navegar por todas las categorías y artículos"
+description = "Navegar por todas las secciones y artículos"
 +++

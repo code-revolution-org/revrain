@@ -1,5 +1,5 @@
 +++
-title = "Alle Kategorien"
+title = "Alle Abschnitte"
 layout = "directory"
-description = "Alle Kategorien und Artikel durchstöbern"
+description = "Alle Abschnitte und Artikel durchstöbern"
 +++

@@ -4,7 +4,7 @@ date = 2023-01-01T08:00:00-07:00
 draft = false
 logo = "/revrain.png"
 logo_alt = "revrain logo"
-subtitle = "ثيم Hugo من ثورة الكود، صُمم للمطورين والهاكِرز."
+subtitle = "ثيم Hugo من ثورة الكود، صُمم للمطورين والمهووسين بالتقنية."
 
 [primary_button]
   url = "/browse"

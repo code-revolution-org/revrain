@@ -4,7 +4,7 @@ date = 2023-01-01T08:00:00-07:00
 draft = false
 logo = "/revrain.png"
 logo_alt = "revrain logo"
-subtitle = "Un tema Hugo de Code Revolution, creado para geeky y desarrolladores."
+subtitle = "Un tema Hugo de Code Revolution, creado para geeks y desarrolladores."
 
 [primary_button]
   url = "/browse"

@@ -1,5 +1,5 @@
 +++
-title = "모든 카테고리"
+title = "모든 섹션"
 layout = "directory"
-description = "모든 카테고리와 글 둘러보기"
+description = "모든 섹션과 글 둘러보기"
 +++

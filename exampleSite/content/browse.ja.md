@@ -1,5 +1,5 @@
 +++
-title = "すべてのカテゴリー"
+title = "すべてのセクション"
 layout = "directory"
-description = "すべてのカテゴリーと記事を閲覧"
+description = "すべてのセクションと記事を閲覧"
 +++
