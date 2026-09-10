@@ -19,6 +19,37 @@
 - **목차** — 사이드바 TOC, 스크롤 시 현재 제목 강조, 중첩 항목 접기 가능
 - **서버 사이드 페이지네이션** — 섹션, 분류, 태그 클라우드 모두 서버 사이드
 
+## 설치
+
+### 방법 1: Git 서브모듈(권장)
+
+```bash
+git submodule add https://github.com/code-revolution-org/revrain.git themes/revrain
+```
+
+### 방법 2: Hugo Modules(Git 및 Go 1.18+ 필요)
+
+```bash
+hugo mod init <모듈 이름>
+hugo mod get github.com/code-revolution-org/revrain
+```
+
+사이트 설정에서 임포트를 선언합니다:
+
+```toml
+[module]
+  [[module.imports]]
+    path = 'github.com/code-revolution-org/revrain'
+```
+
+### 방법 3: 다운로드 또는 클론
+
+[GitHub Releases](https://github.com/code-revolution-org/revrain/releases)에서 소스 ZIP을 다운로드하거나 `themes/revrain`에 클론합니다:
+
+```bash
+git clone https://github.com/code-revolution-org/revrain.git themes/revrain
+```
+
 ## 빠른 시작
 
 사이트 설정에서 테마 활성화:
@@ -262,10 +293,18 @@ summary = '기술 공유, 생활 에세이 등 다양한 주제의 글 모음.' 
 
 ## 최소 요구 사항
 
-- Hugo Extended >= 0.158.0
-- Dart Sass(SCSS 컴파일 필수)
+- Hugo >= 0.163.0(일반 버전 가능. SCSS는 외부 Dart Sass가 컴파일)
+- Dart Sass(설치 후 PATH에 추가해야 하며, Hugo가 자동으로 호출)
 
 ## 라이선스
 
 MIT 라이선스. 자세한 내용은 [LICENSE](../LICENSE) 참조.
+
+## 기여 가이드
+
+버그 보고, 문서 개선, 코드 제출을 환영합니다. 기여 방법은 [CONTRIBUTING.md](CONTRIBUTING.ko.md)를 참조하세요.
+
+## 변경 로그
+
+각 릴리스의 중요한 변경 사항은 여기에 기록됩니다. [CHANGELOG.md](CHANGELOG.ko.md)를 참조하세요.
 

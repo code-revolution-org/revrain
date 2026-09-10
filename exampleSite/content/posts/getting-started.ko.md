@@ -10,8 +10,39 @@ categories = ['튜토리얼']
 
 ## 사전 요구 사항
 
-- Hugo Extended ≥ 0.158.0 (언어 API `locale`/`label`/`direction`는 v0.158.0 이상 필요)
-- 터미널에서 `hugo version`을 실행해 출력에 `+extended`가 포함되는지 확인
+- Hugo ≥ 0.163.0(일반 버전 가능. IsBranch API는 v0.163.0 이상 필요)
+- Dart Sass를 설치하고 PATH에 추가(SCSS 컴파일에 필요. Hugo가 자동으로 호출)
+
+## 테마 설치
+
+### 방법 1: Git 서브모듈(권장)
+
+```bash
+git submodule add https://github.com/code-revolution-org/revrain.git themes/revrain
+```
+
+### 방법 2: Hugo Modules(Git 및 Go 1.18+ 필요)
+
+```bash
+hugo mod init <모듈 이름>
+hugo mod get github.com/code-revolution-org/revrain
+```
+
+사이트 설정에서 임포트를 선언합니다:
+
+```toml
+[module]
+  [[module.imports]]
+    path = 'github.com/code-revolution-org/revrain'
+```
+
+### 방법 3: 다운로드 또는 클론
+
+[GitHub Releases](https://github.com/code-revolution-org/revrain/releases)에서 소스 ZIP을 다운로드하거나 `themes/revrain`에 클론합니다:
+
+```bash
+git clone https://github.com/code-revolution-org/revrain.git themes/revrain
+```
 
 ## 테마 활성화
 

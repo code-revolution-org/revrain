@@ -4,7 +4,7 @@
   {{ partial "head.html" . }}
   {{- /* 数学公式 CSS：仅当页面含公式时引入（htmlAndMathml 模式必需）；列表/节点页一并引入，防止嵌入内容含公式时缺失 / Math CSS: only when page has math (required for htmlAndMathml); also on node pages in case embedded content has math (official recommendation) */}}
   {{- $noop := .WordCount }}
-  {{- if or (.Page.Store.Get "hasMath") .IsNode }}
+  {{- if or (.Page.Store.Get "hasMath") .IsBranch }}
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.css" integrity="sha384-vlBdW0r3AcZO/HboRPznQNowvexd3fY8qHOWkBi5q7KGgqJ+F48+DceybYmrVbmB" crossorigin="anonymous">
   {{- end }}
 </head>

@@ -168,8 +168,7 @@ themesDir = "../../"
 
 [module]
   [module.hugoVersion]
-    extended = true
-    min = '0.158.0'
+    min = '0.163.0'
 
 # 输出格式：仅主页与栏目生成 RSS，标签/分类不再生成，避免低质量 feed 泛滥 / RSS only for home & section
 [outputs]

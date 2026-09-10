@@ -43,7 +43,7 @@ jobs:
         uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: '0.163.1'
-          extended: true
+          # 普通版即可，SCSS 由下方安装的外部 Dart Sass 编译 / Any Hugo edition works; SCSS is compiled by the external Dart Sass installed below
 
       - name: Install Dart Sass
         run: sudo snap install dart-sass

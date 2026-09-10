@@ -10,8 +10,39 @@ categories = ['教程']
 
 ## 前置要求
 
-- Hugo Extended ≥ 0.158.0（语言 API `locale`/`label`/`direction` 需要 v0.158.0+）
-- 在命令行执行 `hugo version`，确认输出含 `+extended`
+- Hugo ≥ 0.163.0（普通版即可；IsBranch 分支检测 API 需要 v0.163.0+）
+- 安装 Dart Sass 并加入 PATH（SCSS 编译所需，Hugo 自动调用）
+
+## 安装主题
+
+### 方式一：Git 子模块（推荐）
+
+```bash
+git submodule add https://github.com/code-revolution-org/revrain.git themes/revrain
+```
+
+### 方式二：Hugo Modules（需 Git 与 Go 1.18+）
+
+```bash
+hugo mod init <你的模块名>
+hugo mod get github.com/code-revolution-org/revrain
+```
+
+并在站点配置中声明导入：
+
+```toml
+[module]
+  [[module.imports]]
+    path = 'github.com/code-revolution-org/revrain'
+```
+
+### 方式三：下载或克隆
+
+从 [GitHub Releases](https://github.com/code-revolution-org/revrain/releases) 下载源码 ZIP，或克隆到 `themes/revrain`：
+
+```bash
+git clone https://github.com/code-revolution-org/revrain.git themes/revrain
+```
 
 ## 启用主题
 

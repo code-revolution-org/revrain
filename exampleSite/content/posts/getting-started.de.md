@@ -10,8 +10,39 @@ categories = ['anleitung']
 
 ## Voraussetzungen
 
-- Hugo Extended ≥ 0.158.0 (Sprach-APIs `locale`/`label`/`direction` erfordern v0.158.0+)
-- Führen Sie `hugo version` im Terminal aus und bestätigen Sie, dass die Ausgabe `+extended` enthält
+- Hugo ≥ 0.163.0 (beliebige Edition; die IsBranch-API erfordert v0.163.0+)
+- Dart Sass installieren und zum PATH hinzufügen (erforderlich für die SCSS-Kompilierung; Hugo ruft es automatisch auf)
+
+## Theme installieren
+
+### Methode 1: Git-Submodul (empfohlen)
+
+```bash
+git submodule add https://github.com/code-revolution-org/revrain.git themes/revrain
+```
+
+### Methode 2: Hugo Modules (erfordert Git und Go 1.18+)
+
+```bash
+hugo mod init <dein Modulname>
+hugo mod get github.com/code-revolution-org/revrain
+```
+
+Und deklariere den Import in deiner Site-Konfiguration:
+
+```toml
+[module]
+  [[module.imports]]
+    path = 'github.com/code-revolution-org/revrain'
+```
+
+### Methode 3: Herunterladen oder klonen
+
+Lade das Quell-ZIP von [GitHub Releases](https://github.com/code-revolution-org/revrain/releases) herunter oder klone es nach `themes/revrain`:
+
+```bash
+git clone https://github.com/code-revolution-org/revrain.git themes/revrain
+```
 
 ## Theme aktivieren
 

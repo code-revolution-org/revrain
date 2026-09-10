@@ -10,8 +10,39 @@ categories = ['دليل']
 
 ## المتطلبات
 
-- Hugo Extended ≥ 0.158.0 (تتطلب واجهات API اللغة `locale`/`label`/`direction` الإصدار v0.158.0 أو أحدث)
-- نفّذ `hugo version` في الطرفية وتأكد أن المخرجات تحتوي على `+extended`
+- Hugo ≥ 0.163.0 (أي إصدار؛ تتطلب واجهة برمجة IsBranch الإصدار v0.163.0 أو أحدث)
+- ثبّت Dart Sass وأضفه إلى PATH (مطلوب لتجميع SCSS؛ يستدعيه Hugo تلقائيًا)
+
+## تثبيت القالب
+
+### الطريقة 1: الوحدة الفرعية Git (موصى بها)
+
+```bash
+git submodule add https://github.com/code-revolution-org/revrain.git themes/revrain
+```
+
+### الطريقة 2: Hugo Modules (يتطلب Git وGo 1.18+)
+
+```bash
+hugo mod init <اسم الوحدة الخاص بك>
+hugo mod get github.com/code-revolution-org/revrain
+```
+
+وأعلن عن الاستيراد في إعدادات موقعك:
+
+```toml
+[module]
+  [[module.imports]]
+    path = 'github.com/code-revolution-org/revrain'
+```
+
+### الطريقة 3: التنزيل أو الاستنساخ
+
+نزّل ملف ZIP من [GitHub Releases](https://github.com/code-revolution-org/revrain/releases)، أو استنسخه إلى `themes/revrain`:
+
+```bash
+git clone https://github.com/code-revolution-org/revrain.git themes/revrain
+```
 
 ## تفعيل القالب
 

@@ -19,6 +19,37 @@
 - **文章目录** — 侧边栏 TOC，滚动高亮当前标题，嵌套项可折叠
 - **服务端分页** — 栏目、分类与标签云均使用服务端分页
 
+## 安装
+
+### 方式一：Git 子模块（推荐）
+
+```bash
+git submodule add https://github.com/code-revolution-org/revrain.git themes/revrain
+```
+
+### 方式二：Hugo Modules（需 Git 与 Go 1.18+）
+
+```bash
+hugo mod init <你的模块名>
+hugo mod get github.com/code-revolution-org/revrain
+```
+
+并在站点配置中声明导入：
+
+```toml
+[module]
+  [[module.imports]]
+    path = 'github.com/code-revolution-org/revrain'
+```
+
+### 方式三：下载或克隆
+
+从 [GitHub Releases](https://github.com/code-revolution-org/revrain/releases) 下载源码 ZIP，或克隆到 `themes/revrain`：
+
+```bash
+git clone https://github.com/code-revolution-org/revrain.git themes/revrain
+```
+
 ## 快速开始
 
 在站点配置中启用主题：
@@ -262,10 +293,18 @@ summary = '涵盖技术分享、生活随笔等多个主题的文章合集。'  
 
 ## 最低要求
 
-- Hugo Extended >= 0.158.0
-- Dart Sass（SCSS 编译所需）
+- Hugo >= 0.163.0（普通版即可，SCSS 由外部 Dart Sass 编译）
+- Dart Sass（需安装并加入 PATH，Hugo 自动调用）
 
 ## 许可证
 
 MIT 许可证。详见 [LICENSE](LICENSE)。
+
+## 贡献指南
+
+欢迎报告问题、改进文档或提交代码。请阅读 [CONTRIBUTING.md](CONTRIBUTING.md) 了解贡献方式。
+
+## 更新日志
+
+记录项目每个版本的重要变更。请查看 [CHANGELOG.md](CHANGELOG.md)。
 

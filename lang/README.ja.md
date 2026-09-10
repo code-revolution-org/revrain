@@ -19,6 +19,37 @@
 - **目次** — サイドバーの TOC。スクロールで現在の見出しをハイライト、入れ子項目は折りたたみ可能
 - **サーバーサイドページネーション** — セクション、分類、タグクラウドすべてサーバーサイド
 
+## インストール
+
+### 方法 1：Git サブモジュール（推奨）
+
+```bash
+git submodule add https://github.com/code-revolution-org/revrain.git themes/revrain
+```
+
+### 方法 2：Hugo Modules（Git と Go 1.18+ が必要）
+
+```bash
+hugo mod init <あなたのモジュール名>
+hugo mod get github.com/code-revolution-org/revrain
+```
+
+サイト設定でインポートを宣言します：
+
+```toml
+[module]
+  [[module.imports]]
+    path = 'github.com/code-revolution-org/revrain'
+```
+
+### 方法 3：ダウンロードまたはクローン
+
+[GitHub Releases](https://github.com/code-revolution-org/revrain/releases) からソース ZIP をダウンロードするか、`themes/revrain` にクローンします：
+
+```bash
+git clone https://github.com/code-revolution-org/revrain.git themes/revrain
+```
+
 ## クイックスタート
 
 サイト設定でテーマを有効化:
@@ -262,10 +293,18 @@ summary = '技術共有、生活エッセイなど多様なテーマの記事集
 
 ## 最低要件
 
-- Hugo Extended >= 0.158.0
-- Dart Sass（SCSS コンパイルに必須）
+- Hugo >= 0.163.0（通常版で可。SCSS は外部の Dart Sass がコンパイル）
+- Dart Sass（インストールして PATH に追加する必要あり。Hugo が自動的に呼び出します）
 
 ## ライセンス
 
 MIT ライセンス。詳細は [LICENSE](../LICENSE) を参照。
+
+## コントリビューションガイド
+
+バグ報告、ドキュメントの改善、コードの提出を歓迎します。貢献方法については [CONTRIBUTING.md](CONTRIBUTING.ja.md) をご覧ください。
+
+## 変更履歴
+
+各リリースの重要な変更はここに記録されます。[CHANGELOG.md](CHANGELOG.ja.md) をご覧ください。
 

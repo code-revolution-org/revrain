@@ -19,6 +19,37 @@
 - **Оглавление** — Боковая TOC с подсветкой при прокрутке и сворачиваемыми вложенными элементами
 - **Серверная пагинация** — Для разделов, таксономий и облака тегов
 
+## Установка
+
+### Способ 1: подмодуль Git (рекомендуется)
+
+```bash
+git submodule add https://github.com/code-revolution-org/revrain.git themes/revrain
+```
+
+### Способ 2: Hugo Modules (требуются Git и Go 1.18+)
+
+```bash
+hugo mod init <ваше имя модуля>
+hugo mod get github.com/code-revolution-org/revrain
+```
+
+И объявите импорт в конфигурации вашего сайта:
+
+```toml
+[module]
+  [[module.imports]]
+    path = 'github.com/code-revolution-org/revrain'
+```
+
+### Способ 3: скачать или клонировать
+
+Скачайте ZIP исходников с [GitHub Releases](https://github.com/code-revolution-org/revrain/releases) или клонируйте в `themes/revrain`:
+
+```bash
+git clone https://github.com/code-revolution-org/revrain.git themes/revrain
+```
+
 ## Быстрый старт
 
 Включите тему в конфигурации вашего сайта:
@@ -262,10 +293,18 @@ summary = 'Статьи о технологиях, жизненных эссе �
 
 ## Минимальные требования
 
-- Hugo Extended >= 0.158.0
-- Dart Sass (требуется для компиляции SCSS)
+- Hugo >= 0.163.0 (любая редакция; SCSS компилируется внешним Dart Sass)
+- Dart Sass (должен быть установлен и находиться в PATH; Hugo вызывает его автоматически)
 
 ## Лицензия
 
 Лицензия MIT. См. [LICENSE](../LICENSE).
+
+## Участие
+
+Приветствуются сообщения об ошибках, улучшения документации и вклад в код. О том, как участвовать, читайте в [CONTRIBUTING.md](CONTRIBUTING.ru.md).
+
+## Журнал изменений
+
+Все значимые изменения каждой версии задокументированы здесь. См. [CHANGELOG.md](CHANGELOG.ru.md).
 

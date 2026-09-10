@@ -19,6 +19,37 @@
 - **فهرس المحتويات** — TOC جانبي مع تمييز أثناء التمرير وعناصر متداخلة قابلة للطي
 - **ترقيم من جهة الخادم** — للأقسام والتصنيفات وسحابة الوسوم
 
+## التثبيت
+
+### الطريقة 1: الوحدة الفرعية Git (موصى بها)
+
+```bash
+git submodule add https://github.com/code-revolution-org/revrain.git themes/revrain
+```
+
+### الطريقة 2: Hugo Modules (يتطلب Git وGo 1.18+)
+
+```bash
+hugo mod init <اسم الوحدة الخاص بك>
+hugo mod get github.com/code-revolution-org/revrain
+```
+
+وأعلن عن الاستيراد في إعدادات موقعك:
+
+```toml
+[module]
+  [[module.imports]]
+    path = 'github.com/code-revolution-org/revrain'
+```
+
+### الطريقة 3: التنزيل أو الاستنساخ
+
+نزّل ملف ZIP من [GitHub Releases](https://github.com/code-revolution-org/revrain/releases)، أو استنسخه إلى `themes/revrain`:
+
+```bash
+git clone https://github.com/code-revolution-org/revrain.git themes/revrain
+```
+
 ## بدء سريع
 
 فعّل القالب في إعدادات موقعك:
@@ -262,10 +293,18 @@ summary = 'مقالات تغطي مشاركة التقنية ومقالات ال
 
 ## المتطلبات الدنيا
 
-- Hugo Extended >= 0.158.0
-- Dart Sass (مطلوب لتجميع SCSS)
+- Hugo >= 0.163.0 (أي إصدار؛ يتم تجميع SCSS بواسطة Dart Sass الخارجي)
+- Dart Sass (يجب تثبيته وإضافته إلى PATH؛ يستدعيه Hugo تلقائيًا)
 
 ## الرخصة
 
 رخصة MIT. انظر [LICENSE](../LICENSE).
+
+## المساهمة
+
+نرحب بالإبلاغ عن الأخطاء وتحسين الوثائق والمساهمات البرمجية. لمعرفة كيفية المساهمة، راجع [CONTRIBUTING.md](CONTRIBUTING.ar.md).
+
+## سجل التغييرات
+
+جميع التغييرات المهمة لكل إصدار موثقة هنا. راجع [CHANGELOG.md](CHANGELOG.ar.md).
 

@@ -19,6 +19,37 @@ Un thème Hugo par [Code Revolution](https://github.com/code-revolution-org), co
 - **Table des matières** — TOC latérale avec surbrillance au défilement et éléments imbriqués repliables
 - **Pagination côté serveur** — Pour les sections, les taxonomies et le nuage de tags
 
+## Installation
+
+### Méthode 1 : sous-module Git (recommandé)
+
+```bash
+git submodule add https://github.com/code-revolution-org/revrain.git themes/revrain
+```
+
+### Méthode 2 : Hugo Modules (nécessite Git et Go 1.18+)
+
+```bash
+hugo mod init <votre nom de module>
+hugo mod get github.com/code-revolution-org/revrain
+```
+
+Et déclarez l'import dans votre configuration de site :
+
+```toml
+[module]
+  [[module.imports]]
+    path = 'github.com/code-revolution-org/revrain'
+```
+
+### Méthode 3 : télécharger ou cloner
+
+Téléchargez le ZIP des sources depuis [GitHub Releases](https://github.com/code-revolution-org/revrain/releases), ou clonez-le dans `themes/revrain` :
+
+```bash
+git clone https://github.com/code-revolution-org/revrain.git themes/revrain
+```
+
 ## Démarrage rapide
 
 Activez le thème dans la configuration de votre site :
@@ -262,10 +293,18 @@ Polices système open source couvrant toutes les langues prises en charge par le
 
 ## Exigences minimales
 
-- Hugo Extended >= 0.158.0
-- Dart Sass (requis pour la compilation SCSS)
+- Hugo >= 0.163.0 (toute édition ; le SCSS est compilé par Dart Sass externe)
+- Dart Sass (doit être installé et présent dans le PATH ; Hugo l'invoque automatiquement)
 
 ## Licence
 
 Licence MIT. Voir [LICENSE](../LICENSE).
+
+## Contribution
+
+Les signalements de bugs, améliorations de documentation et contributions de code sont les bienvenus. Consultez [CONTRIBUTING.md](CONTRIBUTING.fr.md) pour savoir comment contribuer.
+
+## Journal des modifications
+
+Toutes les modifications notables de chaque version sont documentées ici. Voir [CHANGELOG.md](CHANGELOG.fr.md).
 
