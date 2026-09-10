@@ -1,0 +1,5 @@
+{{- /* 栏目 RSS：收录当前栏目（section）下的文章，如 /posts/index.xml */ -}}
+{{- $pages := .RegularPages }}
+{{- $limit := site.Config.Services.RSS.Limit }}
+{{- if ge $limit 1 }}{{ $pages = $pages | first $limit }}{{ end }}
+{{- partial "rss/channel.html" (dict "ctx" . "pages" $pages) -}}

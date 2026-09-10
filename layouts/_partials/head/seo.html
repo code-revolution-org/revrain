@@ -1,0 +1,28 @@
+{{- /* SEO 编排入口 / SEO orchestrator */}}
+{{- /* 计算共享变量后分发到各子模块 / Compute shared vars, then delegate to sub-partials */}}
+
+{{- /* SEO 公共变量 / SEO shared variables */}}
+{{- $desc := "" }}
+{{- with .Description }}{{ $desc = . }}{{ end }}
+{{- if and (not $desc) .IsPage }}{{ with .Summary }}{{ $desc = . | plainify | htmlUnescape | replaceRE "\n" " " | replaceRE `\s+` " " | trim " " }}{{ end }}{{ end }}
+{{- if not $desc }}{{ with site.Params.description }}{{ $desc = . }}{{ end }}{{ end }}
+{{- /* 解析社交分享图片（页面资源→封面资源→站点默认） / Resolve social share images (page resource → featured → site default) */}}
+{{- $imgs := partial "_funcs/get-page-images" . }}
+{{- $locale := site.Language.Locale | default "en_US" | replaceRE "-" "_" }}
+{{- $twitter := site.Params.social.twitter | default "" }}
+{{- with $twitter }}{{ if not (hasPrefix . "@") }}{{ $twitter = printf "@%s" . }}{{ end }}{{ end }}
+{{- $is404 := eq .Kind "404" }}
+
+{{- /* 打包共享变量 / Package shared variables */}}
+{{- $seo := dict "desc" $desc "imgs" $imgs "locale" $locale "twitter" $twitter "is404" $is404 }}
+
+{{/* 基础元标签（含 404）/ Basic meta tags (incl. 404) */}}
+{{- partial "head/seo/meta.html" (dict "page" . "seo" $seo) }}
+
+{{- /* 社交分享与结构化数据，404 页不输出 / Social + JSON-LD, skipped on 404 */}}
+{{- if not $is404 }}
+{{- partial "head/seo/open-graph.html" (dict "page" . "seo" $seo) }}
+{{- partial "head/seo/twitter-card.html" (dict "page" . "seo" $seo) }}
+{{- partial "head/seo/json-ld.html" (dict "page" . "seo" $seo) }}
+{{- partial "head/seo/breadcrumb.html" (dict "page" .) }}
+{{- end }}

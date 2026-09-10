@@ -1,0 +1,199 @@
+baseURL = 'https://example.org/'
+copyright = '© 2026 revrain'  # 站点版权，用于 RSS feed 的 copyright 元素 / Site copyright, used by RSS feed
+defaultContentLanguage = 'zh-CN'
+enableRobotsTXT = true  # 启用 robots.txt / Enable robots.txt
+
+theme = "revrain"
+themesDir = "../../"
+
+[languages]
+  [languages.en-US]
+    label = "English"
+
+    locale = 'en-US'
+    title = 'revrain'
+    weight = 20
+    [languages.en-US.params.footer]
+      copyright = "revrain Theme · Built with Hugo."
+  [languages.zh-CN]
+    label = "简体中文"
+
+    locale = 'zh-CN'
+    title = 'revrain'
+    weight = 10
+    [languages.zh-CN.params.footer]
+      copyright = "revrain 主题 · 由 Hugo 构建"
+  [languages.zh-TW]
+    label = "繁體中文"
+
+    locale = 'zh-TW'
+    title = 'revrain'
+    weight = 30
+    [languages.zh-TW.params.footer]
+      copyright = "revrain 主題 · 由 Hugo 構建"
+  [languages.ja]
+    label = "日本語"
+
+    locale = 'ja'
+    title = 'revrain'
+    weight = 40
+    [languages.ja.params.footer]
+      copyright = "revrain テーマ · Hugo で構築"
+  [languages.ko]
+    label = "한국어"
+
+    locale = 'ko'
+    title = 'revrain'
+    weight = 50
+    [languages.ko.params.footer]
+      copyright = "revrain 테마 · Hugo로 제작"
+  [languages.fr]
+    label = "Français"
+
+    locale = 'fr'
+    title = 'revrain'
+    weight = 60
+    [languages.fr.params.footer]
+      copyright = "thème revrain · Construit avec Hugo."
+  [languages.de]
+    label = "Deutsch"
+
+    locale = 'de'
+    title = 'revrain'
+    weight = 70
+    [languages.de.params.footer]
+      copyright = "revrain-Theme · Erstellt mit Hugo."
+  [languages.es]
+    label = "Español"
+
+    locale = 'es'
+    title = 'revrain'
+    weight = 80
+    [languages.es.params.footer]
+      copyright = "tema revrain · Construido con Hugo."
+  [languages.ru]
+    label = "Русский"
+
+    locale = 'ru'
+    title = 'revrain'
+    weight = 90
+    [languages.ru.params.footer]
+      copyright = "тема revrain · Создано с помощью Hugo."
+  [languages.ar]
+    label = "العربية"
+
+    locale = 'ar'
+    direction = 'rtl'
+    title = 'revrain'
+    weight = 100
+    [languages.ar.params.footer]
+      copyright = "ثيم revrain · تم بناؤه باستخدام Hugo."
+  [languages.pt-BR]
+    label = "Português (Brasil)"
+
+    locale = 'pt-BR'
+    title = 'revrain'
+    weight = 110
+    [languages.pt-BR.params.footer]
+      copyright = "tema revrain · Construído com Hugo."
+
+# 分类法配置 / Taxonomy configuration
+[taxonomies]
+  category = 'categories'
+  tag = 'tags'
+
+[params]
+  logo = "/revrain.png"  # 导航栏 logo，可选；未设置则只显示站点标题 / Nav bar logo, optional; shows site title only if unset
+  description = "代码革命 - 致力于技术分享与开源协作的开发者组织"  # 站点描述，用于 SEO / Site description for SEO
+  images = ["/revrain.png"]  # 默认社交分享图片，用于 og:image 和 twitter:image / Default social share image
+  [params.social]
+    twitter = ""  # Twitter 账号，用于 twitter:site / Twitter account for twitter:site
+  # 浏览器标签页图标：配置优先，未配置则回退 static/ 下的规范文件名，全部缺失时输出空 data URI 避免 404 / Site icons: config takes precedence, falls back to convention filenames in static/, empty data URI suppresses 404 when all are missing
+  [params.favicons]
+    svg = "/favicon.svg"  # SVG 矢量图标 / SVG vector icon
+    icon_32 = "/favicon-32x32.png"  # 32x32 PNG / 32x32 PNG
+    icon_16 = "/favicon-16x16.png"  # 16x16 PNG / 16x16 PNG
+    apple_touch = "/apple-touch-icon.png"  # iOS 主屏图标 / iOS home screen icon
+  # RSS 作者信息：用于 feed 的 managingEditor/webMaster/author 元素 / RSS author info
+  [params.author]
+    name = "code-revo"
+    email = "code-revolution-org@daimarevo.com"
+
+[menus]
+  [[menus.main]]
+    name = 'Home'
+    identifier = 'menu_home'
+    pageRef = '/'
+    weight = 10
+
+  [[menus.main]]
+    name = 'Browse'
+    identifier = 'menu_browse'
+    pageRef = '/browse'
+    weight = 20
+
+  [[menus.main]]
+    name = 'Tags'
+    identifier = 'menu_tags'
+    pageRef = '/tags'
+    weight = 30
+
+  [[menus.main]]
+    name = 'Categories'
+    identifier = 'menu_categories'
+    pageRef = '/categories'
+    weight = 40
+
+  [[menus.main]]
+    name = 'About'
+    identifier = 'menu_about'
+    pageRef = '/about'
+    weight = 50
+
+[params.footer]
+  github = "https://github.com/code-revolution-org/revrain"
+
+  [[params.footer.links]]
+    name = "Friendly Links"
+    identifier = "friendly_links"
+    url = "https://github.com/code-revolution-org"
+
+# 数字雨配置 / Digital rain config
+[params.digital_rain]
+  enable = true  # 是否启用 / Enable (true/false)
+  chars = "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"  # 字符集 / Character set
+  font_size = 14  # 字体大小 / Font size (10-32, px)
+  moon_chance = 0.02  # 月白色概率 / Moon white probability (0-1)
+  reset_chance = 0.025  # 重置概率 / Reset probability (0-1)
+
+[module]
+  [module.hugoVersion]
+    min = '0.163.0'
+
+# 输出格式：仅主页与栏目生成 RSS，标签/分类不再生成，避免低质量 feed 泛滥 / RSS only for home & section
+[outputs]
+  home = ['html', 'rss']
+  section = ['html', 'rss']
+  taxonomy = ['html']
+  term = ['html']
+
+# RSS 条目上限 / Max items per feed
+[services.rss]
+  limit = 25
+
+# 分页配置 / Pagination configuration
+[pagination]
+  pagerSize = 22  # 每页条数，用于分类法/栏目/术语页 / Items per page for taxonomy/section/term pages
+
+# 数学公式支持 / Math support (Goldmark passthrough + transform.ToMath)
+# 官方推荐定界符：块级 \[...\] / $$...$$，行内 \(...\)（勿配置 $...$，避免与 Markdown 冲突）
+# Official delimiters: block \[...\] / $$...$$, inline \(...\) (avoid $...$ which conflicts with Markdown)
+[markup.goldmark.extensions.passthrough]
+  enable = true
+  [markup.goldmark.extensions.passthrough.delimiters]
+    block = [['\[', '\]'], ['$$', '$$']]
+    inline = [['\(', '\)']]
+
+[markup.tableOfContents]
+  startLevel = 2
+  endLevel = 6

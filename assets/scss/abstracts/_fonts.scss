@@ -1,0 +1,29 @@
+// Font Stacks / 字体栈
+// 支持英语及 lang/ 下所有语言的开源字体栈 / Open-source font stack supporting all languages in lang/
+
+// 英文 / English
+$font-stack-latin: "Inter", "Noto Sans", system-ui, sans-serif;
+
+// 中文 / Chinese
+$font-stack-chinese: "Noto Sans SC", "Noto Sans TC", "Source Han Sans SC", "Source Han Sans TC", "WenQuanYi Micro Hei", sans-serif;
+
+// 日文 / Japanese
+$font-stack-japanese: "Noto Sans JP", "Source Han Sans JP", sans-serif;
+
+// 韩文 / Korean
+$font-stack-korean: "Noto Sans KR", "Source Han Sans KR", "Nanum Gothic", sans-serif;
+
+// 阿拉伯文 / Arabic
+$font-stack-arabic: "Noto Sans Arabic", "Noto Naskh Arabic", sans-serif;
+
+// 西里尔文 / Cyrillic
+$font-stack-cyrillic: "Noto Sans", "Noto Sans SC", sans-serif;
+
+// 综合字体栈 / Combined font stack
+$font-stack-primary:
+  $font-stack-latin,
+  $font-stack-chinese,
+  $font-stack-japanese,
+  $font-stack-korean,
+  $font-stack-arabic,
+  $font-stack-cyrillic;

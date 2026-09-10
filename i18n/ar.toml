@@ -1,0 +1,91 @@
+[page_not_found]
+other = "الصفحة غير موجودة"
+
+[back_to_home]
+other = "العودة إلى الصفحة الرئيسية"
+
+[go_back]
+other = "رجوع"
+
+[taxonomy]
+other = "تصنيف"
+
+[categories]
+other = "تصنيفات"
+
+[tags]
+other = "وسوم"
+
+[all_sections]
+other = "جميع الأقسام"
+
+[pages]
+zero = "صفحة"
+one = "صفحة"
+two = "صفحتان"
+few = "صفحات"
+many = "صفحة"
+other = "صفحة"
+
+[prev]
+other = "السابق"
+
+[next]
+other = "التالي"
+
+[github]
+other = "GitHub"
+
+[rss]
+other = "RSS"
+
+[toc]
+other = "جدول المحتويات"
+
+[back]
+other = "رجوع"
+
+[article_navigation]
+other = "تنقل المقال"
+
+[toggle_menu]
+other = "تبديل القائمة"
+
+[breadcrumb]
+other = "مسار التنقل"
+
+[page_navigation]
+other = "تنقل الصفحات"
+
+[menu_home]
+other = "الرئيسية"
+
+[menu_browse]
+other = "تصفح"
+
+[menu_tags]
+other = "وسوم"
+
+[menu_categories]
+other = "تصنيفات"
+
+[menu_about]
+other = "حول"
+
+[friendly_links]
+other = "روابط مفيدة"
+
+[language_switcher]
+other = "اللغة"
+
+[skip_to_content]
+other = "تخطي إلى المحتوى"
+
+[main_navigation]
+other = "التنقل الرئيسي"
+
+[footer_navigation]
+other = "تنقل التذييل"
+
+[rss_copied]
+other = "تم النسخ"

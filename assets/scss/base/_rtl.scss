@@ -1,0 +1,78 @@
+@use '../abstracts' as *;
+
+// Direction-Aware Arrows / 方向感知箭头
+// Arrows are rendered via pseudo-elements so they can be mirrored for RTL
+// (Arabic). The <html dir> attribute drives the direction, not hard-coded
+// character entities in templates. / 箭头用伪元素渲染，以便 RTL（阿拉伯语）下镜像反转，
+// 由 <html dir> 属性驱动方向，而非模板中硬编码的字符实体。
+
+// Back button arrow / 返回按钮箭头
+.back-arrow::before {
+  content: "\2190"; // ← left arrow (LTR) / 左箭头（LTR）
+}
+
+// Prev / Next nav label arrows / 上下页导航标签箭头
+.prev-next-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.prev-link .prev-next-label::before {
+  content: "\2190"; // ← / 左箭头
+}
+
+.next-link .prev-next-label::after {
+  content: "\2192"; // → / 右箭头
+}
+
+// Card meta "view all" arrow / 卡片元信息箭头
+.card-arrow::after {
+  content: "\2192"; // → / 右箭头
+}
+
+// Pagination arrows / 分页箭头
+.pagination-prev,
+.pagination-next {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pagination-prev::before {
+  content: "\00AB"; // « double left arrow / 双左箭头
+}
+
+.pagination-next::after {
+  content: "\00BB"; // » double right arrow / 双右箭头
+}
+
+// RTL mirror overrides / 阿拉伯语镜像覆盖
+[dir="rtl"] .back-arrow::before {
+  content: "\2192"; // → / 右箭头
+}
+
+[dir="rtl"] .prev-link .prev-next-label::before {
+  content: "\2192"; // → / 右箭头
+}
+
+[dir="rtl"] .next-link .prev-next-label::after {
+  content: "\2190"; // ← / 左箭头
+}
+
+[dir="rtl"] .card-arrow::after {
+  content: "\2190"; // ← / 左箭头
+}
+
+[dir="rtl"] .pagination-prev::before {
+  content: "\00BB"; // » / 双右箭头
+}
+
+[dir="rtl"] .pagination-next::after {
+  content: "\00AB"; // « / 双左箭头
+}
+
+// RTL: blockquote accent bar sits on the inline-start (right) / 引用块竖线镜像到右侧
+[dir="rtl"] .glass-card > blockquote {
+  border-radius: 8px 0 0 8px;
+}

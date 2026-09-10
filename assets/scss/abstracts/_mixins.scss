@@ -1,0 +1,89 @@
+@use 'variables' as *;
+
+// Flexbox Layout Mixins / 弹性布局混入
+
+// Center content horizontally and vertically / 水平垂直居中
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Space items evenly with main axis / 两端对齐
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// Arrange items in a column / 纵向排列
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Column layout centered both axes / 纵向居中
+@mixin flex-column-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+// Flex with configurable gap / 带间距排列
+@mixin flex-gap($gap: 1rem) {
+  display: flex;
+  gap: $gap;
+}
+
+// Centered flex with configurable gap / 居中带间距
+@mixin flex-center-gap($gap: 1rem) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: $gap;
+}
+
+// Responsive Breakpoint Mixins / 响应式断点混入
+
+// Mobile / 移动端 (max-width: $bp-mobile)
+@mixin mobile {
+  @media (max-width: $bp-mobile) {
+    @content;
+  }
+}
+
+// Tablet / 平板端 (max-width: $bp-tablet)
+@mixin tablet {
+  @media (max-width: $bp-tablet) {
+    @content;
+  }
+}
+
+// Mobile Landscape / 移动端横屏
+@mixin mobile-landscape {
+  @media (max-width: $bp-mobile) and (orientation: landscape) {
+    @content;
+  }
+}
+
+// Desktop / 桌面端 (min-width: $bp-desktop)
+@mixin desktop {
+  @media (min-width: $bp-desktop) {
+    @content;
+  }
+}
+
+// Wide / 宽屏 (min-width: $bp-wide)
+@mixin wide {
+  @media (min-width: $bp-wide) {
+    @content;
+  }
+}
+
+// Laptop / 窄笔记本与大平板横屏 (tablet < width < desktop)
+@mixin laptop {
+  @media (min-width: ($bp-tablet + 1px)) and (max-width: ($bp-desktop - 1px)) {
+    @content;
+  }
+}

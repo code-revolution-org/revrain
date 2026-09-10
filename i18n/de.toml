@@ -1,0 +1,87 @@
+[page_not_found]
+other = "Seite nicht gefunden"
+
+[back_to_home]
+other = "Zurück zur Startseite"
+
+[go_back]
+other = "Zurück"
+
+[taxonomy]
+other = "Taxonomie"
+
+[categories]
+other = "Kategorien"
+
+[tags]
+other = "Tags"
+
+[all_sections]
+other = "Alle Abschnitte"
+
+[pages]
+one = "Seite"
+other = "Seiten"
+
+[prev]
+other = "Zurück"
+
+[next]
+other = "Weiter"
+
+[github]
+other = "GitHub"
+
+[rss]
+other = "RSS"
+
+[toc]
+other = "Inhaltsverzeichnis"
+
+[back]
+other = "Zurück"
+
+[article_navigation]
+other = "Artikelnavigation"
+
+[toggle_menu]
+other = "Menü umschalten"
+
+[breadcrumb]
+other = "Brotkrümelnavigation"
+
+[page_navigation]
+other = "Seitennavigation"
+
+[menu_home]
+other = "Startseite"
+
+[menu_browse]
+other = "Durchsuchen"
+
+[menu_tags]
+other = "Tags"
+
+[menu_categories]
+other = "Kategorien"
+
+[menu_about]
+other = "Über"
+
+[friendly_links]
+other = "Nützliche Links"
+
+[language_switcher]
+other = "Sprache"
+
+[skip_to_content]
+other = "Zum Inhalt springen"
+
+[main_navigation]
+other = "Hauptnavigation"
+
+[footer_navigation]
+other = "Fußzeilen-Navigation"
+
+[rss_copied]
+other = "Kopiert!"

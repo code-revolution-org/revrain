@@ -1,0 +1,17 @@
+{{- /*
+Passthrough render hook: server-side math rendering / 数学公式服务端渲染
+Uses Hugo's embedded KaTeX (transform.ToMath) at build time; no client-side JS.
+使用 Hugo 内置 KaTeX 在构建时渲染，无需客户端 JS。
+
+@context {string} Inner  LaTeX source without delimiters / 去除定界符后的 LaTeX 源码
+@context {string} Type   "block" or "inline" / 块级或行内
+*/}}
+{{- $opts := dict "output" "htmlAndMathml" "displayMode" (eq .Type "block") }}
+{{- with try (transform.ToMath .Inner $opts) }}
+  {{- with .Err }}
+    {{- errorf "Unable to render mathematical markup to HTML using the transform.ToMath function. The KaTeX display engine threw the following error: %s: see %s." . $.Position }}
+  {{- else }}
+    {{- .Value }}
+    {{- $.Page.Store.Set "hasMath" true }}
+  {{- end }}
+{{- end -}}

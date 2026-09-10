@@ -1,0 +1,79 @@
+@use '../abstracts' as *;
+
+// Footer Component / 页脚组件
+.site-footer {
+  padding: 2rem 0;
+
+  // Footer content layout / 页脚内容布局
+  .footer-content {
+    width: 100%;
+    padding: 0 clamp(1rem, 3vw, 2rem);
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+  }
+
+  // 共享链接视觉样式：RSS 与右侧链接组一致 / Shared link visual style (RSS + link group)
+  .footer-rss,
+  .footer-links a {
+    color: $text-secondary;
+    font-size: 0.875rem;
+    text-decoration: none;
+    padding: 0.5rem 0.25rem; // 增大点击区域 / Larger hit target (WCAG 2.5.8)
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $accent;
+    }
+  }
+
+  // RSS 订阅链接：独立于链接组，固定页脚左侧 / RSS link, separate from link group, fixed at left
+  .footer-rss {
+    grid-column: 1;
+    justify-self: start;
+    align-self: center; // 显式垂直居中，不依赖继承 / Explicit vertical centering
+  }
+
+  // Copyright text / 版权声明
+  .copyright {
+    grid-column: 2;
+    color: $text-secondary;
+    font-size: 0.875rem;
+    text-align: center;
+  }
+
+  // Footer navigation links / 页脚导航链接
+  .footer-links {
+    grid-column: 3;
+    justify-self: end;
+    display: flex;
+    gap: 1.5rem;
+  }
+}
+
+// Mobile responsive / 移动端响应
+@include mobile {
+  .site-footer .footer-content {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .site-footer .footer-rss {
+    grid-column: 1;
+    justify-self: center;
+    order: 0;
+  }
+
+  .site-footer .copyright {
+    grid-column: 1;
+    order: 2;
+  }
+
+  .site-footer .footer-links {
+    grid-column: 1;
+    justify-self: center;
+    order: 1;
+  }
+}

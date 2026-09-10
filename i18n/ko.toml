@@ -1,0 +1,86 @@
+[page_not_found]
+other = "페이지를 찾을 수 없습니다"
+
+[back_to_home]
+other = "홈으로 돌아가기"
+
+[go_back]
+other = "뒤로 가기"
+
+[taxonomy]
+other = "분류 체계"
+
+[categories]
+other = "카테고리"
+
+[tags]
+other = "태그"
+
+[all_sections]
+other = "전체 섹션"
+
+[pages]
+other = "페이지"
+
+[prev]
+other = "이전"
+
+[next]
+other = "다음"
+
+[github]
+other = "GitHub"
+
+[rss]
+other = "RSS"
+
+[toc]
+other = "목차"
+
+[back]
+other = "뒤로"
+
+[article_navigation]
+other = "기사 내비게이션"
+
+[toggle_menu]
+other = "메뉴 전환"
+
+[breadcrumb]
+other = "브레드크럼"
+
+[page_navigation]
+other = "페이지 내비게이션"
+
+[menu_home]
+other = "홈"
+
+[menu_browse]
+other = "둘러보기"
+
+[menu_tags]
+other = "태그"
+
+[menu_categories]
+other = "카테고리"
+
+[menu_about]
+other = "소개"
+
+[friendly_links]
+other = "유용한 링크"
+
+[language_switcher]
+other = "언어"
+
+[skip_to_content]
+other = "본문으로 건너뛰기"
+
+[main_navigation]
+other = "메인 내비게이션"
+
+[footer_navigation]
+other = "바닥글 내비게이션"
+
+[rss_copied]
+other = "복사됨"

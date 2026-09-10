@@ -1,0 +1,39 @@
+{{ define "main" }}
+{{- if or .Content .Pages }}
+<div class="glass-card">
+  <div class="page-nav-bar">
+    {{ partial "back-button.html" . }}
+    {{ partial "breadcrumb.html" . }}
+  </div>
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+
+  <div class="card-grid">
+    {{ range .Paginator.Pages }}
+    <a href="{{ .RelPermalink }}" class="card-grid-item">
+      <h2>{{ .LinkTitle }}</h2>
+      {{/* 显示文章简介，如果未填写则不显示 / Show summary, hidden if empty */}}
+      {{ with .Params.summary }}<p>{{ . }}</p>{{ end }}
+      {{- if not .Date.IsZero }}
+      <div class="card-meta">
+        <time datetime="{{ .Date | time.Format "2006-01-02T15:04:05-07:00" }}">{{ .Date | time.Format ":date_long" }}</time>
+      </div>
+      {{- end }}
+    </a>
+    {{ end }}
+  </div>
+
+  {{- if gt .Paginator.TotalPages 1 }}
+  <nav class="pagination"{{ with T "page_navigation" }} aria-label="{{ . }}"{{ end }}>
+    {{- if .Paginator.HasPrev }}
+    <a href="{{ .Paginator.Prev.URL }}" class="pagination-prev">{{ T "prev" }}</a>
+    {{- end }}
+    <span class="pagination-current">{{ .Paginator.PageNumber }} / {{ .Paginator.TotalPages }}</span>
+    {{- if .Paginator.HasNext }}
+    <a href="{{ .Paginator.Next.URL }}" class="pagination-next">{{ T "next" }}</a>
+    {{- end }}
+  </nav>
+  {{- end }}
+</div>
+{{- end }}
+{{ end }}

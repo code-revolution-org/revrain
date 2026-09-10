@@ -1,0 +1,25 @@
+// Imagery / 意象名
+$abyss: #0A0A0F; // Abyss Black / 深渊黑
+$rain: #00D4AA; // Rain Green / 雨丝绿
+$twilight: #8B92A8; // Twilight / 暮光
+$moon: #E8EAF0; // Moon White / 月白
+$shroud: #2A2A35; // Shroud / 幔雾
+
+// Functional / 功能名
+$bg-primary: $abyss; // Background / 背景色
+$accent: $rain; // Accent / 强调色
+$text-secondary: $twilight; // Secondary text / 次要文字
+$text-primary: $moon; // Primary text / 主要文字
+$border-primary: $shroud; // Border color / 边框颜色
+
+// Breakpoints / 断点
+$bp-mobile: 480px; // Mobile / 移动端
+$bp-tablet: 768px; // Tablet / 平板
+$bp-desktop: 1024px; // Desktop / 桌面
+$bp-wide: 1280px; // Wide / 宽屏
+
+// Glass / 毛玻璃
+$glass-bg-opacity: 0.35; // Background opacity / 背景不透明度
+$glass-border-opacity: 0.6; // Border opacity / 边框不透明度
+$glass-blur: 12px; // Blur radius / 模糊半径
+$glass-radius: 16px; // Border radius / 圆角

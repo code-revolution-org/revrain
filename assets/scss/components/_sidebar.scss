@@ -1,0 +1,230 @@
+@use '../abstracts' as *;
+
+// Article Sidebar / 文章侧边栏
+.article-layout {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  max-width: 1100px;
+  margin-inline: auto;
+}
+
+.article-layout:has(.article-sidebar) .glass-card {
+  flex: 1;
+  min-width: 0;
+  margin-inline: 0;
+  max-width: none;
+}
+
+.article-sidebar {
+  @include glass;
+  width: 260px;
+  flex-shrink: 0;
+  padding: 1.25rem;
+  position: sticky;
+  top: 6rem;
+  max-height: calc(100vh - 8rem);
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba($border-primary, 0.5);
+    border-radius: 2px;
+  }
+}
+
+// Sidebar Section / 侧边栏区块
+.sidebar-section {
+  margin-bottom: 1.5rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  > h4 {
+    color: $text-secondary;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba($border-primary, 0.3);
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  li a {
+    display: inline-block;
+    padding: 0.3rem 0.65rem;
+    color: $text-primary;
+    background: rgba($shroud, 0.6);
+    border: 1px solid rgba($border-primary, 0.5);
+    border-radius: 5px;
+    font-size: 0.8rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+
+    &:hover {
+      border-color: $accent;
+      color: $accent;
+      box-shadow: 0 0 8px rgba($accent, 0.3);
+    }
+  }
+}
+
+// TOC Navigation / 目录导航
+.sidebar-toc {
+  margin-bottom: 1rem;
+
+  h4 {
+    color: $text-secondary;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: block;
+  }
+
+  nav ul ul,
+  nav ul ol {
+    margin-inline-start: 16px;
+  }
+
+  nav > ul {
+    margin-inline-start: 0;
+  }
+
+  nav li {
+    margin: 5px 0;
+    padding: 1px 0;
+
+    // Left marker bar / 左侧标记条
+    &::before {
+      content: '';
+      width: 5px;
+      height: 10px;
+      background: $accent;
+      display: inline-block;
+      vertical-align: middle;
+      margin-inline-end: 10px;
+      border-radius: 2px;
+      opacity: 0.5;
+      transition: all 0.2s ease;
+      box-shadow: 0 0 6px rgba($accent, 0.3);
+    }
+
+    &:hover::before {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      opacity: 1;
+    }
+  }
+
+  nav a {
+    color: $text-secondary;
+    font-size: 0.82rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    display: inline-block;
+    padding: 0.4rem 0.25rem; // 增大点击区域 / Larger hit target (WCAG 2.5.8)
+    line-height: 1.4;
+
+    &:hover {
+      color: $accent;
+    }
+
+    &.active {
+      color: $accent;
+      opacity: 1;
+    }
+  }
+
+  // Nested items / 嵌套子项（默认隐藏）
+  nav ul ul,
+  nav ul ol {
+    transform: scaleY(0);
+    height: 0;
+    overflow: hidden;
+    visibility: hidden; // 隐藏的链接不再可聚焦 / Hidden links are not focusable
+    transition: transform 0.3s ease, visibility 0s linear 0.3s;
+    transform-origin: top;
+
+    > li:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // Expanded nested items / 展开后所有后代都显示
+  nav li.active > ul,
+  nav li.active > ol,
+  nav li.expanded > ul,
+  nav li.expanded > ol,
+  nav li.active ul,
+  nav li.expanded ul {
+    height: auto;
+    transform: scaleY(1);
+    visibility: visible;
+    transition: transform 0.3s ease, visibility 0s linear 0s;
+  }
+}
+
+// Tablet responsive / 平板端响应
+@include tablet {
+  .article-layout {
+    flex-direction: column;
+  }
+
+  .article-sidebar {
+    width: 100%;
+    position: static;
+    max-height: none;
+
+    .sidebar-section ul {
+      justify-content: flex-start;
+    }
+  }
+}
+
+// Laptop / 窄笔记本与大平板横屏适配
+@include laptop {
+  .article-layout {
+    gap: 1.25rem;
+  }
+
+  .article-sidebar {
+    width: 220px;
+    padding: 1rem;
+  }
+}
+
+// Wide / 宽屏适配
+@include wide {
+  .article-layout {
+    max-width: 1200px;
+  }
+
+  .article-sidebar {
+    width: 280px;
+  }
+}

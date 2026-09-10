@@ -1,0 +1,25 @@
+{{ define "main" }}
+{{- if or .Content .Pages }}
+<div class="article-layout">
+  {{ partial "sidebar.html" (dict "page" .) }}
+
+  <div class="glass-card">
+    <div class="page-nav-bar">
+      {{ partial "back-button.html" . }}
+      {{ partial "breadcrumb.html" . }}
+    </div>
+    <h1>{{ .Title }}</h1>
+
+    {{- if not .Date.IsZero }}
+    {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+    {{ $dateHuman := .Date | time.Format ":date_long" }}
+    <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+    {{- end }}
+
+    {{ .Content }}
+
+    {{ partial "prev-next-nav.html" . }}
+  </div>
+</div>
+{{- end }}
+{{ end }}

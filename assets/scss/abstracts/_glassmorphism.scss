@@ -1,0 +1,19 @@
+// Glassmorphism Mixin / 毛玻璃效果混入
+// Usage / 用法: @include glass; 或 @include glass($blur: 16px, $radius: 24px);
+
+@use 'variables' as *;
+
+@mixin glass(
+  $blur: $glass-blur,
+  $bg-color: $shroud,
+  $bg-opacity: $glass-bg-opacity,
+  $border-color: $shroud,
+  $border-opacity: $glass-border-opacity,
+  $radius: $glass-radius
+) {
+  background: rgba($bg-color, $bg-opacity); // Semi-transparent bg / 半透明背景
+  backdrop-filter: blur($blur); // Frost blur / 磨砂模糊
+  -webkit-backdrop-filter: blur($blur); // Safari / 浏览器兼容
+  border: 1px solid rgba($border-color, $border-opacity); // Glass edge / 玻璃边
+  border-radius: $radius; // Rounded corners / 圆角
+}

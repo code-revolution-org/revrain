@@ -1,0 +1,38 @@
+{{ define "main" }}
+{{- with .Data.Terms }}
+<div class="glass-card">
+  {{- /* 标题优先取当前分类法名称的 i18n 翻译，无翻译时回退页面标题 / Title: i18n taxonomy name, fallback to page title */}}
+  <h1>{{ T $.Data.Plural | default $.Title }}</h1>
+  {{ $.Content }}
+
+  {{- /* 服务端分页术语云：每页 pagerSize 个术语，生成真实分页 URL / Server-side paginated term cloud
+      注意：head 中的 meta.html 已调用 .Paginator（rel=prev/next），分页缓存首次调用后不可变，
+      此处必须使用 .Paginator 而非 .Paginate 以免二次分页调用失效（官方 Paginate 文档）；
+      术语默认按字母序排列（taxonomy 页 .Pages 默认排序） /
+      Note: meta.html in head already calls .Paginator (rel=prev/next); pagination is cached after
+      the first call, so use .Paginator here — a second .Paginate call would have no effect.
+      Terms are sorted alphabetically by default on taxonomy pages. */}}
+  {{- $paginator := $.Paginator }}
+  <div class="tag-cloud">
+    {{ range $paginator.Pages }}
+    <a href="{{ .RelPermalink }}" class="tag-pill">
+      {{ .LinkTitle }}
+      <span class="tag-count">{{ len .Pages }}</span>
+    </a>
+    {{ end }}
+  </div>
+
+  {{- if gt $paginator.TotalPages 1 }}
+  <nav class="pagination"{{ with T "page_navigation" }} aria-label="{{ . }}"{{ end }}>
+    {{- if $paginator.HasPrev }}
+    <a href="{{ $paginator.Prev.URL }}" class="pagination-prev">{{ T "prev" }}</a>
+    {{- end }}
+    <span class="pagination-current">{{ $paginator.PageNumber }} / {{ $paginator.TotalPages }}</span>
+    {{- if $paginator.HasNext }}
+    <a href="{{ $paginator.Next.URL }}" class="pagination-next">{{ T "next" }}</a>
+    {{- end }}
+  </nav>
+  {{- end }}
+</div>
+{{- end }}
+{{ end }}
