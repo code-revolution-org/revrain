@@ -1,0 +1,24 @@
+{{- /* Markdown 图片渲染钩子 / Markdown image render hook
+   保留 Goldmark 默认行为并增强：固有尺寸 + 懒加载 + 响应式 srcset
+   Goldmark-compliant plus width/height + lazy loading + responsive srcset
+   需配置 markup.goldmark.parser.wrapStandaloneImageWithinParagraph=false 使独立图片脱离 <p>
+   Requires wrapStandaloneImageWithinParagraph=false so standalone images leave <p> */ -}}
+{{- $page := .PageInner | default .Page -}}
+{{- $img := partial "_funcs/get-image.html" (dict "page" $page "src" .Destination) -}}
+
+{{- if .IsBlock -}}
+<figure>
+  <img src="{{ $img.relpermalink | safeURL }}"
+    {{- with $img.srcset }} srcset="{{ . }}" sizes="(max-width: 768px) 100vw, (max-width: 1024px) calc(100vw - 280px), (max-width: 1280px) calc(100vw - 320px), 840px"{{ end }}
+    {{- if and (gt $img.width 0) (gt $img.height 0) }} width="{{ $img.width }}" height="{{ $img.height }}"{{ end }}
+    {{- with .PlainText }} alt="{{ . }}"{{ end }}
+    loading="lazy" decoding="async">
+  {{- with .Title }}<figcaption>{{ . }}</figcaption>{{ end -}}
+</figure>
+{{- else -}}
+<img src="{{ $img.relpermalink | safeURL }}"
+  {{- with $img.srcset }} srcset="{{ . }}" sizes="(max-width: 768px) 100vw, (max-width: 1024px) calc(100vw - 280px), (max-width: 1280px) calc(100vw - 320px), 840px"{{ end }}
+  {{- if and (gt $img.width 0) (gt $img.height 0) }} width="{{ $img.width }}" height="{{ $img.height }}"{{ end }}
+  {{- with .PlainText }} alt="{{ . }}"{{ end }}
+  loading="lazy" decoding="async">
+{{- end -}}

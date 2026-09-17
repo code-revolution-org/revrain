@@ -207,6 +207,7 @@ title = "소개"                # 페이지 제목
 layout = "about"             # about 레이아웃 사용
 subtitle = "코드로 세상을 바꾸다"  # 부제목
 avatar = "/avatar.png"       # 아바타 이미지(선택)
+avatar_alt = "아바타 설명"    # 아바타 대체 텍스트(선택, 비워두면 장식용, 접근성)
 description = "사이트 설명, SEO용"  # SEO 설명
 
 links = [                    # 소셜·외부 링크(선택)
@@ -235,6 +236,34 @@ description = "SEO 설명. 미설정 시 요약 자동 사용"  # SEO 설명
 
 글 본문.
 ```
+
+### 이미지
+
+글 이미지는 leaf bundle(페이지 번들)을 사용합니다: 이미지를 글과 같은 이름의 디렉터리에 넣고, Markdown에서는 파일명으로 바로 참조하면 됩니다.
+
+```
+content/posts/my-post/
+├── index.md        # 글 본문
+└── photo.jpg       # 페이지 리소스(이미지)
+```
+
+Markdown 참조(이미지 렌더 훅이 처리하여 반응형 `srcset`, 고유 `width`/`height`, `loading="lazy"`를 자동 출력):
+
+```markdown
+![대체 텍스트](photo.jpg "제목 텍스트")
+```
+
+- 단독 이미지(한 줄을 차지)는 `<figure>` + `<figcaption>`으로 렌더링(제목 텍스트가 캡션이 됨)
+- 인라인 이미지는 `<img>`로 렌더링
+- 처리 가능한 형식(JPEG/PNG/WebP/AVIF 등)은 다단계 WebP `srcset` 생성; SVG/ICO는 그대로 출력(처리하지 않고 고유 크기도 출력하지 않음)
+
+`figure` 숏코드도 사용할 수 있습니다:
+
+```markdown
+{{< figure src="photo.jpg" alt="대체 텍스트" caption="제목" >}}
+```
+
+소셜 공유 이미지(og:image / twitter:image)는 다음 순서로 확인: 페이지 `images` 파라미터 → 커버 리소스(`*feature*`/`*cover*`/`*thumbnail*`) → 사이트 `params.images`.
 
 ### 둘러보기 페이지
 

@@ -207,6 +207,7 @@ title = "Über uns"              # Seitentitel
 layout = "about"               # About-Layout verwenden
 subtitle = "Die Welt mit Code verändern"  # Untertitel
 avatar = "/avatar.png"         # Avatar-Bild (optional)
+avatar_alt = "Avatar-Beschreibung"  # Avatar-Alternativtext (optional, leer = dekorativ, Barrierefreiheit)
 description = "Site-Beschreibung für SEO"  # SEO-Beschreibung
 
 links = [                      # Soziale/externe Links (optional)
@@ -235,6 +236,34 @@ description = "SEO-Beschreibung; fällt auf die Zusammenfassung zurück wenn nic
 
 Artikeltext.
 ```
+
+### Bilder
+
+Artikelbilder verwenden ein Leaf Bundle (Seitenbündel): Bilder liegen in einem Verzeichnis mit dem Namen des Artikels, in Markdown wird direkt der Dateiname referenziert.
+
+```
+content/posts/my-post/
+├── index.md        # Artikeltext
+└── photo.jpg       # Seitenressource (Bild)
+```
+
+Markdown-Referenz (vom Bild-Render-Hook verarbeitet, gibt automatisch responsives `srcset`, intrinsische `width`/`height` und `loading="lazy"` aus):
+
+```markdown
+![Alternativtext](photo.jpg "Titeltext")
+```
+
+- Eigenständige Bilder (allein in einer Zeile) werden als `<figure>` + `<figcaption>` gerendert (Titeltext als Bildunterschrift)
+- Inline-Bilder werden als `<img>` gerendert
+- Verarbeitbare Formate (JPEG/PNG/WebP/AVIF usw.) erzeugen mehrstufiges WebP-`srcset`; SVG/ICO werden unverändert ausgegeben (keine Verarbeitung, keine intrinsischen Abmessungen)
+
+Alternativ den `figure`-Shortcode verwenden:
+
+```markdown
+{{< figure src="photo.jpg" alt="Alternativtext" caption="Titel" >}}
+```
+
+Social-Sharing-Bilder (og:image / twitter:image) werden in dieser Reihenfolge aufgelöst: Seitenparameter `images` → Cover-Ressource (`*feature*`/`*cover*`/`*thumbnail*`) → Site `params.images`.
 
 ### Browse-Seite
 

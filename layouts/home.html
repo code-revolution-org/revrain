@@ -2,7 +2,12 @@
 
 <section class="hero">
   {{ with .Params.logo }}
-  <img src="{{ relURL (strings.TrimPrefix "/" .) }}" alt="{{ $.Params.logo_alt }}" class="hero-logo">
+  {{- /* 首屏 LCP 图：固有尺寸消除 CLS；首屏不懒加载避免拖慢 LCP / LCP hero: intrinsic dims zero CLS; no lazy on above-the-fold */ -}}
+  {{- $img := partial "_funcs/get-image.html" (dict "page" $ "src" .) }}
+  <img src="{{ $img.relpermalink }}"
+    {{- with $img.srcset }} srcset="{{ . }}" sizes="(max-width: 480px) 80px, 120px"{{ end }}
+    {{- if and (gt $img.width 0) (gt $img.height 0) }} width="{{ $img.width }}" height="{{ $img.height }}"{{ end }}
+    alt="{{ $.Params.logo_alt }}" class="hero-logo">
   {{ end }}
 
   {{ with .Params.title }}

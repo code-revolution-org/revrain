@@ -41,6 +41,10 @@ reset_chance = 0.025  # 雨滴重置概率，0–1
 - `moon_chance`：单个字符呈月白色（强调色）的概率
 - `reset_chance`：雨滴回到顶部的概率，数值越大流速越快
 
+## 效果示意
+
+{{< figure src="screenshot.png" alt="数字雨效果" caption="Matrix 风格数字雨动画" >}}
+
 ## 无障碍行为
 
 画布对辅助技术隐藏（`aria-hidden`，纯装饰）。当系统开启「减少动态效果」（`prefers-reduced-motion: reduce`）时，仅绘制静态帧；低性能设备自动跳帧以降低开销。

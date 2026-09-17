@@ -207,6 +207,7 @@ title = "私たちについて"        # ページタイトル
 layout = "about"             # about レイアウトを使用
 subtitle = "コードで世界を変える"  # サブタイトル
 avatar = "/avatar.png"       # アバター画像（任意）
+avatar_alt = "アバターの説明"  # アバターの代替テキスト（任意、空なら装飾的、アクセシビリティ）
 description = "サイト説明、SEO 用"  # SEO 説明
 
 links = [                    # ソーシャル・外部リンク（任意）
@@ -235,6 +236,34 @@ description = "SEO 説明。未設定なら概要を自動使用"  # SEO 説明
 
 記事本文。
 ```
+
+### 画像
+
+記事の画像は leaf bundle（ページバンドル）を使用します：画像を記事と同名のディレクトリに置き、Markdown ではファイル名を直接参照するだけです。
+
+```
+content/posts/my-post/
+├── index.md        # 記事本文
+└── photo.jpg       # ページリソース（画像）
+```
+
+Markdown での参照（画像レンダーフックが処理し、レスポンシブ `srcset`、固有の `width`/`height`、`loading="lazy"` を自動出力）：
+
+```markdown
+![代替テキスト](photo.jpg "タイトル")
+```
+
+- 単独画像（1 行のみ）は `<figure>` + `<figcaption>` として描画（タイトルがキャプションに）
+- インライン画像は `<img>` として描画
+- 処理可能な形式（JPEG/PNG/WebP/AVIF など）は複数段階の WebP `srcset` を生成；SVG/ICO はそのまま出力（処理せず、固有サイズも出力しない）
+
+`figure` ショートコードも使えます：
+
+```markdown
+{{< figure src="photo.jpg" alt="代替テキスト" caption="タイトル" >}}
+```
+
+ソーシャル共有画像（og:image / twitter:image）は次の順で解決：ページ `images` パラメータ → カバーリソース（`*feature*`/`*cover*`/`*thumbnail*`）→ サイト `params.images`。
 
 ### ブラウズページ
 

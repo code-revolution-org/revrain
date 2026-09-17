@@ -1,0 +1,25 @@
+{{- /* figure 短代码：覆盖内置，走图片处理管线 / figure shortcode: overrides embedded, routes through image pipeline
+   内置 figure 不做图片处理（官方原文），本覆盖统一走 _funcs/get-image.html 生成 srcset/尺寸/懒加载
+   The embedded figure does not perform image processing; this override routes through the shared pipeline
+   参数 src(必需) alt caption class link target rel / params src(required) alt caption class link target rel */ -}}
+{{- $src := .Get "src" -}}
+{{- if not $src -}}
+  {{- errorf "figure shortcode requires the src parameter / figure 短代码缺少 src 参数，位置 %s" .Position -}}
+{{- end -}}
+{{- $page := .Page -}}
+{{- $img := partial "_funcs/get-image.html" (dict "page" $page "src" $src) -}}
+
+<figure{{ with .Get "class" }} class="{{ . }}"{{ end }}>
+  {{- with .Get "link" }}
+  <a href="{{ . | safeURL }}"{{ with $.Get "target" }} target="{{ . }}"{{ end }}{{ with $.Get "rel" }} rel="{{ . }}"{{ end }}>
+  {{- end }}
+  <img src="{{ $img.relpermalink | safeURL }}"
+    {{- with $img.srcset }} srcset="{{ . }}" sizes="(max-width: 768px) 100vw, (max-width: 1024px) calc(100vw - 280px), (max-width: 1280px) calc(100vw - 320px), 840px"{{ end }}
+    {{- if and (gt $img.width 0) (gt $img.height 0) }} width="{{ $img.width }}" height="{{ $img.height }}"{{ end }}
+    {{- with $.Get "alt" }} alt="{{ . }}"{{ end }}
+    loading="lazy" decoding="async">
+  {{- if .Get "link" }}</a>{{ end }}
+  {{- with .Get "caption" }}
+  <figcaption>{{ . }}</figcaption>
+  {{- end }}
+</figure>

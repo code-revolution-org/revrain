@@ -207,6 +207,7 @@ title = "Acerca de"             # Título de la página
 layout = "about"               # Usar la plantilla "acerca de"
 subtitle = "Cambiar el mundo con código"  # Subtítulo
 avatar = "/avatar.png"         # Imagen de avatar (opcional)
+avatar_alt = "Descripción del avatar"  # Texto alternativo del avatar (opcional, vacío = decorativo, accesibilidad)
 description = "Descripción del sitio para SEO"  # Descripción SEO
 
 links = [                      # Enlaces sociales/externos (opcionales)
@@ -235,6 +236,34 @@ description = "Descripción SEO; usa el resumen si no se define"  # Descripción
 
 Cuerpo del artículo.
 ```
+
+### Imágenes
+
+Las imágenes de los artículos usan un leaf bundle (paquete de página): coloca las imágenes en un directorio con el nombre del artículo y referéncialas directamente por nombre de archivo en Markdown.
+
+```
+content/posts/my-post/
+├── index.md        # Cuerpo del artículo
+└── photo.jpg       # Recurso de página (imagen)
+```
+
+Referencia Markdown (procesada por el hook de renderizado de imágenes, que genera automáticamente `srcset` responsive, `width`/`height` intrínsecos y `loading="lazy"`):
+
+```markdown
+![Texto alternativo](photo.jpg "Texto del título")
+```
+
+- Las imágenes independientes (solas en una línea) se renderizan como `<figure>` + `<figcaption>` (el texto del título se convierte en la leyenda)
+- Las imágenes en línea se renderizan como `<img>`
+- Los formatos procesables (JPEG/PNG/WebP/AVIF etc.) generan un `srcset` WebP de varios niveles; SVG/ICO se emiten tal cual (sin procesar, sin dimensiones intrínsecas)
+
+También puedes usar el shortcode `figure`:
+
+```markdown
+{{< figure src="photo.jpg" alt="Texto alternativo" caption="Título" >}}
+```
+
+Las imágenes para compartir en redes sociales (og:image / twitter:image) se resuelven en este orden: parámetro `images` de la página → recurso de portada (`*feature*`/`*cover*`/`*thumbnail*`) → `params.images` del sitio.
 
 ### Página Explorar
 

@@ -166,9 +166,17 @@ themesDir = "../../"
   moon_chance = 0.02  # 月白色概率 / Moon white probability (0-1)
   reset_chance = 0.025  # 重置概率 / Reset probability (0-1)
 
+# 挂载 static 到 assets，让站点 logo 等 static 图片可被图片管线处理（取尺寸+srcset）
+# Mount static to assets so site logos etc. can be image-processed (dims + srcset)
 [module]
   [module.hugoVersion]
     min = '0.163.0'
+  [[module.mounts]]
+    source = 'assets'
+    target = 'assets'
+  [[module.mounts]]
+    source = 'static'
+    target = 'assets'
 
 # 输出格式：仅主页与栏目生成 RSS，标签/分类不再生成，避免低质量 feed 泛滥 / RSS only for home & section
 [outputs]
@@ -194,6 +202,26 @@ themesDir = "../../"
     block = [['\[', '\]'], ['$$', '$$']]
     inline = [['\(', '\)']]
 
+# 图片渲染钩子：独立图片不裹 <p>，块级属性开启（支持 Markdown 图片附加属性）
+# Image render hook: standalone images leave <p>; block attributes enabled
+[markup.goldmark.parser]
+  wrapStandaloneImageWithinParagraph = false
+  [markup.goldmark.parser.attribute]
+    block = true
+
 [markup.tableOfContents]
   startLevel = 2
   endLevel = 6
+
+# 图片处理默认值：lanczos 锐利照片，质量偏画质 / Imaging defaults: lanczos for sharp photos, quality tuned
+[imaging]
+  anchor = 'smart'
+  resampleFilter = 'lanczos'
+  [imaging.jpeg]
+    quality = 80
+  [imaging.webp]
+    quality = 80
+    method = 6
+  [imaging.avif]
+    quality = 50
+

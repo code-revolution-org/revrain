@@ -2,7 +2,14 @@
 <div class="about">
   <div class="about__hero">
     {{- with .Params.avatar }}
-    <img src="{{ relURL (strings.TrimPrefix "/" .) }}" alt="{{ $.Title }}" class="about__avatar">
+    {{- /* 头像走图片解析管线：固有尺寸 + 懒加载；alt 独立参数，缺省为空（装饰性兜底，WCAG 1.1.1）/ Avatar via image pipeline: intrinsic dims + lazy; alt from dedicated param, empty fallback (WCAG 1.1.1) */ -}}
+    {{- $img := partial "_funcs/get-image.html" (dict "page" $ "src" .) }}
+    <img src="{{ $img.relpermalink }}"
+      {{- with $img.srcset }} srcset="{{ . }}" sizes="(max-width: 768px) 100vw, (max-width: 1024px) calc(100vw - 280px), (max-width: 1280px) calc(100vw - 320px), 840px"{{ end }}
+      {{- if and (gt $img.width 0) (gt $img.height 0) }} width="{{ $img.width }}" height="{{ $img.height }}"{{ end }}
+      alt="{{ $.Params.avatar_alt | default "" }}"
+      class="about__avatar"
+      {{- if not $img.issvg }} loading="lazy" decoding="async"{{ end }}>
     {{- end }}
     <h1 class="about__title">{{ .Title }}</h1>
     {{- with .Params.subtitle }}

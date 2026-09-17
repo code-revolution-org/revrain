@@ -207,6 +207,7 @@ title = "About"                # Page title
 layout = "about"               # Use the about layout
 subtitle = "Changing the World with Code"  # Subtitle
 avatar = "/avatar.png"         # Avatar image (optional)
+avatar_alt = "Avatar description"  # Avatar alt text (optional, empty = decorative, accessibility)
 description = "Site description for SEO"  # SEO description
 
 links = [                      # Social/external links (optional)
@@ -235,6 +236,34 @@ description = "SEO description; falls back to the summary if unset"  # SEO descr
 
 Article body.
 ```
+
+### Images
+
+Article images use a leaf bundle (page bundle): place images in a directory named after the article, then reference them by filename directly in Markdown.
+
+```
+content/posts/my-post/
+├── index.md        # Article body
+└── photo.jpg       # Page resource (image)
+```
+
+Markdown reference (handled by the image render hook, which automatically outputs responsive `srcset`, intrinsic `width`/`height`, and `loading="lazy"`):
+
+```markdown
+![Alt text](photo.jpg "Title text")
+```
+
+- Standalone images (on their own line) render as `<figure>` + `<figcaption>` (title text becomes the caption)
+- Inline images render as `<img>`
+- Processable formats (JPEG/PNG/WebP/AVIF etc.) generate multi-step WebP `srcset`; SVG/ICO are output as-is (no processing, no intrinsic dimensions)
+
+You can also use the `figure` shortcode:
+
+```markdown
+{{< figure src="photo.jpg" alt="Alt text" caption="Title" >}}
+```
+
+Social share images (og:image / twitter:image) resolve in this order: page `images` param → featured resource (`*feature*`/`*cover*`/`*thumbnail*`) → site `params.images`.
 
 ### Browse Page
 

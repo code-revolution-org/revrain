@@ -1,7 +1,12 @@
 <div class="header__brand">
   {{/* 导航栏 logo；相邻的站点标题链接已提供名称，故 alt 留空（装饰性）/ Logo; adjacent site-title link provides the name, so alt="" (decorative) */}}
   {{ with site.Params.logo }}
-    <img class="header__icon" src="{{ relURL (strings.TrimPrefix "/" .) }}" alt="" aria-hidden="true">
+    {{- /* 页头装饰 logo：固有尺寸消除 CLS；装饰性 alt 留空 / Header decorative logo: intrinsic dims zero CLS; alt empty (decorative) */ -}}
+    {{- $img := partial "_funcs/get-image.html" (dict "page" $ "src" .) }}
+    <img class="header__icon" src="{{ $img.relpermalink }}"
+      {{- with $img.srcset }} srcset="{{ . }}" sizes="40px"{{ end }}
+      {{- if and (gt $img.width 0) (gt $img.height 0) }} width="{{ $img.width }}" height="{{ $img.height }}"{{ end }}
+      alt="" aria-hidden="true">
   {{ end }}
   <a class="header__title" href="{{ relLangURL "" }}">{{ site.Title }}</a>
 </div>

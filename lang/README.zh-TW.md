@@ -207,6 +207,7 @@ title = "關於我們"            # 頁面標題
 layout = "about"             # 使用關於頁模板
 subtitle = "用程式碼改變世界"     # 副標題
 avatar = "/avatar.png"       # 頭像圖片（選用）
+avatar_alt = "頭像描述"       # 頭像替代文字（選用，預設為空即裝飾性，無障礙）
 description = "站點描述，用於 SEO"  # SEO 描述
 
 links = [                    # 社交/外鏈（選用）
@@ -235,6 +236,34 @@ description = "SEO 描述，缺省時自動取摘要"  # SEO 描述
 
 文章正文。
 ```
+
+### 圖片
+
+文章圖片採用 leaf bundle（頁面捆綁）：圖片與文章同名目錄放置，Markdown 直接引用檔名即可。
+
+```
+content/posts/my-post/
+├── index.md        # 文章正文
+└── photo.jpg       # 頁面資源（圖片）
+```
+
+Markdown 引用（由圖片渲染鉤子處理，自動輸出響應式 `srcset`、固有 `width`/`height` 與 `loading="lazy"`）：
+
+```markdown
+![替代文字](photo.jpg "標題文字")
+```
+
+- 獨立圖片（獨佔一行）渲染為 `<figure>` + `<figcaption>`（標題文字作為圖說）
+- 行內圖片渲染為 `<img>`
+- 可處理格式（JPEG/PNG/WebP/AVIF 等）生成多檔 WebP `srcset`；SVG/ICO 原樣輸出（不處理，不輸出固有尺寸）
+
+也可使用 `figure` 短代碼：
+
+```markdown
+{{< figure src="photo.jpg" alt="替代文字" caption="標題" >}}
+```
+
+社交分享圖（og:image / twitter:image）按以下順序解析：頁面 `images` 參數 → 封面資源（`*feature*`/`*cover*`/`*thumbnail*`）→ 站點 `params.images`。
 
 ### 瀏覽頁
 

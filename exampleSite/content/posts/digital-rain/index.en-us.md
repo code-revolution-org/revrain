@@ -41,6 +41,10 @@ reset_chance = 0.025 # drop reset probability, 0–1
 - `moon_chance`: probability that a single character appears in moon white (accent color)
 - `reset_chance`: probability that a drop resets to the top; higher values mean a faster flow
 
+## Preview
+
+![Digital rain effect](screenshot.png "Matrix-style digital rain animation")
+
 ## Accessibility behavior
 
 The canvas is hidden from assistive technologies (`aria-hidden`, purely decorative). When the system enables "reduce motion" (`prefers-reduced-motion: reduce`), only a static frame is drawn; low-performance devices skip frames automatically to reduce overhead.

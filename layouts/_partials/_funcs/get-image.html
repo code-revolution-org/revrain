@@ -1,0 +1,106 @@
+{{- /*
+图片解析与处理 / Image resolve & process
+解析链：页面资源（leaf bundle）→ 全局资源（assets）→ 静态/相对 → 外链透传
+Resolve chain: page resource (leaf bundle) → global resource (assets) → static/relative → external passthrough
+
+@context {page}   page  当前页面（用 .PageInner 兜底，支持 include 短代码嵌套）/ current page (.PageInner fallback for include nesting)
+@context {string} src    图片路径或 URL / image path or URL
+@returns {dict}         relpermalink / permalink / width / height / srcset / issvg / isprocess
+
+可处理格式（AVIF/BMP/GIF/JPEG/PNG/TIFF/WebP）生成 srcset 多档 WebP；
+不可处理但有尺寸（HEIC/HEIF）直发原图带尺寸；SVG/ICO 直发原图无尺寸。
+Processable formats build srcset WebP variants; HEIC/HEIF emit original with dimensions;
+SVG/ICO emit original without dimensions (per official format table).
+*/ -}}
+{{- $page := .page -}}
+{{- $src := .src -}}
+{{- $result := dict -}}
+
+{{- $u := urls.Parse $src -}}
+{{- if eq $u.Scheme "" -}}
+  {{- /* 内部路径：去前导 / 后按页面资源→全局资源查找 / Internal: trim leading / then page resource → global */ -}}
+  {{- $srcTrim := strings.TrimPrefix "/" $src -}}
+  {{- $img := "" -}}
+  {{- with $page.Resources.GetMatch $srcTrim -}}
+    {{- $img = . -}}
+  {{- else -}}
+    {{- with resources.GetMatch $srcTrim -}}
+      {{- $img = . -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- with $img -}}
+    {{- if reflect.IsImageResourceProcessable . -}}
+      {{- /* 可处理：生成 srcset 多档 WebP，按宽度等比缩放（lt 判断防止上采样）/ Build srcset WebP, scale by width (lt check prevents upscaling) */ -}}
+      {{- $base := . -}}
+      {{- $widths := slice 480 768 1024 1280 -}}
+      {{- $srcset := slice -}}
+      {{- range $w := $widths -}}
+        {{- if lt $w (int $base.Width) -}}
+          {{- with $base.Process (printf "resize %dx webp q80" $w) -}}
+            {{- $srcset = $srcset | append (printf "%s %dw" .RelPermalink $w) -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+      {{- /* 原图转 WebP 作为最大档 / Original as largest WebP variant */ -}}
+      {{- with $base.Process "webp q80" -}}
+        {{- $srcset = $srcset | append (printf "%s %dw" .RelPermalink (int .Width)) -}}
+        {{- $result = dict
+          "relpermalink" $base.RelPermalink
+          "permalink"    $base.Permalink
+          "width"        (int $base.Width)
+          "height"       (int $base.Height)
+          "srcset"        (delimit $srcset ", ")
+          "issvg"        false
+          "isprocess"    true
+        -}}
+      {{- end -}}
+    {{- else if reflect.IsImageResourceWithMeta . -}}
+      {{- /* 不可处理但有尺寸（HEIC/HEIF）：直发原图带尺寸 / Has meta but not processable */ -}}
+      {{- $result = dict
+        "relpermalink" .RelPermalink
+        "permalink"    .Permalink
+        "width"        (int .Width)
+        "height"       (int .Height)
+        "srcset"        ""
+        "issvg"        false
+        "isprocess"    false
+      -}}
+    {{- else -}}
+      {{- /* SVG/ICO：无尺寸，不输出 width/height / No dimensions */ -}}
+      {{- $result = dict
+        "relpermalink" .RelPermalink
+        "permalink"    .Permalink
+        "width"        0
+        "height"       0
+        "srcset"        ""
+        "issvg"        true
+        "isprocess"    false
+      -}}
+    {{- end -}}
+  {{- else -}}
+    {{- /* 静态/相对路径回退：relURL，不参与处理 / Static fallback via relURL */ -}}
+    {{- $result = dict
+      "relpermalink" (relURL (strings.TrimPrefix "/" $src))
+      "permalink"    (absURL (strings.TrimPrefix "/" $src))
+      "width"        0
+      "height"       0
+      "srcset"        ""
+      "issvg"        (strings.HasSuffix (lower $src) ".svg")
+      "isprocess"    false
+    -}}
+  {{- end -}}
+{{- else -}}
+  {{- /* 外链：原样透传，不处理 / External: passthrough */ -}}
+  {{- $result = dict
+    "relpermalink" $src
+    "permalink"    $src
+    "width"        0
+    "height"       0
+    "srcset"        ""
+    "issvg"        false
+    "isprocess"    false
+  -}}
+{{- end -}}
+
+{{- return $result -}}

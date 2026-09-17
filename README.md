@@ -207,6 +207,7 @@ title = "关于我们"            # 页面标题
 layout = "about"             # 使用关于页模板
 subtitle = "用代码改变世界"     # 副标题
 avatar = "/avatar.png"       # 头像图片（可选）
+avatar_alt = "头像描述"       # 头像替代文本（可选，缺省为空即装饰性，无障碍）
 description = "站点描述，用于 SEO"  # SEO 描述
 
 links = [                    # 社交/外链（可选）
@@ -235,6 +236,34 @@ description = "SEO 描述，缺省时自动取摘要"  # SEO 描述
 
 文章正文。
 ```
+
+### 图片
+
+文章图片采用 leaf bundle（页面捆绑）：图片与文章同名目录放置，Markdown 直接引用文件名即可。
+
+```
+content/posts/my-post/
+├── index.md        # 文章正文
+└── photo.jpg       # 页面资源（图片）
+```
+
+Markdown 引用（由图片渲染钩子处理，自动输出响应式 `srcset`、固有 `width`/`height` 与 `loading="lazy"`）：
+
+```markdown
+![替代文本](photo.jpg "标题文字")
+```
+
+- 独立图片（独占一行）渲染为 `<figure>` + `<figcaption>`（标题文字作为图说）
+- 行内图片渲染为 `<img>`
+- 可处理格式（JPEG/PNG/WebP/AVIF 等）生成多档 WebP `srcset`；SVG/ICO 原样输出（不处理，不输出固有尺寸）
+
+也可使用 `figure` 短代码：
+
+```markdown
+{{< figure src="photo.jpg" alt="替代文本" caption="标题" >}}
+```
+
+社交分享图（og:image / twitter:image）按以下顺序解析：页面 `images` 参数 → 封面资源（`*feature*`/`*cover*`/`*thumbnail*`）→ 站点 `params.images`。
 
 ### 浏览页
 

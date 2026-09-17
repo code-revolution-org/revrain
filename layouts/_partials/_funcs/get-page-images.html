@@ -17,7 +17,14 @@ Mirrors Hugo's built-in lookup chain: page images param → featured page resour
   {{- $featured := $resources.GetMatch "*feature*" }}
   {{- if not $featured }}{{ $featured = $resources.GetMatch "{*cover*,*thumbnail*}" }}{{ end }}
   {{- with $featured }}
-    {{- $imgs = $imgs | append (dict "RelPermalink" .RelPermalink "Permalink" .Permalink) }}
+    {{- /* SEO 图可处理则转 JPEG 提升社交平台兼容性；不可处理（SVG/HEIC）原样 / SEO image as JPEG if processable; else passthrough (SVG/HEIC) */ -}}
+    {{- if reflect.IsImageResourceProcessable . }}
+      {{- with .Process "jpeg q80" }}
+        {{- $imgs = $imgs | append (dict "RelPermalink" .RelPermalink "Permalink" .Permalink) }}
+      {{- end }}
+    {{- else }}
+      {{- $imgs = $imgs | append (dict "RelPermalink" .RelPermalink "Permalink" .Permalink) }}
+    {{- end }}
   {{- end }}
 {{- end }}
 
