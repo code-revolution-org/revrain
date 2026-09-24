@@ -1,0 +1,22 @@
+{{- /*
+引用块渲染钩子，支持 alert / Blockquote render hook with alerts
+见 https://gohugo.io/render-hooks/blockquotes/ */ -}}
+
+{{- $class := "blockquote" }}
+{{- with .Attributes.class }}{{ $class = printf "%s %s" $class . }}{{ end }}
+
+{{- if eq .Type "alert" }}
+<blockquote class="{{ $class }} alert alert-{{ .AlertType }}"
+  {{- with .Attributes.id }} id="{{ . }}"{{ end }}
+  {{- with .Attributes.cite }} cite="{{ . }}"{{ end }}
+  {{- with .AlertSign }} data-alert-sign="{{ . }}"{{ end }}>
+  <p class="alert-heading">{{ with .AlertTitle }}{{ . }}{{ else }}{{ or (T .AlertType) (title .AlertType) }}{{ end }}</p>
+  {{- with .Text }}{{ . }}{{ end }}
+</blockquote>
+{{- else }}
+<blockquote class="{{ $class }}"
+  {{- with .Attributes.id }} id="{{ . }}"{{ end }}
+  {{- with .Attributes.cite }} cite="{{ . }}"{{ end }}>
+  {{- .Text -}}
+</blockquote>
+{{- end }}

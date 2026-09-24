@@ -87,3 +87,19 @@ other = "Навигация в нижнем колонтитуле"
 
 [rss_copied]
 other = "Скопировано"
+
+# Alert 标题 / Alert titles
+[note]
+other = "Примечание"
+
+[tip]
+other = "Совет"
+
+[important]
+other = "Важно"
+
+[warning]
+other = "Предупреждение"
+
+[caution]
+other = "Осторожно"

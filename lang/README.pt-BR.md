@@ -298,6 +298,12 @@ summary = 'Artigos cobrindo compartilhamento de tecnologia, ensaios de vida e ma
 - O destaque ao rolar e o recolhimento da TOC são totalmente operáveis por teclado
 - Layout RTL automático para árabe (ar)
 - Estilos de foco visíveis e suporte global a prefers-reduced-motion
+- Ordem de navegação consistente e tipografia de corpo unificada em todas as páginas (WCAG 3.2.3 / 3.2.4)
+- O preenchimento das citações pertence ao próprio bloco; parágrafos internos não têm margem, então o conteúdo não quebra ao sobrescrever o espaçamento do texto (WCAG 1.4.12)
+
+## Tipografia do corpo
+
+Todos os templates de página envolvem o conteúdo em `<div class="markdown">{{ .Content }}</div>`. As regras de tipografia ficam em um único lugar: `assets/scss/base/_markdown.scss`. Para personalizar estilos, estenda `.markdown` em vez de escrever um conjunto separado para uma página.
 
 ## Sistema de cores
 

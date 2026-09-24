@@ -84,3 +84,19 @@ other = "页脚导航"
 
 [rss_copied]
 other = "已复制"
+
+# Alert 标题 / Alert titles
+[note]
+other = "说明"
+
+[tip]
+other = "提示"
+
+[important]
+other = "重要"
+
+[warning]
+other = "警告"
+
+[caution]
+other = "注意"

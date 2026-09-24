@@ -6,6 +6,12 @@ El formato se basa en [Keep a Changelog](https://keepachangelog.com/es/1.1.0/), 
 
 ## [Sin publicar]
 
+- **Tipografía Markdown unificada**: nueva capa `.markdown` que reúne tres conjuntos duplicados de reglas de cuerpo; todas las plantillas envuelven `.Content`; tamaño y alto de línea de `<h1>` unificados
+- **Hook de renderizado de citas**: estructura idéntica a la predeterminada de Hugo, admite atributos de bloque de Markdown
+- **Desalineación de citas corregida**: la barra de acento y la caja de fondo tenían alturas distintas (relleno solo horizontal y margen del `<p>` interno)
+- **Navegación coherente**: botón de volver y migas de pan añadidos a las páginas explorar, taxonomía y acerca de; `breadcrumb.html` ahora controla un `.Ancestors` vacío (páginas de resumen de taxonomía) y tiene respaldo si el título está vacío
+- **Página acerca de**: se eliminó `.about__content` en favor de la capa `.markdown` compartida (cambio incompatible)
+
 ## [v0.0.1] - 2026-09-10
 
 La primera versión oficial de revrain.

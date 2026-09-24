@@ -298,6 +298,12 @@ summary = 'Artikel zu Technik, Leben und mehr.'  # Zusammenfassung auf Kartenlis
 - TOC-Scroll-Spy und Einklappen sind vollständig per Tastatur bedienbar
 - Automatisches RTL-Layout für Arabisch (ar)
 - Sichtbare Fokus-Stile und globale prefers-reduced-motion-Unterstützung
+- Konsistente Navigationsreihenfolge und einheitliche Typografie über alle Seiten (WCAG 3.2.3 / 3.2.4)
+- Der Innenabstand von Zitaten liegt beim Block selbst; innere Absätze haben keinen Außenabstand, sodass Inhalte bei überschriebenen Textabständen nicht brechen (WCAG 1.4.12)
+
+## Texttypografie
+
+Jedes Seitentemplate umschließt seinen Inhalt mit `<div class="markdown">{{ .Content }}</div>`. Die Typografieregeln liegen an einer einzigen Stelle: `assets/scss/base/_markdown.scss`. Erweitern Sie für eigene Stile `.markdown`, statt ein separates Set für eine einzelne Seite zu schreiben.
 
 ## Farbsystem
 

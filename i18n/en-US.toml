@@ -85,3 +85,19 @@ other = "Footer navigation"
 
 [rss_copied]
 other = "Copied!"
+
+# Alert 标题 / Alert titles
+[note]
+other = "Note"
+
+[tip]
+other = "Tip"
+
+[important]
+other = "Important"
+
+[warning]
+other = "Warning"
+
+[caution]
+other = "Caution"

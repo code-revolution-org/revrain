@@ -16,7 +16,9 @@
     <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
     {{- end }}
 
-    {{ .Content }}
+    {{- with .Content }}
+    <div class="markdown">{{ . }}</div>
+    {{- end }}
 
     {{ partial "prev-next-nav.html" . }}
   </div>

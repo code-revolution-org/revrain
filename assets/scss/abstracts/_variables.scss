@@ -12,6 +12,12 @@ $text-secondary: $twilight; // Secondary text / 次要文字
 $text-primary: $moon; // Primary text / 主要文字
 $border-primary: $shroud; // Border color / 边框颜色
 
+// Alert / 提示框
+$alert-tip: #3FB950; // Tip green / 提示绿
+$alert-important: #A371F7; // Important purple / 重要紫
+$alert-warning: #D29922; // Warning amber / 警告琥珀
+$alert-caution: #F85149; // Caution red / 注意红
+
 // Breakpoints / 断点
 $bp-mobile: 480px; // Mobile / 移动端
 $bp-tablet: 768px; // Tablet / 平板

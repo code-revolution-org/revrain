@@ -9,8 +9,11 @@
   margin-inline: auto;
 }
 
+// 卡片撑满剩余宽度，width 必须显式声明以免被长代码行撑开
+// Card fills remaining width; explicit width prevents overflow from long code lines
 .article-layout:has(.article-sidebar) .glass-card {
   flex: 1;
+  width: 100%;
   min-width: 0;
   margin-inline: 0;
   max-width: none;

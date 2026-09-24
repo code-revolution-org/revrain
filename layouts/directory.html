@@ -2,9 +2,9 @@
 {{- if or .Content .Site.Sections }}
 <div class="glass-card">
   <h1>{{ T "all_sections" }}</h1>
-  {{ with .Content }}
-  <div>{{ . }}</div>
-  {{ end }}
+  {{- with .Content }}
+  <div class="markdown">{{ . }}</div>
+  {{- end }}
 
   <div class="card-grid">
     {{ range .Site.Sections }}

@@ -31,7 +31,9 @@
 </section>
 
 {{ with .Content }}
-<div class="hero-content glass-card">{{ . }}</div>
+<div class="hero-content glass-card">
+  <div class="markdown">{{ . }}</div>
+</div>
 {{ end }}
 
 {{ end }}

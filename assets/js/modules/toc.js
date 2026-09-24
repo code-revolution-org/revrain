@@ -3,7 +3,8 @@
 
 function initTOC() {
   const tocNav = document.getElementById('toc-nav');
-  const article = document.querySelector('.glass-card');
+  // 正文容器优先取 .markdown 层，回退卡片壳 / Prefer .markdown, fall back to the card
+  const article = document.querySelector('.glass-card .markdown') || document.querySelector('.glass-card');
   if (!tocNav || !article) return;
 
   // Remove empty li placeholders from Hugo / 移除 Hugo 生成的空占位 li

@@ -298,6 +298,12 @@ summary = 'Articles couvrant le partage technique, des essais sur la vie et plus
 - Le suivi de défilement et le repli de la TOC sont entièrement opérables au clavier
 - Layout RTL automatique pour l'arabe (ar)
 - Styles de focus visibles et prise en charge globale de prefers-reduced-motion
+- Ordre de navigation cohérent et typographie de corps unifiée sur toutes les pages (WCAG 3.2.3 / 3.2.4)
+- Le rembourrage des citations est porté par le bloc lui-même ; les paragraphes internes n'ont pas de marge, donc le contenu ne casse pas lorsque l'espacement du texte est remplacé (WCAG 1.4.12)
+
+## Typographie du corps
+
+Chaque modèle de page encapsule son contenu dans `<div class="markdown">{{ .Content }}</div>`. Les règles typographiques résident en un seul endroit : `assets/scss/base/_markdown.scss`. Pour personnaliser les styles, étendez `.markdown` plutôt que d'écrire un jeu séparé pour une page.
 
 ## Système de couleurs
 

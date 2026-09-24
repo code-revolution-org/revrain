@@ -89,3 +89,19 @@ other = "تنقل التذييل"
 
 [rss_copied]
 other = "تم النسخ"
+
+# Alert 标题 / Alert titles
+[note]
+other = "ملاحظة"
+
+[tip]
+other = "نصيحة"
+
+[important]
+other = "مهم"
+
+[warning]
+other = "تحذير"
+
+[caution]
+other = "تنبيه"

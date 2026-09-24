@@ -1,5 +1,7 @@
-{{- /* Breadcrumb Navigation / 面包屑导航 */}}
-{{- $ancestors := .Ancestors.Reverse }}
+{{- /* 面包屑导航 / Breadcrumb navigation */}}
+{{- /* .Ancestors 可能为 nil，nil 时 .Reverse/len 会报错，default slice 兜底
+       .Ancestors may be nil; default slice guards against nil so .Reverse/len are safe */}}
+{{- $ancestors := .Ancestors.Reverse | default slice }}
 {{- $count := len $ancestors }}
 <nav class="breadcrumb-nav"{{ with T "breadcrumb" }} aria-label="{{ . }}"{{ end }}>
   <ol>
@@ -21,6 +23,16 @@
       {{- if eq $parent.Kind "taxonomy" }}{{ $parentName = T $parent.Data.Plural | default $parentName }}{{ end }}
     <li><a href="{{ $parent.RelPermalink }}">{{ $parentName }}</a></li>
     {{- end }}
-    <li><span class="breadcrumb-current" aria-current="page">{{ .LinkTitle }}</span></li>
+    {{- /* 分类法总览页与 h1 一致，优先查 i18n（官方 Title 文档：taxonomy 名不自动翻译），
+         其余页 LinkTitle 为空时回退 Title
+         Taxonomy overview: prefer i18n like the h1 (per official Title docs, taxonomy names
+         are not auto-translated); other pages fall back to Title when LinkTitle is empty */}}
+    {{- $current := .LinkTitle }}
+    {{- if eq .Kind "taxonomy" }}
+      {{- $current = T .Data.Plural | default $current }}
+    {{- else if not $current }}
+      {{- $current = .Title }}
+    {{- end }}
+    <li><span class="breadcrumb-current" aria-current="page">{{ $current }}</span></li>
   </ol>
 </nav>

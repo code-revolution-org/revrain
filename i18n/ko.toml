@@ -84,3 +84,19 @@ other = "바닥글 내비게이션"
 
 [rss_copied]
 other = "복사됨"
+
+# Alert 标题 / Alert titles
+[note]
+other = "참고"
+
+[tip]
+other = "팁"
+
+[important]
+other = "중요"
+
+[warning]
+other = "경고"
+
+[caution]
+other = "주의"

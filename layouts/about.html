@@ -18,9 +18,9 @@
   </div>
 
   <div class="about__body">
-    <div class="about__content">
-      {{ .Content }}
-    </div>
+    {{- with .Content }}
+    <div class="markdown">{{ . }}</div>
+    {{- end }}
   </div>
 
   {{- with .Params.links }}

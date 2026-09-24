@@ -298,6 +298,12 @@ summary = 'Artículos sobre compartir tecnología, ensayos de vida y más.'  # R
 - El resaltado al desplazarse y el plegado de la TOC son totalmente operables con el teclado
 - Diseño RTL automático para árabe (ar)
 - Estilos de foco visibles y soporte global de prefers-reduced-motion
+- Orden de navegación coherente y tipografía de cuerpo unificada en todas las páginas (WCAG 3.2.3 / 3.2.4)
+- El relleno de las citas lo aporta el propio bloque; los párrafos internos no tienen margen, así el contenido no se rompe al sobrescribir el espaciado del texto (WCAG 1.4.12)
+
+## Tipografía del cuerpo
+
+Todas las plantillas de página envuelven su contenido en `<div class="markdown">{{ .Content }}</div>`. Las reglas tipográficas residen en un único lugar: `assets/scss/base/_markdown.scss`. Para personalizar estilos, extienda `.markdown` en lugar de escribir un conjunto aparte para una página concreta.
 
 ## Sistema de colores
 

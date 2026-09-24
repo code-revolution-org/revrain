@@ -84,3 +84,19 @@ other = "フッターナビゲーション"
 
 [rss_copied]
 other = "コピーしました"
+
+# Alert 标题 / Alert titles
+[note]
+other = "注記"
+
+[tip]
+other = "ヒント"
+
+[important]
+other = "重要"
+
+[warning]
+other = "警告"
+
+[caution]
+other = "注意"

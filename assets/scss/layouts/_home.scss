@@ -33,13 +33,12 @@
   color: $text-secondary;
 }
 
-// Hero content / 首页正文内容
+// Hero content / 首页正文内容（排版规则见 .markdown 层，此处只管容器）
 .hero-content {
   max-width: 640px;
   margin: 0 auto;
   padding-bottom: 4rem; // Spacing from footer / 与页脚间距
   color: $text-secondary;
-  line-height: 1.7;
 }
 
 // Hero buttons / 首页按钮组

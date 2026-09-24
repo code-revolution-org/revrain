@@ -6,7 +6,9 @@
     {{ partial "breadcrumb.html" . }}
   </div>
   <h1>{{ .Title }}</h1>
-  {{ .Content }}
+  {{- with .Content }}
+  <div class="markdown">{{ . }}</div>
+  {{- end }}
 
   <div class="card-grid">
     {{ range .Paginator.Pages }}

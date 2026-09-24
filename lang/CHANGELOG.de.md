@@ -6,6 +6,12 @@ Das Format basiert auf [Keep a Changelog](https://keepachangelog.com/de/1.1.0/),
 
 ## [Unveröffentlicht]
 
+- **Einheitliche Markdown-Typografie**: neue `.markdown`-Ebene bündelt drei doppelte Regelwerke für den Fließtext; jedes Seitentemplate umschließt `.Content`; einheitliche `<h1>`-Größe und -Zeilenhöhe über alle Seiten
+- **Render-Hook für Zitate**: Struktur entspricht dem Hugo-Standard und unterstützt Markdown-Blockattribute
+- **Zitat-Versatz behoben**: Akzentlinie und Hintergrundbox hatten unterschiedliche Höhen (nur horizontaler Innenabstand plus Außenabstand des inneren `<p>`)
+- **Konsistente Navigation**: Zurück-Schaltfläche und Breadcrumb für die Seiten „Durchsuchen“, Taxonomie und „Über“ ergänzt; `breadcrumb.html` prüft nun leere `.Ancestors` (Taxonomie-Übersichtsseiten) und fällt bei leerem Titel zurück
+- **Über-Seite**: `.about__content` entfernt, stattdessen die gemeinsame `.markdown`-Ebene (breaking change)
+
 ## [v0.0.1] - 2026-09-10
 
 Die erste offizielle Version von revrain.

@@ -85,3 +85,19 @@ other = "Fußzeilen-Navigation"
 
 [rss_copied]
 other = "Kopiert!"
+
+# Alert 标题 / Alert titles
+[note]
+other = "Hinweis"
+
+[tip]
+other = "Tipp"
+
+[important]
+other = "Wichtig"
+
+[warning]
+other = "Warnung"
+
+[caution]
+other = "Vorsicht"

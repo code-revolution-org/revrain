@@ -84,3 +84,19 @@ other = "頁尾導覽"
 
 [rss_copied]
 other = "已複製"
+
+# Alert 标题 / Alert titles
+[note]
+other = "說明"
+
+[tip]
+other = "提示"
+
+[important]
+other = "重要"
+
+[warning]
+other = "警告"
+
+[caution]
+other = "注意"

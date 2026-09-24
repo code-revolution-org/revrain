@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+- **Unified Markdown typography**: new `.markdown` layer consolidating three duplicate sets of body rules; every page template now wraps `.Content`; consistent `<h1>` size/line-height across pages
+- **Blockquote render hook**: structure matches Hugo's default, supports Markdown block attributes
+- **Fixed blockquote misalignment**: accent bar and background box had unequal heights (horizontal-only padding plus inner `<p>` margin)
+- **Consistent navigation**: back button and breadcrumb added to the browse, taxonomy, and about pages; `breadcrumb.html` now guards against an empty `.Ancestors` (taxonomy overview pages) and falls back when the title is empty
+- **About page**: removed `.about__content` in favour of the shared `.markdown` layer (breaking change)
+
 ## [v0.0.1] - 2026-09-10
 
 The first official release of revrain.

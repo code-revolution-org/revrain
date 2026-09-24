@@ -298,6 +298,12 @@ summary = 'Articles covering tech sharing, life essays and more.'  # Summary sho
 - TOC scroll-spy and collapse are fully keyboard operable
 - Automatic RTL layout for Arabic (ar)
 - Visible focus styles and global prefers-reduced-motion support
+- Consistent navigation order and unified body typography across pages (WCAG 3.2.3 / 3.2.4)
+- Blockquote padding lives on the blockquote itself; inner paragraphs carry no margin, so content does not break when text spacing is overridden (WCAG 1.4.12)
+
+## Body Typography
+
+Every page template wraps its content in `<div class="markdown">{{ .Content }}</div>`. Typography rules live in a single source, `assets/scss/base/_markdown.scss`. To customize body styles, extend `.markdown` rather than writing a separate set for an individual page.
 
 ## Color System
 
