@@ -1,0 +1,42 @@
+{{- /*
+作者解析器 / Author resolver
+规整 page/site 的 author 为 []dict{name,email}，供 HTML、JSON-LD、RSS 复用。
+Normalizes page/site author into []dict{name,email} for HTML, JSON-LD, RSS.
+文章优先，缺失或空回退 site.Params.author / Page first, fallback to site.Params.author.
+支持字符串、数组、{name,email}、混写 / Supports string, array, {name,email}, mixed.
+@context {page}
+@returns {[]dict}
+*/ -}}
+
+{{- $page := . }}
+{{- $author := $page.Param "author" }}
+{{- if not $author }}{{ $author = site.Params.author }}{{ end }}
+{{- $authors := slice }}
+
+{{- with $author }}
+  {{- if reflect.IsMap . }}
+    {{- $name := "" }}
+    {{- $email := "" }}
+    {{- with .name }}{{ $name = printf "%v" . }}{{ end }}
+    {{- with .email }}{{ $email = printf "%v" . }}{{ end }}
+    {{- if $name }}{{ $authors = $authors | append (dict "name" $name "email" $email) }}{{ end }}
+  {{- else if reflect.IsSlice . }}
+    {{- range . }}
+      {{- if reflect.IsMap . }}
+        {{- $name := "" }}
+        {{- $email := "" }}
+        {{- with .name }}{{ $name = printf "%v" . }}{{ end }}
+        {{- with .email }}{{ $email = printf "%v" . }}{{ end }}
+        {{- if $name }}{{ $authors = $authors | append (dict "name" $name "email" $email) }}{{ end }}
+      {{- else }}
+        {{- $name := printf "%v" . }}
+        {{- if $name }}{{ $authors = $authors | append (dict "name" $name "email" "") }}{{ end }}
+      {{- end }}
+    {{- end }}
+  {{- else }}
+    {{- $name := printf "%v" . }}
+    {{- if $name }}{{ $authors = $authors | append (dict "name" $name "email" "") }}{{ end }}
+  {{- end }}
+{{- end }}
+
+{{- return $authors }}

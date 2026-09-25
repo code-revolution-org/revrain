@@ -22,7 +22,7 @@ Content files without a language suffix belong to the default language.
 [languages]
   [languages.zh-CN]
     label = "简体中文"
-    locale = 'zh-CN'
+    locale = 'zh-Hans-CN'
     title = 'My Site'
     weight = 10
 

@@ -17,8 +17,20 @@ Outputs WebSite schema on home and Article schema on pages.
 {{- $schema := dict "@context" "https://schema.org" "@type" "WebSite" "name" site.Title "url" site.Home.Permalink "description" site.Params.description }}
 {{ printf `<script type="application/ld+json">%s</script>` ($schema | jsonify) | safeHTML }}
 {{- else if $page.IsPage }}
-{{- $author := dict "@type" "Organization" "name" site.Title }}
-{{- $schema := dict "@context" "https://schema.org" "@type" "Article" "headline" $page.Title "url" $page.Permalink "description" $seo.desc "author" $author }}
+{{- /* 作者：文章优先，回退站点；均无则省略 / Author: page, fallback site; omit if none */}}
+{{- $authors := partial "get-authors.html" $page }}
+{{- $author := "" }}
+{{- if $authors }}
+  {{- $list := slice }}
+  {{- range $authors }}
+    {{- $person := dict "@type" "Person" "name" .name }}
+    {{- with .email }}{{ $person = merge $person (dict "email" .) }}{{ end }}
+    {{- $list = $list | append $person }}
+  {{- end }}
+  {{- $author = cond (eq (len $list) 1) (index $list 0) $list }}
+{{- end }}
+{{- $schema := dict "@context" "https://schema.org" "@type" "Article" "headline" $page.Title "url" $page.Permalink "description" $seo.desc }}
+{{- with $author }}{{ $schema = merge $schema (dict "author" .) }}{{ end }}
 {{- if not $page.Date.IsZero }}{{ $schema = merge $schema (dict "datePublished" ($page.Date.Format "2006-01-02T15:04:05Z07:00")) }}{{ end }}
 {{- with $page.Lastmod }}{{ $schema = merge $schema (dict "dateModified" (.Format "2006-01-02T15:04:05Z07:00")) }}{{ end }}
 {{ printf `<script type="application/ld+json">%s</script>` ($schema | jsonify) | safeHTML }}

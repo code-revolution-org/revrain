@@ -100,3 +100,9 @@ other = "경고"
 
 [caution]
 other = "주의"
+
+[author]
+other = "저자"
+
+[author_separator]
+other = "·"

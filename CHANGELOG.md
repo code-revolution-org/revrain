@@ -6,6 +6,8 @@
 
 ## [未发布]
 
+- **作者信息补全**：新增 `get-authors.html` 解析器，网页、JSON-LD、RSS 三处统一作者数据来源（`.Param "author"`，文章优先、回退站点作者）；支持字符串、数组、map 三种写法及多作者混合邮箱；JSON-LD `author` 由写死的 Organization 改为 Person（多作者输出数组）
+- **修复中文日期本地化**：`locale` 改为 `zh-Hans-CN` / `zh-Hant-TW`（`golocales` 不支持 `zh-CN`/`zh-TW`，导致日期回退英文）；`<html lang>`、hreflang、`og:locale`、RSS `<language>` 随之更新
 - **统一 Markdown 排版**：新增 `.markdown` 排版层，收敛三套重复正文规则；各页面模板统一包裹 `.Content`；统一各页 `<h1>` 字号/行高
 - **新增引用块渲染钩子**：结构与 Hugo 默认一致，支持 Markdown 块级属性
 - **修复引用块错位**：竖线与背景块不等高（内边距仅横向 + 内部 `<p>` 外边距撑高）

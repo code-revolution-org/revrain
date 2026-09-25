@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+- **Author metadata completion**: new `get-authors.html` resolver as the single source of author data for HTML, JSON-LD and RSS (`.Param "author"`, page first, falling back to site author); supports string, array and map forms plus multiple authors with mixed emails; JSON-LD `author` changed from a hard-coded Organization to Person (array for multiple authors)
+- **Fixed Chinese date localization**: `locale` changed to `zh-Hans-CN` / `zh-Hant-TW` (`golocales` does not support `zh-CN`/`zh-TW`, which made dates fall back to English); `<html lang>`, hreflang, `og:locale` and RSS `<language>` updated accordingly
 - **Unified Markdown typography**: new `.markdown` layer consolidating three duplicate sets of body rules; every page template now wraps `.Content`; consistent `<h1>` size/line-height across pages
 - **Blockquote render hook**: structure matches Hugo's default, supports Markdown block attributes
 - **Fixed blockquote misalignment**: accent bar and background box had unequal heights (horizontal-only padding plus inner `<p>` margin)

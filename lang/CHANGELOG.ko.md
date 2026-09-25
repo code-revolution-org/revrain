@@ -6,6 +6,8 @@
 
 ## [미출시]
 
+- **작성자 정보 보완**: 새 `get-authors.html` 리졸버로 HTML·JSON-LD·RSS 세 곳의 작성자 데이터 출처를 통일 (`.Param "author"`, 글 우선, 없으면 사이트 작성자로 대체); 문자열·배열·map 형태와 여러 작성자의 혼합 이메일 지원; JSON-LD의 `author`를 하드코딩된 Organization에서 Person으로 변경 (여러 작성자는 배열)
+- **중국어 날짜 현지화 수정**: `locale`을 `zh-Hans-CN` / `zh-Hant-TW`로 변경 (`golocales`가 `zh-CN`/`zh-TW`를 지원하지 않아 날짜가 영어로 대체되었음); `<html lang>`, hreflang, `og:locale`, RSS `<language>`도 함께 갱신
 - **Markdown 타이포그래피 통일**: 중복된 세 벌의 본문 규칙을 `.markdown` 레이어로 통합. 모든 페이지 템플릿이 `.Content`를 감싸고 `<h1>` 크기와 줄 높이도 통일
 - **인용 블록 렌더 훅 추가**: 구조는 Hugo 기본값과 동일하며 Markdown 블록 속성을 지원
 - **인용 블록 정렬 오류 수정**: 세로선과 배경 블록의 높이가 불일치(가로 방향 패딩만 적용되고 내부 `<p>` 마진이 원인)

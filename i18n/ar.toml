@@ -105,3 +105,9 @@ other = "تحذير"
 
 [caution]
 other = "تنبيه"
+
+[author]
+other = "المؤلف"
+
+[author_separator]
+other = " و "

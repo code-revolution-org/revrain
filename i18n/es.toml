@@ -101,3 +101,9 @@ other = "Advertencia"
 
 [caution]
 other = "Precaución"
+
+[author]
+other = "Autor"
+
+[author_separator]
+other = " y "

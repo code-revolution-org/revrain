@@ -138,7 +138,7 @@ defaultContentLanguage = 'zh-CN'
 [languages]
   [languages.zh-CN]
     label = "简体中文"
-    locale = 'zh-CN'
+    locale = 'zh-Hans-CN'
     title = '我的站点'
     weight = 10
     [languages.zh-CN.params.footer]

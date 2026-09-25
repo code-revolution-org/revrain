@@ -22,7 +22,7 @@ Los archivos de contenido sin sufijo de idioma pertenecen al idioma predetermina
 [languages]
   [languages.zh-CN]
     label = "简体中文"
-    locale = 'zh-CN'
+    locale = 'zh-Hans-CN'
     title = 'Mi sitio'
     weight = 10
 

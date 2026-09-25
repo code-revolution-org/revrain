@@ -6,6 +6,8 @@ El formato se basa en [Keep a Changelog](https://keepachangelog.com/es/1.1.0/), 
 
 ## [Sin publicar]
 
+- **Metadatos de autor completados**: nuevo resolutor `get-authors.html` como única fuente de datos del autor para HTML, JSON-LD y RSS (`.Param "author"`, página primero, con reserva al autor del sitio); admite formas de cadena, array y map, así como varios autores con correos mixtos; el `author` de JSON-LD pasa de Organization fijada a Person (array para varios autores)
+- **Corregida la localización de fechas en chino**: `locale` cambiado a `zh-Hans-CN` / `zh-Hant-TW` (`golocales` no admite `zh-CN`/`zh-TW`, lo que hacía que las fechas se mostraran en inglés); `<html lang>`, hreflang, `og:locale` y `<language>` de RSS actualizados en consecuencia
 - **Tipografía Markdown unificada**: nueva capa `.markdown` que reúne tres conjuntos duplicados de reglas de cuerpo; todas las plantillas envuelven `.Content`; tamaño y alto de línea de `<h1>` unificados
 - **Hook de renderizado de citas**: estructura idéntica a la predeterminada de Hugo, admite atributos de bloque de Markdown
 - **Desalineación de citas corregida**: la barra de acento y la caja de fondo tenían alturas distintas (relleno solo horizontal y margen del `<p>` interno)

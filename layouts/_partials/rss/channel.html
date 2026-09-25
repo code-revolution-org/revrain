@@ -45,19 +45,9 @@
       <link>{{ .Permalink }}</link>
       <guid isPermaLink="true">{{ .Permalink }}</guid>
       <pubDate>{{ .PublishDate.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</pubDate>
-      {{- /* 作者：文章 front matter 优先（map→author / 数组→多个 dc:creator / 字符串→dc:creator），无则回退站点作者（RSS Profile 4.1.1.20.1 + 5.3.1）*/}}
-      {{- $itemAuthor := .Params.author }}
-      {{- if $itemAuthor }}
-        {{- if reflect.IsMap $itemAuthor }}
-          {{- with $itemAuthor.email }}<author>{{ . }}{{ with $itemAuthor.name }} ({{ . }}){{ end }}</author>{{ end }}
-        {{- else if reflect.IsSlice $itemAuthor }}
-          {{- range $itemAuthor }}<dc:creator>{{ . }}</dc:creator>{{ end }}
-        {{- else }}
-          <dc:creator>{{ $itemAuthor }}</dc:creator>
-        {{- end }}
-      {{- else }}
-        {{- with $authorEmail }}<author>{{ . }}{{ with $authorName }} ({{ . }}){{ end }}</author>{{ end }}
-      {{- end }}
+      {{- /* 作者：文章优先，回退站点，复用 get-authors.html / Author: page, fallback site, via get-authors.html */}}
+      {{- $itemAuthors := partial "get-authors.html" . }}
+      {{- range $itemAuthors }}{{ if .email }}<author>{{ .email }}{{ with .name }} ({{ . }}){{ end }}</author>{{ else }}<dc:creator>{{ .name }}</dc:creator>{{ end }}{{ end }}
       {{- range .Params.categories }}<category>{{ . }}</category>{{ end }}
       {{- range .Params.tags }}<category>{{ . }}</category>{{ end }}
       <description>{{ .Summary | plainify | transform.XMLEscape | safeHTML }}</description>

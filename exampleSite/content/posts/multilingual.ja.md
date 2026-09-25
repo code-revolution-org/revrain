@@ -22,7 +22,7 @@ defaultContentLanguage = 'zh-CN'
 [languages]
   [languages.zh-CN]
     label = "简体中文"
-    locale = 'zh-CN'
+    locale = 'zh-Hans-CN'
     title = '私のサイト'
     weight = 10
 

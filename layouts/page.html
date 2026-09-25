@@ -10,10 +10,27 @@
     </div>
     <h1>{{ .Title }}</h1>
 
-    {{- if not .Date.IsZero }}
-    {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
-    {{ $dateHuman := .Date | time.Format ":date_long" }}
-    <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+    {{- $authors := partial "get-authors.html" . }}
+    {{- if or (not .Date.IsZero) $authors }}
+    <div class="article-meta">
+      {{- if not .Date.IsZero }}
+      {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+      {{ $dateHuman := .Date | time.Format ":date_long" }}
+      <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+      {{- end }}
+      {{- with $authors }}
+      <span class="article-meta__author">
+        <span class="article-meta__label">{{ T "author" }}</span>
+        {{- $sep := T "author_separator" }}
+        <span class="article-meta__names">
+          {{- range $i, $a := . }}
+          {{- if $i }}<span aria-hidden="true">{{ $sep }}</span>{{ end -}}
+          <span>{{ $a.name }}</span>
+          {{- end }}
+        </span>
+      </span>
+      {{- end }}
+    </div>
     {{- end }}
 
     {{- with .Content }}

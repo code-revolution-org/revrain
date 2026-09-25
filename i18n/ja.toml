@@ -100,3 +100,9 @@ other = "警告"
 
 [caution]
 other = "注意"
+
+[author]
+other = "著者"
+
+[author_separator]
+other = "、"

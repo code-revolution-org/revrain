@@ -22,7 +22,7 @@ Les fichiers de contenu sans suffixe de langue appartiennent à la langue par d�
 [languages]
   [languages.zh-CN]
     label = "简体中文"
-    locale = 'zh-CN'
+    locale = 'zh-Hans-CN'
     title = 'Mon site'
     weight = 10
 

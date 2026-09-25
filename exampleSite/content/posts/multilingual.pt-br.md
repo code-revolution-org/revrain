@@ -22,7 +22,7 @@ Arquivos de conteúdo sem sufixo de idioma pertencem ao idioma padrão.
 [languages]
   [languages.zh-CN]
     label = "简体中文"
-    locale = 'zh-CN'
+    locale = 'zh-Hans-CN'
     title = 'Meu site'
     weight = 10
 

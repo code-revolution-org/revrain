@@ -18,14 +18,38 @@
     margin-bottom: 1rem;
   }
 
-  // Article date / 文章日期
-  > time {
-    display: block;
+  // Article meta (date & author) / 文章元信息（日期与作者）
+  > .article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.35rem 1rem;
     color: $text-secondary;
     font-size: 0.9rem;
     margin-bottom: 2rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid rgba($border-primary, 0.3);
+  }
+
+  // Article author / 文章作者
+  .article-meta__author {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.35rem;
+  }
+
+  .article-meta__names {
+    display: inline;
+  }
+
+  .article-meta__names > span[aria-hidden] {
+    padding-inline: 0.25rem;
+    opacity: 0.75;
+  }
+
+  .article-meta__label {
+    color: $text-secondary;
+    opacity: 0.75;
   }
 
   // 裸文本节点兜底（未包 .markdown 时）/ Fallback for bare text (not wrapped in .markdown)
