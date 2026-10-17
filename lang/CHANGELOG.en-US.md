@@ -13,6 +13,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - **Fixed blockquote misalignment**: accent bar and background box had unequal heights (horizontal-only padding plus inner `<p>` margin)
 - **Consistent navigation**: back button and breadcrumb added to the browse, taxonomy, and about pages; `breadcrumb.html` now guards against an empty `.Ancestors` (taxonomy overview pages) and falls back when the title is empty
 - **About page**: removed `.about__content` in favour of the shared `.markdown` layer (breaking change)
+- **Fixed RSS date field**: item `pubDate` and channel-level dates now use `Date` (previously `PublishDate`), preventing date drift and sort mismatch when `publishDate` is set explicitly (e.g. scheduled publishing)
+- **Streamlined math CSS loading**: the KaTeX stylesheet is now loaded only when a page itself contains math; removed the unconditional branch-page (`.IsBranch`) fallback to cut redundant requests on pages without math
 
 ## [v0.0.1] - 2026-09-10
 

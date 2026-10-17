@@ -13,6 +13,8 @@ O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.
 - **Desalinhamento de citações corrigido**: a barra de destaque e a caixa de fundo tinham alturas diferentes (preenchimento apenas horizontal e margem do `<p>` interno)
 - **Navegação consistente**: botão de voltar e trilha de navegação adicionados às páginas explorar, taxonomia e sobre; `breadcrumb.html` agora trata `.Ancestors` vazio (páginas de visão geral de taxonomia) e tem fallback para título vazio
 - **Página sobre**: `.about__content` removido em favor da camada `.markdown` compartilhada (mudança incompatível)
+- **Corrigido o campo de data do RSS**: o `pubDate` dos itens e as datas no nível do canal agora usam `Date` (antes `PublishDate`), evitando desvios de data e desalinhamento de ordenação quando `publishDate` é definido explicitamente (por ex. publicação agendada)
+- **Carregamento do CSS de matemática simplificado**: a folha de estilo do KaTeX agora só é carregada quando a própria página contém fórmulas; o fallback incondicional para páginas de ramificação (`.IsBranch`) foi removido para reduzir requisições desnecessárias em páginas sem fórmulas
 
 ## [v0.0.1] - 2026-09-10
 

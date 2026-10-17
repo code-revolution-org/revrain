@@ -13,6 +13,8 @@ Das Format basiert auf [Keep a Changelog](https://keepachangelog.com/de/1.1.0/),
 - **Zitat-Versatz behoben**: Akzentlinie und Hintergrundbox hatten unterschiedliche Höhen (nur horizontaler Innenabstand plus Außenabstand des inneren `<p>`)
 - **Konsistente Navigation**: Zurück-Schaltfläche und Breadcrumb für die Seiten „Durchsuchen“, Taxonomie und „Über“ ergänzt; `breadcrumb.html` prüft nun leere `.Ancestors` (Taxonomie-Übersichtsseiten) und fällt bei leerem Titel zurück
 - **Über-Seite**: `.about__content` entfernt, stattdessen die gemeinsame `.markdown`-Ebene (breaking change)
+- **RSS-Datumsfeld korrigiert**: `pubDate` der Einträge und die Datumsangaben auf Kanalebene verwenden jetzt `Date` (zuvor `PublishDate`), wodurch Datumsabweichungen und Sortierfehler vermieden werden, wenn `publishDate` explizit gesetzt ist (z. B. geplante Veröffentlichung)
+- **Math-CSS-Laden gestrafft**: Das KaTeX-Stylesheet wird nur noch geladen, wenn eine Seite selbst Formeln enthält; der bedingungslose Fallback für Branch-Seiten (`.IsBranch`) wurde entfernt, um überflüssige Anfragen auf Seiten ohne Formeln zu vermeiden
 
 ## [v0.0.1] - 2026-09-10
 

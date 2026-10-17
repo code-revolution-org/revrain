@@ -1,6 +1,6 @@
 {{- /* revrain RSS 通用 channel 模板：符合 RSS 2.0 规范与 RSS Best Practices Profile（rssboard.org/rss-profile）
   参数：dict "ctx" <页面上下文> "pages" <待输出的文章集合>
-  要点：仅收录有发布日期的文章页（过滤目录/节点页与零值日期）；日期一律 RFC 822；
+  要点：仅收录有日期的文章页（过滤目录/节点页与零值日期）；日期一律 RFC 822；
   描述为纯文本摘要（可呈现为 HTML），全文放入 content:encoded（RSS Profile 5.2）；*/ -}}
 {{- $ctx := .ctx }}
 {{- $pages := .pages }}
@@ -14,10 +14,10 @@
     {{- with .name }}{{ $authorName = . }}{{ end }}
   {{- else }}{{ $authorName = . }}{{ end }}
 {{- end }}
-{{- /* 最新条目的发布日期，用于 channel 级 pubDate/lastBuildDate（跳过零值）*/ -}}
+{{- /* 最新条目的日期，用于 channel 级 pubDate/lastBuildDate（跳过零值）*/ -}}
 {{- $latest := "" }}
 {{- range $pages.ByDate.Reverse }}
-  {{- if not .PublishDate.IsZero }}{{ $latest = .PublishDate }}{{ break }}{{ end }}
+  {{- if not .Date.IsZero }}{{ $latest = .Date }}{{ break }}{{ end }}
 {{- end }}
 {{- $lang := lower site.Language.Locale }}
 {{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
@@ -39,12 +39,12 @@
     {{- with site.Params.images }}{{ with index . 0 }}<image><url>{{ absURL . }}</url><title>{{ site.Title }}</title><link>{{ site.BaseURL }}</link></image>{{ end }}{{ end }}
     {{- with $ctx.OutputFormats.Get "RSS" }}<atom:link href="{{ .Permalink }}" rel="self" type="application/rss+xml" />{{ end }}
     {{- range $pages }}
-      {{- if not .PublishDate.IsZero }}
+      {{- if not .Date.IsZero }}
     <item>
       <title>{{ .Title }}</title>
       <link>{{ .Permalink }}</link>
       <guid isPermaLink="true">{{ .Permalink }}</guid>
-      <pubDate>{{ .PublishDate.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</pubDate>
+      <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" }}</pubDate>
       {{- /* 作者：文章优先，回退站点，复用 get-authors.html / Author: page, fallback site, via get-authors.html */}}
       {{- $itemAuthors := partial "get-authors.html" . }}
       {{- range $itemAuthors }}{{ if .email }}<author>{{ .email }}{{ with .name }} ({{ . }}){{ end }}</author>{{ else }}<dc:creator>{{ .name }}</dc:creator>{{ end }}{{ end }}
